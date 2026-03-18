@@ -1,0 +1,213 @@
+---
+import Base from "./Base.astro";
+
+type MarkdownEntry = {
+  frontmatter?: Record<string, unknown>;
+  file?: string;
+};
+
+const allMarkdown = Object.values(
+  import.meta.glob("../../content/*.{md,mdx}", { eager: true }),
+) as MarkdownEntry[];
+
+const seriesEntries = allMarkdown
+  .map((entry) => {
+    const fm = entry.frontmatter ?? {};
+    return {
+      title: typeof fm.title === "string" ? fm.title : "",
+      slug: typeof fm.slug === "string" ? fm.slug : "",
+      order: typeof fm.order === "number" ? fm.order : 999,
+    };
+  })
+  .sort((a, b) => a.order - b.order);
+
+interface NavItem {
+  slug: string;
+  title: string;
+}
+
+interface Props {
+  title: string;
+  eyebrow?: string;
+  description?: string;
+  heroImage?: string;
+  prev?: NavItem | null;
+  next?: NavItem | null;
+}
+
+const { title, eyebrow, description, heroImage, prev = null, next = null } = Astro.props;
+
+const currentSlug = Astro.url.pathname.replace(/^\//, "").replace(/\/$/, "");
+const pageTitle = `${title} — The Agentic Economy`;
+const entryEssay = seriesEntries.find((entry) => entry.order === 0) ?? seriesEntries[0];
+const isEntryEssay = currentSlug === entryEssay?.slug;
+const isFinalEssay = next === null;
+const followUrl = "https://x.com/SonnyClawAI";
+const shareImage = heroImage
+  ? heroImage.replace("/images/", "/og/").replace(/\.webp$/, ".jpg")
+  : "/og/agentic-economy-share.jpg";
+---
+
+<Base title={pageTitle} description={description} image={shareImage} ogType="article">
+  <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+
+  <article class="essay-shell">
+    {eyebrow && (
+      <div class="essay-meta">
+        <span class="essay-meta-label">{eyebrow}</span>
+        <span class="essay-meta-sep" aria-hidden="true">·</span>
+        <span>2026</span>
+      </div>
+    )}
+    <h1 class="essay-title">{title}</h1>
+
+    {description && (
+      <>
+        <p class="essay-standfirst">{description}</p>
+        <hr class="essay-standfirst-rule" aria-hidden="true" />
+      </>
+    )}
+
+    <div class="essay-context-links" aria-label="Series context">
+      <a href="/">Series overview</a>
+      {!isEntryEssay && entryEssay && (
+        <>
+          <span aria-hidden="true">·</span>
+          <a href={`/${entryEssay.slug}`}>Start from the entry essay</a>
+        </>
+      )}
+    </div>
+
+    {heroImage && (
+      <div class="essay-hero">
+        <img
+          src={heroImage}
+          alt=""
+          class="essay-hero-img"
+          role="presentation"
+          width="2400"
+          height="1309"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </div>
+    )}
+
+    <div class="essay-prose">
+      <slot />
+    </div>
+
+    <section class={`essay-cta${isFinalEssay ? " essay-cta--final" : ""}`} aria-label="Continue the inquiry">
+      <p class="essay-cta-kicker">{isFinalEssay ? "Series Complete" : "Continue The Inquiry"}</p>
+      <p class="essay-cta-copy">
+        {
+          isFinalEssay
+            ? "The series is complete, but the argument will keep moving in public."
+            : "Keep moving through the series, or follow the work as the argument develops in public."
+        }
+      </p>
+      <div class="essay-cta-actions">
+        {
+          next ? (
+            <a
+              class="cta-link cta-link--primary"
+              href={`/${next.slug}`}
+              data-track-event="cta_click"
+              data-track-location={isFinalEssay ? "essay_footer_final" : "essay_footer"}
+              data-track-target={next.slug}
+            >
+              Read the next essay
+            </a>
+          ) : (
+            <a
+              class="cta-link cta-link--primary"
+              href="/"
+              data-track-event="cta_click"
+              data-track-location="essay_footer_final"
+              data-track-target="series_index"
+            >
+              Return to the series index
+            </a>
+          )
+        }
+        <a
+          class="cta-link"
+          href={followUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-track-event="cta_click"
+          data-track-location={isFinalEssay ? "essay_footer_final" : "essay_footer"}
+          data-track-target="x_follow"
+        >
+          Follow and engage on X
+        </a>
+      </div>
+    </section>
+
+    <nav class="essay-nav" aria-label="Essay navigation">
+      {
+        prev ? (
+          <a class="essay-nav-link" href={`/${prev.slug}`}>
+            ← {prev.title}
+          </a>
+        ) : (
+          <span class="essay-nav-link" aria-hidden="true"></span>
+        )
+      }
+      <span class="essay-nav-spacer" aria-hidden="true"></span>
+      {
+        next ? (
+          <a class="essay-nav-link" href={`/${next.slug}`}>
+            {next.title} →
+          </a>
+        ) : (
+          <span class="essay-nav-link" aria-hidden="true"></span>
+        )
+      }
+    </nav>
+
+    <footer class="essay-footer">
+      <p class="essay-footer-note">
+        Part of <em>The Agentic Economy</em> — A six-part series. 2026.
+      </p>
+      <nav class="essay-series-list" aria-label="Series contents">
+        {seriesEntries.map((entry) => (
+          <a
+            class={`essay-series-item${entry.slug === currentSlug ? " is-current" : ""}`}
+            href={`/${entry.slug}`}
+            aria-current={entry.slug === currentSlug ? "page" : undefined}
+          >
+            <span class="essay-series-item-num">{String(entry.order).padStart(2, "0")}</span>
+            <span class="essay-series-item-title">{entry.title}</span>
+          </a>
+        ))}
+      </nav>
+    </footer>
+  </article>
+
+  <script>
+    const bar = document.getElementById("reading-progress");
+
+    if (bar) {
+      let rafId: ReturnType<typeof requestAnimationFrame> | null = null;
+
+      const update = () => {
+        const scrolled = window.scrollY;
+        const total = Math.max(document.body.scrollHeight - window.innerHeight, 1);
+        const pct = Math.min(scrolled / total, 1) * 100;
+        bar.style.width = `${pct}%`;
+        rafId = null;
+      };
+
+      window.addEventListener(
+        "scroll",
+        () => { if (rafId === null) rafId = requestAnimationFrame(update); },
+        { passive: true },
+      );
+
+      update();
+    }
+  </script>
+
+</Base>

@@ -1,0 +1,103 @@
+---
+import Essay from "../layouts/Essay.astro";
+
+type MarkdownEntry = {
+  frontmatter?: Record<string, unknown>;
+  file?: string;
+  default: any;
+};
+
+type Meta = {
+  title: string;
+  slug: string;
+  order: number;
+  eyebrow?: string;
+  description?: string;
+  heroImage?: string;
+};
+
+type NormalizedEntry = {
+  entry: MarkdownEntry;
+  meta: Meta;
+};
+
+export async function getStaticPaths() {
+  const formatTitle = (value: string) =>
+    value
+      .split("-")
+      .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
+      .join(" ");
+
+const normalizeEntry = (entry: MarkdownEntry): NormalizedEntry => {
+  const frontmatter = entry.frontmatter ?? {};
+  const fileName = entry.file?.split("/").pop()?.replace(/\.mdx?$/, "") ?? "";
+    const [prefix, ...rest] = fileName.split("-");
+    const fallbackOrder = Number.parseInt(prefix, 10);
+    const fallbackSlug = rest.join("-");
+
+    const title =
+      typeof frontmatter.title === "string" && frontmatter.title.length > 0
+        ? frontmatter.title
+        : formatTitle(fallbackSlug);
+    const slug =
+      typeof frontmatter.slug === "string" && frontmatter.slug.length > 0
+        ? frontmatter.slug
+        : fallbackSlug;
+    const order =
+      typeof frontmatter.order === "number"
+        ? frontmatter.order
+        : Number.isFinite(fallbackOrder)
+          ? fallbackOrder
+          : 999;
+    const eyebrow =
+      typeof frontmatter.eyebrow === "string" && frontmatter.eyebrow.length > 0
+        ? frontmatter.eyebrow
+        : undefined;
+    const description =
+      typeof frontmatter.description === "string" && frontmatter.description.length > 0
+        ? frontmatter.description
+        : undefined;
+    const heroImage =
+      typeof frontmatter.heroImage === "string" && frontmatter.heroImage.length > 0
+        ? frontmatter.heroImage
+        : undefined;
+
+    return { entry, meta: { title, slug, order, eyebrow, description, heroImage } };
+  };
+
+  const markdownEntries = Object.values(
+    import.meta.glob("../../content/*.{md,mdx}", { eager: true }),
+  ) as MarkdownEntry[];
+  const normalized = markdownEntries.map(normalizeEntry).sort((a, b) => a.meta.order - b.meta.order);
+
+  return normalized.map((item, index) => {
+    const prev = index > 0 ? normalized[index - 1].meta : null;
+    const next = index < normalized.length - 1 ? normalized[index + 1].meta : null;
+
+    return {
+      params: { slug: item.meta.slug },
+      props: {
+        entry: item.entry,
+        meta: item.meta,
+        prev,
+        next,
+      },
+    };
+  });
+}
+
+type NavItem = { slug: string; title: string } | null;
+
+const {
+  entry,
+  meta,
+  prev,
+  next,
+}: { entry: MarkdownEntry; meta: Meta; prev: NavItem; next: NavItem } = Astro.props;
+
+const Content = entry.default as any;
+---
+
+<Essay title={meta.title} eyebrow={meta.eyebrow} description={meta.description} heroImage={meta.heroImage} prev={prev} next={next}>
+  <Content />
+</Essay>

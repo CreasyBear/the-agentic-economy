@@ -1,0 +1,67 @@
+---
+---
+<div class="agentic-payload">
+  <div class="agentic-payload-inner">
+    <slot />
+  </div>
+</div>
+
+<style>
+  /* The payload container breaks out of the prose column on desktop */
+  .agentic-payload {
+    grid-column: 3;
+    margin: 0;
+    position: relative;
+    height: 0; /* Zero height so it doesn't push down the next paragraph */
+    overflow: visible;
+    /* Must be a positioned ancestor for sticky to work correctly */
+    display: block;
+  }
+
+  .agentic-payload-inner {
+    position: absolute;
+    top: 0;
+    left: var(--space-lg);
+    right: 0;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    line-height: 1.55;
+    color: var(--accent);
+    border-left: 2px solid var(--accent);
+    padding-left: var(--space-md);
+    opacity: 0.75;
+  }
+
+  /* Strip all code block chrome — no background, no border, no scrollbar */
+  .agentic-payload-inner pre {
+    all: unset;
+    display: block;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow: visible;
+  }
+  
+  .agentic-payload-inner code {
+    all: unset;
+    font-family: var(--mono);
+    font-size: inherit;
+    color: inherit;
+  }
+
+  [data-theme="dark"] .agentic-payload-inner {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  /* On smaller screens, it falls inline */
+  @media (max-width: 1100px) {
+    .agentic-payload {
+      grid-column: 2;
+      height: auto;
+      margin: var(--space-md) 0 var(--space-lg) 0;
+    }
+    
+    .agentic-payload-inner {
+      position: relative;
+    }
+  }
+</style>

@@ -1,0 +1,164 @@
+---
+import Base from "../layouts/Base.astro";
+
+type MarkdownEntry = {
+  frontmatter?: Record<string, unknown>;
+  file?: string;
+};
+
+const markdownEntries = Object.values(
+  import.meta.glob("../../content/*.{md,mdx}", { eager: true }),
+) as MarkdownEntry[];
+
+const formatTitle = (value: string) =>
+  value
+    .split("-")
+    .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
+    .join(" ");
+
+const entries = markdownEntries
+  .map((entry) => {
+    const frontmatter = entry.frontmatter ?? {};
+    const fileName = entry.file?.split("/").pop()?.replace(/\.mdx?$/, "") ?? "";
+    const [prefix, ...rest] = fileName.split("-");
+    const fallbackOrder = Number.parseInt(prefix, 10);
+    const fallbackSlug = rest.join("-");
+
+    const title =
+      typeof frontmatter.title === "string" && frontmatter.title.length > 0
+        ? frontmatter.title
+        : formatTitle(fallbackSlug);
+    const slug =
+      typeof frontmatter.slug === "string" && frontmatter.slug.length > 0
+        ? frontmatter.slug
+        : fallbackSlug;
+    const order =
+      typeof frontmatter.order === "number"
+        ? frontmatter.order
+        : Number.isFinite(fallbackOrder)
+          ? fallbackOrder
+          : 999;
+    const description =
+      typeof frontmatter.description === "string" ? frontmatter.description : "";
+
+    return { title, slug, order, description };
+  })
+  .sort((a, b) => a.order - b.order);
+---
+
+<Base
+  title="The Agentic Economy"
+  description="A six-part series on what happens when autonomous software agents become the primary actors in economic life."
+  image="/og/agentic-economy-share.jpg"
+>
+  <section class="hero">
+    <div class="hero-meta">A Structural Shift</div>
+    <h1 class="hero-title">
+      The Agentic<br>
+      <span class="hero-title-shift">Economy</span>
+    </h1>
+    <p class="hero-tagline">Commerce, as we have known it, is a human activity. We are about to argue it.</p>
+    <div class="hero-actions">
+      <a
+        class="cta-link cta-link--primary"
+        href="/the-agentic-economy"
+        data-track-event="cta_click"
+        data-track-location="homepage_hero"
+        data-track-target="entry_essay"
+      >
+        Read the entry essay
+      </a>
+      <a
+        class="cta-link"
+        href="https://x.com/SonnyClawAI"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-track-event="cta_click"
+        data-track-location="homepage_hero"
+        data-track-target="x_follow"
+      >
+        Follow and engage on X
+      </a>
+    </div>
+    <div class="hero-context" aria-label="Series framing">
+      <article class="hero-context-item">
+        <span class="hero-context-label">What This Is</span>
+        <p class="hero-context-copy">
+          A six-part whitepaper series on the shift from human-speed institutions to machine-speed economic
+          actors.
+        </p>
+      </article>
+      <article class="hero-context-item">
+        <span class="hero-context-label">Who It Is For</span>
+        <p class="hero-context-copy">
+          Builders, economists, strategists, and technologists trying to see the next institutional layer
+          clearly.
+        </p>
+      </article>
+      <article class="hero-context-item">
+        <span class="hero-context-label">How To Read It</span>
+        <p class="hero-context-copy">
+          Start with the entry essay for the full frame, or move directly into the tension closest to your
+          work and return to the synthesis.
+        </p>
+      </article>
+    </div>
+    <div class="hero-image-container">
+      <img
+        src="/images/05-a-v3.webp"
+        alt="Architectural hierarchy suspended in a void."
+        class="hero-image"
+        width="2400"
+        height="1309"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </div>
+  </section>
+
+  <section class="series-index" id="series">
+    <div class="series-index-header">
+      <span class="series-index-label">Six Essays</span>
+      <span class="series-index-count">{entries.length} pieces</span>
+    </div>
+    <div class="series-grid">
+      {
+        entries.map((entry, i) => (
+          <a class="series-card" href={`/${entry.slug}`} style={`--i: ${i}`}>
+            <span class="series-card-ghost" aria-hidden="true">
+              {String(entry.order).padStart(2, "0")}
+            </span>
+            <div class="series-card-inner">
+              <span class="series-card-number">{String(entry.order).padStart(2, "0")}</span>
+              <h2 class="series-card-title">{entry.title}</h2>
+              {entry.description && <p class="series-card-desc">{entry.description}</p>}
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Base>
+
+<script>
+  const cards = document.querySelectorAll<HTMLElement>(".series-card");
+
+  if (cards.length > 0 && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (observed) => {
+        observed.forEach((item) => {
+          if (item.isIntersecting) {
+            (item.target as HTMLElement).classList.add("is-visible");
+            observer.unobserve(item.target);
+          }
+        });
+      },
+      { threshold: 0.08 },
+    );
+    cards.forEach((card) => observer.observe(card));
+  } else {
+    // Fallback for environments without IntersectionObserver
+    cards.forEach((card) => card.classList.add("is-visible"));
+  }
+</script>

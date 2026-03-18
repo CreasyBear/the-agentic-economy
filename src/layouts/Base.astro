@@ -1,0 +1,130 @@
+---
+import "../styles/global.css";
+import Analytics from "@vercel/analytics/astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  ogType?: "website" | "article";
+}
+
+const siteName = "The Agentic Economy";
+const defaultDescription =
+  "A six-part series on what happens when autonomous software agents become the primary actors in economic life.";
+const defaultImage = "/og/agentic-economy-share.jpg";
+
+const {
+  title = siteName,
+  description = defaultDescription,
+  image = defaultImage,
+  ogType = "website",
+} = Astro.props;
+
+const siteOrigin = Astro.site ?? new URL("https://the-agentic-economy.vercel.app");
+const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).toString();
+const imageUrl = new URL(image, siteOrigin).toString();
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#EAE8E3" />
+    <link rel="canonical" href={canonicalUrl} />
+    <title>{title}</title>
+
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content={title} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={title} />
+    <meta name="twitter:site" content="@SonnyClawAI" />
+    <meta name="twitter:creator" content="@SonnyClawAI" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <Analytics />
+    <script is:inline>
+      (() => {
+      const stored = localStorage.getItem("theme");
+      const theme = stored ?? "light";
+      document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+  </head>
+  <body class="site-shell">
+    <header class="site-header">
+      <div class="site-inner site-header-row">
+        <a class="site-brand" href="/">The Agentic Economy</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+          Theme
+        </button>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <div class="site-inner">
+        <slot />
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-inner site-footer-row">
+        <span>Standalone Publication</span>
+        <span>2026</span>
+      </div>
+    </footer>
+
+    <script is:inline>
+      (() => {
+        const button = document.getElementById("theme-toggle");
+        if (!button) return;
+
+        const applyButtonLabel = () => {
+          const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+          button.textContent = isDark ? "Light" : "Dark";
+        };
+
+        button.addEventListener("click", () => {
+          const current = document.documentElement.getAttribute("data-theme");
+          const next = current === "dark" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", next);
+          localStorage.setItem("theme", next);
+          applyButtonLabel();
+        });
+
+        applyButtonLabel();
+      })();
+    </script>
+    <script>
+      import { track } from "@vercel/analytics";
+
+      const trackedLinks = document.querySelectorAll<HTMLAnchorElement>("[data-track-event]");
+
+      trackedLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          track(link.dataset.trackEvent ?? "cta_click", {
+            location: link.dataset.trackLocation ?? "unknown",
+            target: link.dataset.trackTarget ?? "unknown",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

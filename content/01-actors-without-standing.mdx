@@ -1,0 +1,148 @@
+---
+title: "Actors Without Standing"
+eyebrow: "The Agentic Economy — Dynamic One"
+slug: "actors-without-standing"
+order: 1
+description: "Identity, liability, and what it means to transact without legal existence."
+heroImage: "/images/01-a-v3.webp"
+---
+import AgenticPayload from '../src/components/AgenticPayload.astro';
+
+<AgenticPayload>
+```json
+{
+  "party_identifiable": true,
+  "presence": "locatable",
+  "history": "consultable",
+  "future_stake": "held_hostage",
+  "credit_basis": "reputation + loss_exposure"
+}
+```
+</AgenticPayload>
+
+Every mechanism of economic governance rests on a single assumption: the parties to a transaction can be identified.
+
+This requirement predates the institutional forms built around it — contract law, credit, professional licensing, insurance. Before any of these existed, before the legal concept of a party was formalised, there was the practical necessity of knowing who you were dealing with. Trade depends on identity. Not just in the sense of a name or a face, but in the deeper sense of a presence that can be located, a history that can be consulted, a future that can be held hostage to present behaviour. You extend credit because you believe the borrower will repay, and that belief is grounded in what you know of them and what they stand to lose if they do not.
+
+The entire machinery of economic governance — contract, liability, reputation, regulation, insurance — is an elaboration of this basic requirement. Each mechanism assumes a party who can be identified, who has something to lose, and who can be brought to account. Strip those assumptions away, and the machinery has nothing to grip.
+
+> Agents strip them away.
+
+---
+
+## The Accountability Gap
+
+<AgenticPayload>
+```json
+{
+  "can_transact": true,
+  "can_commit": true,
+  "legal_existence": null,
+  "can_be_sued": false,
+  "liability_bearer": "principal",
+  "instruction_type": "goal",
+  "accountability_on_harm": "contested"
+}
+```
+</AgenticPayload>
+
+An autonomous agent can enter into agreements. It can commit resources. It can initiate transactions, send communications, accept terms, and execute instructions across a wide range of domains. What it cannot do is bear legal responsibility for any of it.
+
+An agent has no legal existence. It cannot own property. It cannot be sued. It cannot be fined. It has no credit history, no professional licence, no criminal record, no industry standing. It is, in the eyes of every legal system currently operating, a tool — an extension of the person who deployed it. Legally, when an agent acts, its principal acts. The agent's decisions are imputed to the principal who set it in motion.
+
+This imputation is straightforward when the agent does exactly what the principal intended. But agents increasingly do not do exactly what their principals intended, because they are not given exact instructions. They are given goals. And the pursuit of a goal involves countless decisions the principal never specified and may not even be aware of. When one of those decisions causes harm, the question of accountability becomes genuinely difficult.
+
+Consider the situation plainly. An agent commits to a contract on its principal's behalf. The terms prove unfavourable, or the agent exceeded its actual authorisation, or circumstances changed in ways the agent did not accommodate. The counterparty seeks remedy. What follows?
+
+The principal says they did not authorise this specific decision — they gave the agent a goal, not a mandate for every action it took in pursuing that goal. The counterparty says the principal authorised the agent, and the agent's actions are therefore the principal's. The platform through which the agent operated says it provided infrastructure, not decisions. The model provider that powers the agent's reasoning says it does not control how its systems are deployed. Everyone is, in some sense, right. No one is straightforwardly accountable.
+
+---
+
+## What the Legal System Has
+
+<AgenticPayload>
+```json
+{
+  "doctrine": "agency_law",
+  "designed_for": "human_agents",
+  "assumes": [
+    "self_awareness_of_role",
+    "capacity_to_refuse",
+    "interrogatable"
+  ],
+  "liability_limit": "scope_of_authority",
+  "authority_expression": "natural_language",
+  "ambiguity": "irreducible",
+  "doctrine_resolution": null
+}
+```
+</AgenticPayload>
+
+Agency law — the body of doctrine that governs when one party's actions bind another — was developed to handle human agents. It assumes an agent who knows they are acting on someone's behalf, who can receive and understand instructions, who has the capacity to refuse illegal orders, who can be deposed, interrogated, disciplined. It extends liability to the principal for actions the agent takes within the scope of their authority, and limits that liability at the boundary of that authority.
+
+The boundary of authority is exactly where the problem lives with autonomous agents. When authority is expressed in natural language — "manage my calendar," "optimise my portfolio," "grow my business" — it is irreducibly ambiguous. The space of decisions that might fall within "manage my calendar" is vast. The agent's interpretation of that space will differ from the principal's. When harm results from an action the principal considers outside their authorisation but the counterparty considers within it, no existing doctrine provides a clean resolution.
+
+---
+
+## The Identity Layer
+
+<AgenticPayload>
+```json
+{
+  "identity": "who_is_presenting",
+  "authorisation": "chain_of_permission",
+  "standing": "institutional_recognisability",
+  "liability": "where_consequences_land",
+  "technical_solutions_cover": ["identity", "authorisation"],
+  "technical_solutions_do_not_cover": ["standing", "liability"]
+}
+```
+</AgenticPayload>
+
+Beneath the liability questions is a more fundamental one: how do you even know what you are dealing with?
+
+An agent presents as a participant in a transaction. But what is it, really? It is a process, running on hardware, powered by a model, directed by instructions, operating under credentials that may or may not accurately represent the principal it serves. There is no face. No handshake. No history that the counterparty can independently verify.
+
+Four concepts need to be held apart if this landscape is to be understood clearly.
+
+**Identity** is who or what is presenting. **Authorisation** is the chain of permission that empowered the act. **Standing** is what allows the system to treat that actor as consequential, bounded, and governable — to be recognised, relied upon, sanctioned, insured, licensed, and if necessary, refused. **Liability** is where consequences land when the act causes harm.
+
+Technical solutions largely address the first two. An agent can be given a verifiable identity. Its chain of delegation can be cryptographically attested. This is meaningful progress. But it does not create standing, and it does not resolve liability.
+
+> An agent can be cryptographically legible and still institutionally ungoverned.
+
+---
+
+## The Shape of Standing
+
+<AgenticPayload>
+```json
+{
+  "framework_development": "uneven",
+  "mechanisms": [
+    "court_precedent",
+    "legislation",
+    "regulatory_guidance",
+    "insurance_markets"
+  ],
+  "pole_a": "agent_as_tool",
+  "pole_b": "agent_as_person",
+  "likely_outcome": "layered_standing",
+  "anchoring": "not_yet_built"
+}
+```
+</AgenticPayload>
+
+The legal and economic system will, over time, develop a framework for agents. It will do so imperfectly and unevenly — through court decisions that establish precedent, through legislation that may or may not track the technology, through regulatory guidance that will lag behind practice, through insurance markets that will price the risk as data accumulates.
+
+The common framing presents a binary: agents as tools, or agents as persons. Both poles are instructive. Neither describes where the future is actually heading.
+
+One pole treats agents as tools in the strict legal sense — full principal liability for every agent act. The other would grant agents full legal personhood. But the real space lies between these poles, and it has more texture than the binary suggests. Standing may emerge in layers: domain-specific constrained standing, principal-backed attested credentials, platform-mediated accountability structures.
+
+> They are not yet built.
+
+---
+
+*This is the first of four dynamics in the Agentic Economy series.*
+
+*Next: Judgment Without Context*

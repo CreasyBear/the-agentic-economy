@@ -1,0 +1,40 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  title="404 — The Agentic Economy"
+  description="The requested page is not part of the current publication."
+>
+  <section class="hero">
+    <div class="hero-meta">404</div>
+    <h1 class="hero-title">
+      Fault<br />
+      <span class="hero-title-shift">Line</span>
+    </h1>
+    <p class="hero-tagline">
+      That page is not part of the current publication. Return to the series index or start with the entry
+      essay.
+    </p>
+    <div class="hero-actions">
+      <a
+        class="cta-link cta-link--primary"
+        href="/"
+        data-track-event="cta_click"
+        data-track-location="404_page"
+        data-track-target="series_index"
+      >
+        Series index
+      </a>
+      <a
+        class="cta-link"
+        href="/the-agentic-economy"
+        data-track-event="cta_click"
+        data-track-location="404_page"
+        data-track-target="entry_essay"
+      >
+        Read the entry essay
+      </a>
+    </div>
+  </section>
+</Base>

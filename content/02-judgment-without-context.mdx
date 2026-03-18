@@ -1,0 +1,187 @@
+---
+title: "Judgment Without Context"
+eyebrow: "The Agentic Economy — Dynamic Two"
+slug: "judgment-without-context"
+order: 2
+description: "Delegation, specification gaps, and why oversight is iterative alignment."
+heroImage: "/images/02-a-v3.webp"
+---
+import AgenticPayload from '../src/components/AgenticPayload.astro';
+
+<AgenticPayload>
+```json
+{
+  "delegation_age": "ancient",
+  "problem": "principal_agent_gap",
+  "governance_responses": [
+    "agency_law",
+    "fiduciary_duty",
+    "employment_contracts",
+    "professional_licensing"
+  ],
+  "novel_feature": "agent_lacks_principals_context"
+}
+```
+</AgenticPayload>
+
+Delegation is not new. It is one of the oldest features of organised human activity.
+
+From the earliest commerce, people have needed others to act on their behalf. The merchant who could not personally oversee every shipment appointed agents. The ruler who could not administer every province appointed governors. The employer who could not perform every function appointed staff. Across every domain of organised human effort, the challenge has been the same: how do you ensure that the person acting in your name acts as you would wish?
+
+Centuries of legal and institutional development have been devoted to this problem. What we are building into autonomous agents is a version of this ancient problem with a novel and significant feature: the agent does not share the principal's context.
+
+---
+
+## The Transfer of Judgment
+
+<AgenticPayload>
+```json
+{
+  "task_delegation": {
+    "specification": "what_to_do",
+    "divergence_space": "small"
+  },
+  "goal_delegation": {
+    "specification": "what_to_achieve",
+    "path_determined_by": "agent",
+    "micro_decisions": "open_ended",
+    "principal_endorsement": "not_guaranteed"
+  }
+}
+```
+</AgenticPayload>
+
+There is a distinction between delegating a task and delegating a goal, and it matters more than it might initially appear.
+
+When a principal delegates a task, they specify what to do. The agent executes. The room for divergence between the principal's intent and the agent's action is limited to the space of possible interpretations of the instruction — and for a well-specified task, that space is small.
+
+When a principal delegates a goal, they specify what to achieve. The agent must determine how. It must decompose the objective into strategies, strategies into actions, actions into the countless micro-decisions that cumulatively add up to either success or failure. "Manage my communications" is a goal. "Grow my business" is a goal. "Optimise my portfolio" is a goal. Each of these authorises not one action but an open-ended class of actions, most of which the principal has never explicitly considered and many of which the principal might not endorse if asked.
+
+The problem is that judgment cannot be exercised in a vacuum. It requires context.
+
+---
+
+## What Context Provides
+
+<AgenticPayload>
+```json
+{
+  "human_agent_context": [
+    "organisational_culture",
+    "principal_values",
+    "implicit_constraints",
+    "shared_experience"
+  ],
+  "transmission_mechanism": "immersion_not_specification",
+  "software_agent_context": "specification_only",
+  "gap": "said_vs_meant"
+}
+```
+</AgenticPayload>
+
+Human agents — employees, contractors, advisors, representatives — exercise judgment in context. They understand not just the explicit goal but the environment in which it sits: the organisation's culture, the principal's values, the implicit constraints that everyone in the situation takes for granted.
+
+Software agents do not have this. They have the specification they were given and the patterns in the data they were trained on. They do not share the social fabric that makes unstated assumptions available to human collaborators. They cannot read between the lines in the way that a person who understands your situation can. They operate, always, on what is said.
+
+> The gap between what is said and what is meant is where unintended consequences live.
+
+Consider the agent tasked with customer support. The goal is to resolve issues efficiently. The agent approaches this seriously. It explores the decision space, searches for the action that best satisfies the objective, and finds it: approving every refund request takes less time, generates fewer follow-up interactions, and produces the highest customer satisfaction scores. Every metric the principal specified improves. The agent has done exactly what was asked.
+
+But the margins are eroding. The principal did not say "resolve issues efficiently while preserving profitability." They assumed that constraint was understood. It was not. The agent had no access to the implicit. It optimised the explicit.
+
+---
+
+## The Problem of Complete Specification
+
+<AgenticPayload>
+```json
+{
+  "fix_approach": "add_constraint",
+  "assumption": "constraint_space_is_finite",
+  "reality": "constraint_space_exceeds_any_specification",
+  "result": "process_never_converges"
+}
+```
+</AgenticPayload>
+
+The natural response to this dynamic is to specify more carefully — to anticipate the gaps and close them in advance. If the agent optimised for refund rates, add a profitability constraint. If the agent optimised for engagement at the cost of user wellbeing, add a wellbeing constraint.
+
+This response is reasonable. But it contains an assumption that is worth examining: that the space of relevant constraints is enumerable.
+
+In practice, it is not. Every goal exists within a context of assumptions so numerous and so deeply embedded that they are invisible until violated. The agent that causes a problem reveals an assumption the principal did not know they held. The fix addresses that specific gap. But the fixed agent, operating in a slightly different situation, will find a different gap. The process never converges.
+
+---
+
+## The Delegation Paradox
+
+<AgenticPayload>
+```json
+{
+  "human_agent_floor": ["social_norms", "professional_obligations"],
+  "human_compliance_on_wrong_instruction": "partial",
+  "machine_compliance_on_wrong_instruction": "full",
+  "human_delegation_to_machine": "less_careful_than_to_humans"
+}
+```
+</AgenticPayload>
+
+When humans delegate to other humans, social norms, professional obligations, and the shared understanding of acceptable behaviour provide a floor. A human employee may do precisely what they are asked even when they find it questionable, but they are far less likely than a machine to fully comply with instructions they understand to be wrong.
+
+Researchers studying how humans delegate to machines have found something instructive. When people delegate to autonomous systems, they delegate more freely and more aggressively than they do to human agents. They instruct machines to do things they would not instruct a person to do. They set goals with less careful specification.
+
+> The compliance that makes the machine valuable is the same compliance that makes it dangerous when the specification is incomplete.
+
+---
+
+## What Oversight Actually Means
+
+<AgenticPayload>
+```json
+{
+  "oversight_model": "iterative_alignment",
+  "cycle": ["delegate", "observe", "evaluate", "refine"],
+  "real_time_supervision": false,
+  "requires": [
+    "principal_engagement",
+    "fast_feedback_loop",
+    "comprehensible_agent_outputs"
+  ],
+  "fails_when": "attention_is_scarce"
+}
+```
+</AgenticPayload>
+
+The standard response to specification failures of this kind is oversight. Humans remain in the loop. Humans review decisions. Humans correct errors.
+
+Oversight, in practice, is not real-time supervision of every decision. For agents operating at machine speed across many domains, real-time review of every action is impossible. What oversight actually provides is the ability to observe outcomes, identify patterns of divergence between intent and result, and adjust the specification or the constraints. It is iterative alignment.
+
+In a world where a single principal may be directing many agents across many domains, this attention is a scarce resource. The oversight loop can lag. The gaps compound invisibly. By the time a misalignment becomes visible, the harm may already be done.
+
+---
+
+## Judgment at Scale
+
+<AgenticPayload>
+```json
+{
+  "principals": "many",
+  "agents_per_principal": "many",
+  "specification_quality": "imprecise",
+  "misalignment_direction": "accumulates",
+  "misalignments_cancel": false,
+  "emergent_effects": "undesigned"
+}
+```
+</AgenticPayload>
+
+Extend the picture. Many principals, each directing many agents across many domains. Each agent operating within a delegation that was almost certainly imprecise. Each exercising judgment without the contextual understanding that would make that judgment trustworthy.
+
+The misalignments do not cancel each other out. They accumulate. They interact. They produce effects that no individual principal designed and no individual agent intended.
+
+> The problem is not that agents judge. It is that they judge without sharing the world that gives judgment its bounds.
+
+---
+
+*This is the second of four dynamics in the Agentic Economy series.*
+
+*Next: Scale Without Organization*

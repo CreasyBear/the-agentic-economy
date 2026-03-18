@@ -1,0 +1,23 @@
+{
+  "name": "the-agentic-economy",
+  "version": "0.1.0",
+  "description": "A six-part series on what happens when autonomous software agents become the primary actors in economic life.",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "type": "module",
+  "dependencies": {
+    "@astrojs/mdx": "^5.0.1",
+    "@astrojs/sitemap": "^3.7.1",
+    "@vercel/analytics": "^2.0.1",
+    "astro": "^6.0.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.8",
+    "typescript": "^5.9.3"
+  }
+}
