@@ -1,0 +1,776 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  title="Handshake — Trust Infrastructure for Agent-to-Agent Interactions"
+  description="Authorization tells you what's allowed. Handshake tells you what's trusted. The mutual trust ceremony for the agent economy."
+>
+  <!-- Hero -->
+  <section class="hs-hero">
+    <div class="hs-hero-eyebrow">What We're Building</div>
+    <h1 class="hs-hero-title">
+      Authorization tells you what's allowed.<br>
+      <span class="hs-hero-title-em">Handshake tells you what's trusted.</span>
+    </h1>
+    <p class="hs-hero-sub">
+      The mutual trust ceremony for agent-to-agent interactions — the moment
+      where both sides verify each other before consequence, and where human
+      override remains real, not ceremonial.
+    </p>
+    <form class="hs-waitlist-form" id="waitlist-form" data-endpoint="/api/waitlist">
+      <div class="hs-waitlist-row">
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="you@company.com"
+          class="hs-waitlist-input"
+          autocomplete="email"
+        />
+        <button type="submit" class="cta-link cta-link--primary hs-waitlist-btn">
+          Join the waitlist
+        </button>
+      </div>
+      <p class="hs-waitlist-status" id="waitlist-status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <!-- Problem -->
+  <section class="hs-section">
+    <div class="hs-section-label">The Problem</div>
+    <div class="hs-prose">
+      <h2>The problem is not capability. It is accountability.</h2>
+      <p>
+        Agents are becoming capable of consequential action — booking travel, executing trades,
+        sending communications, managing infrastructure. The models are getting smarter fast.
+        But the governance layer has not kept pace.
+      </p>
+      <p>
+        When an agent acts, who is accountable? The model doesn't know. The API it calls doesn't
+        know. The system that issued it a token checked whether it was <strong>allowed</strong> —
+        but allowed and <strong>trusted</strong> are different questions.
+      </p>
+      <div class="hs-distinction">
+        <div class="hs-distinction-item">
+          <span class="hs-distinction-label">Allowed</span>
+          <p>A permission check. Does this agent have a token that grants access? Static. Determined at configuration time. Doesn't change based on behavior.</p>
+        </div>
+        <div class="hs-distinction-divider" aria-hidden="true"></div>
+        <div class="hs-distinction-item">
+          <span class="hs-distinction-label hs-distinction-label--accent">Trusted</span>
+          <p>A standing check. Given who this agent is, who it represents, and what it has done — should it be trusted to act right now? Dynamic. Earned through behavior. Forfeitable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="hs-section">
+    <div class="hs-section-label">How It Works</div>
+    <div class="hs-prose">
+      <h2>The three-phase mutual handshake</h2>
+      <p>
+        Before any consequential agent-to-agent transaction, both sides verify each other.
+        Neither trusts blindly. The ceremony produces a signed artifact that the transaction
+        system can verify offline — no round-trip to Handshake required.
+      </p>
+    </div>
+    <div class="hs-phases">
+      <div class="hs-phase">
+        <span class="hs-phase-num">01</span>
+        <h3 class="hs-phase-title">Verification</h3>
+        <p class="hs-phase-desc">
+          Both agents check each other's passport and standing. The customer agent calls
+          <code>check_standing</code> on the merchant. The merchant presents its passport
+          in the challenge. Scam agents — no standing, no history, no valid passport — are
+          exposed before credentials are exchanged.
+        </p>
+      </div>
+      <div class="hs-phase">
+        <span class="hs-phase-num">02</span>
+        <h3 class="hs-phase-title">Authorization</h3>
+        <p class="hs-phase-desc">
+          The customer agent calls <code>request_authorization</code>. Handshake evaluates
+          both standings, applies policy, and either issues a signed artifact or escalates
+          to the human principal. The principal can approve, deny, or approve with tighter
+          scope constraints.
+        </p>
+      </div>
+      <div class="hs-phase">
+        <span class="hs-phase-num">03</span>
+        <h3 class="hs-phase-title">Transaction</h3>
+        <p class="hs-phase-desc">
+          The customer agent presents the signed artifact to the merchant. The merchant calls
+          <code>verifyArtifact</code> — two functions, offline, no Handshake call. The artifact
+          carries both identities, both standings, and the authorized scope. The transaction proceeds.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture -->
+  <section class="hs-section">
+    <div class="hs-section-label">Architecture</div>
+    <div class="hs-prose">
+      <h2>Passport, standing, ceremony</h2>
+      <p>
+        A real passport is worth understanding precisely, because it maps to how Handshake works
+        in every important detail.
+      </p>
+    </div>
+    <div class="hs-arch-grid">
+      <div class="hs-arch-item">
+        <h3>Agent Passport</h3>
+        <p>
+          Cryptographically signed identity document. Binds agent to principal, carries policy
+          profile and approval thresholds. Issued by Handshake, not self-asserted. Versioned
+          to prevent downgrade attacks. Revocable immediately.
+        </p>
+      </div>
+      <div class="hs-arch-item">
+        <h3>Standing</h3>
+        <p>
+          Behavioral trust score computed fresh on every request. Weighted from action history —
+          risk tier, amount factor, outcome. One catastrophic denial collapses a high score.
+          Trust is slow to earn, fast to lose.
+        </p>
+      </div>
+      <div class="hs-arch-item">
+        <h3>Human-in-the-Loop</h3>
+        <p>
+          When trust is uncertain, the principal is asked. Not a fallback — a first-class
+          architectural boundary. Scope overrides let the principal tighten the artifact
+          at approval time. Timeout fails closed.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stack position -->
+  <section class="hs-section">
+    <div class="hs-section-label">Where It Sits</div>
+    <div class="hs-prose">
+      <h2>The layer that doesn't exist yet</h2>
+      <p>
+        The agent authorization market is forming. Most of it is commodity. Handshake sits
+        between permission and action — the layer where "allowed" becomes "trusted" — and
+        that layer currently has no owner.
+      </p>
+    </div>
+    <div class="hs-stack">
+      <div class="hs-stack-row">
+        <span class="hs-stack-layer">Identity / Auth</span>
+        <span class="hs-stack-owner">OAuth, WorkOS, MCP spec</span>
+      </div>
+      <div class="hs-stack-row">
+        <span class="hs-stack-layer">Permission / Policy</span>
+        <span class="hs-stack-owner">Permit.io, Cerbos, OPA, Cedar</span>
+      </div>
+      <div class="hs-stack-row hs-stack-row--highlight">
+        <span class="hs-stack-layer">Trust Establishment</span>
+        <span class="hs-stack-owner">Handshake</span>
+      </div>
+      <div class="hs-stack-row">
+        <span class="hs-stack-layer">Execution / Action</span>
+        <span class="hs-stack-owner">Stripe, MCP tools, APIs</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- What it is / isn't -->
+  <section class="hs-section">
+    <div class="hs-section-label">Boundaries</div>
+    <div class="hs-is-grid">
+      <div class="hs-is-col">
+        <h3>Handshake is</h3>
+        <ul>
+          <li>Mutual trust verification before agent transactions</li>
+          <li>Behavioral standing from weighted action history</li>
+          <li>Human-in-the-loop escalation at architectural boundaries</li>
+          <li>Offline-verifiable authorization artifacts</li>
+          <li>Full audit trail — every decision reconstructible</li>
+        </ul>
+      </div>
+      <div class="hs-is-col">
+        <h3>Handshake is not</h3>
+        <ul>
+          <li>A vault or secrets manager</li>
+          <li>A replacement for OAuth or your identity provider</li>
+          <li>A static permission check (allow/deny is commodity)</li>
+          <li>An autonomous decision-maker</li>
+          <li>The solution to the entire agentic economy</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Essay cross-link -->
+  <section class="hs-section">
+    <div class="hs-section-label">The Diagnosis</div>
+    <div class="hs-prose">
+      <h2>Read The Agentic Economy</h2>
+      <p>
+        A six-part whitepaper series on the structural shift from human-speed institutions
+        to machine-speed economic actors. The essays establish the coordination gap that
+        Handshake is designed to fill.
+      </p>
+      <div class="hs-essay-link-row">
+        <a
+          class="cta-link cta-link--primary"
+          href="/entry"
+          data-track-event="cta_click"
+          data-track-location="handshake_crosslink"
+          data-track-target="entry_essay"
+        >
+          Read the entry essay
+        </a>
+        <a
+          class="cta-link"
+          href="/"
+          data-track-event="cta_click"
+          data-track-location="handshake_crosslink"
+          data-track-target="series_index"
+        >
+          View the full series
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final waitlist CTA -->
+  <section class="hs-section hs-section--final">
+    <div class="hs-final-cta">
+      <h2>We wrote the diagnosis.<br>Now we're building the infrastructure.</h2>
+      <p>
+        Handshake is pre-production. Join the waitlist to be notified when the
+        mutual trust protocol is ready for integration.
+      </p>
+      <form class="hs-waitlist-form" id="waitlist-form-final" data-endpoint="/api/waitlist">
+        <div class="hs-waitlist-row">
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="you@company.com"
+            class="hs-waitlist-input"
+            autocomplete="email"
+          />
+          <button type="submit" class="cta-link cta-link--primary hs-waitlist-btn">
+            Join the waitlist
+          </button>
+        </div>
+        <p class="hs-waitlist-status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ─── Handshake page styles ──────────────────────────────────────────── */
+
+  .hs-hero {
+    padding: var(--space-4xl) 0 var(--space-3xl);
+    max-width: 860px;
+  }
+
+  .hs-hero-eyebrow {
+    font-family: var(--ui);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-lg);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hs-hero-eyebrow::before {
+    content: '';
+    width: 40px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .hs-hero-title {
+    font-family: var(--display);
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 0 0 var(--space-xl);
+  }
+
+  .hs-hero-title-em {
+    color: var(--accent);
+  }
+
+  .hs-hero-sub {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    line-height: 1.5;
+    color: var(--muted);
+    max-width: 680px;
+    margin: 0 0 var(--space-xl);
+  }
+
+  /* ─── Waitlist form ──────────────────────────────────────────────────── */
+
+  .hs-waitlist-form {
+    max-width: 480px;
+  }
+
+  .hs-waitlist-row {
+    display: flex;
+    gap: 0;
+  }
+
+  .hs-waitlist-input {
+    flex: 1;
+    min-height: 48px;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-right: none;
+    background: var(--bg-alt);
+    color: var(--text);
+    font-family: var(--ui);
+    font-size: 14px;
+    transition: border-color 120ms ease-out;
+  }
+
+  .hs-waitlist-input::placeholder {
+    color: var(--subtle);
+  }
+
+  .hs-waitlist-input:focus {
+    border-color: var(--accent);
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+  }
+
+  .hs-waitlist-btn {
+    white-space: nowrap;
+    border-left: none;
+    box-shadow: none;
+  }
+
+  .hs-waitlist-btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .hs-waitlist-status {
+    font-family: var(--ui);
+    font-size: 12px;
+    margin: var(--space-xs) 0 0;
+    min-height: 1.4em;
+    color: var(--muted);
+  }
+
+  .hs-waitlist-status[data-state="success"] {
+    color: var(--success);
+  }
+
+  .hs-waitlist-status[data-state="error"] {
+    color: var(--error);
+  }
+
+  /* ─── Sections ───────────────────────────────────────────────────────── */
+
+  .hs-section {
+    padding: var(--space-3xl) 0;
+    border-top: 1px solid var(--border);
+    position: relative;
+  }
+
+  .hs-section-label {
+    font-family: var(--ui);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-xl);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hs-section-label::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .hs-prose {
+    max-width: 680px;
+  }
+
+  .hs-prose h2 {
+    font-family: var(--display);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 0 0 var(--space-lg);
+  }
+
+  .hs-prose p {
+    font-family: var(--body);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 0 0 1.25em;
+    color: var(--text);
+  }
+
+  .hs-prose code {
+    font-family: var(--mono);
+    font-size: 0.9em;
+    color: var(--accent);
+    background: var(--bg-alt);
+    padding: 2px 6px;
+    border: 1px solid var(--border);
+  }
+
+  /* ─── Distinction (allowed vs trusted) ───────────────────────────────── */
+
+  .hs-distinction {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+    align-items: start;
+  }
+
+  .hs-distinction-item p {
+    font-family: var(--body);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .hs-distinction-label {
+    display: block;
+    font-family: var(--display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+    color: var(--text);
+  }
+
+  .hs-distinction-label--accent {
+    color: var(--accent);
+  }
+
+  .hs-distinction-divider {
+    width: 1px;
+    align-self: stretch;
+    background: var(--border);
+  }
+
+  /* ─── Phases ─────────────────────────────────────────────────────────── */
+
+  .hs-phases {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+  }
+
+  .hs-phase {
+    padding: var(--space-xl);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    position: relative;
+  }
+
+  .hs-phase::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 500ms var(--ease-heavy);
+  }
+
+  .hs-phase:hover::after {
+    transform: scaleX(1);
+  }
+
+  .hs-phase-num {
+    display: block;
+    font-family: var(--ui);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--subtle);
+    margin-bottom: var(--space-md);
+  }
+
+  .hs-phase-title {
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 var(--space-sm);
+    color: var(--text);
+  }
+
+  .hs-phase-desc {
+    font-family: var(--body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .hs-phase-desc code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    color: var(--accent);
+  }
+
+  /* ─── Architecture grid ──────────────────────────────────────────────── */
+
+  .hs-arch-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+  }
+
+  .hs-arch-item {
+    padding: var(--space-xl) 0;
+    border-top: 2px solid var(--accent);
+  }
+
+  .hs-arch-item h3 {
+    font-family: var(--display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0 0 var(--space-sm);
+  }
+
+  .hs-arch-item p {
+    font-family: var(--body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--muted);
+  }
+
+  /* ─── Stack diagram ──────────────────────────────────────────────────── */
+
+  .hs-stack {
+    max-width: 680px;
+    margin-top: var(--space-xl);
+    border: 1px solid var(--border);
+  }
+
+  .hs-stack-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) var(--space-lg);
+    border-bottom: 1px solid var(--border);
+    font-family: var(--ui);
+    font-size: 13px;
+  }
+
+  .hs-stack-row:last-child {
+    border-bottom: none;
+  }
+
+  .hs-stack-row--highlight {
+    background: var(--accent);
+    color: #fff;
+    border-bottom-color: var(--accent-strong);
+  }
+
+  .hs-stack-layer {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .hs-stack-owner {
+    font-weight: 400;
+    color: var(--muted);
+  }
+
+  .hs-stack-row--highlight .hs-stack-owner {
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* ─── Is / Isn't grid ────────────────────────────────────────────────── */
+
+  .hs-is-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    max-width: 860px;
+  }
+
+  .hs-is-col h3 {
+    font-family: var(--display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 0 0 var(--space-md);
+  }
+
+  .hs-is-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .hs-is-col li {
+    font-family: var(--body);
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: var(--space-xs) 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .hs-is-col li:last-child {
+    border-bottom: none;
+  }
+
+  /* ─── Essay cross-link ───────────────────────────────────────────────── */
+
+  .hs-essay-link-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+  }
+
+  /* ─── Final CTA ──────────────────────────────────────────────────────── */
+
+  .hs-section--final {
+    border-top: none;
+    padding-bottom: var(--space-4xl);
+  }
+
+  .hs-final-cta {
+    max-width: 680px;
+    padding: var(--space-2xl);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+  }
+
+  .hs-final-cta h2 {
+    font-family: var(--display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    line-height: 1.15;
+    margin: 0 0 var(--space-md);
+  }
+
+  .hs-final-cta p {
+    font-family: var(--body);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0 0 var(--space-xl);
+  }
+
+  /* ─── Responsive ─────────────────────────────────────────────────────── */
+
+  @media (max-width: 900px) {
+    .hs-phases,
+    .hs-arch-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hs-distinction {
+      grid-template-columns: 1fr;
+    }
+
+    .hs-distinction-divider {
+      width: 100%;
+      height: 1px;
+    }
+
+    .hs-is-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hs-phase::after {
+      transition: none;
+    }
+
+    .hs-phase:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hs-hero {
+      padding: var(--space-3xl) 0 var(--space-2xl);
+    }
+
+    .hs-waitlist-row {
+      flex-direction: column;
+    }
+
+    .hs-waitlist-input {
+      border-right: 1px solid var(--border);
+      border-bottom: none;
+    }
+
+    .hs-waitlist-btn {
+      border-left: 1px solid var(--accent-strong);
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>(".hs-waitlist-form").forEach((form) => {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const statusEl = form.querySelector<HTMLParagraphElement>(".hs-waitlist-status");
+      const emailInput = form.querySelector<HTMLInputElement>("input[name='email']");
+      const email = emailInput?.value?.trim();
+
+      if (!email || !statusEl) return;
+
+      statusEl.textContent = "Submitting…";
+      statusEl.removeAttribute("data-state");
+
+      try {
+        const endpoint = form.dataset.endpoint ?? "/api/waitlist";
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        });
+
+        if (res.ok) {
+          statusEl.textContent = "You're on the list. We'll be in touch.";
+          statusEl.setAttribute("data-state", "success");
+          if (emailInput) emailInput.value = "";
+        } else {
+          const data = await res.json().catch(() => ({}));
+          statusEl.textContent = data.error ?? "Something went wrong. Try again.";
+          statusEl.setAttribute("data-state", "error");
+        }
+      } catch {
+        statusEl.textContent = "Network error. Try again.";
+        statusEl.setAttribute("data-state", "error");
+      }
+    });
+  });
+</script>

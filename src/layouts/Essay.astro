@@ -103,7 +103,7 @@ const shareImage = heroImage
       <p class="essay-cta-copy">
         {
           isFinalEssay
-            ? "The series is complete, but the argument will keep moving in public."
+            ? "The series is complete. We wrote the diagnosis — now we're building the infrastructure."
             : "Keep moving through the series, or follow the work as the argument develops in public."
         }
       </p>
@@ -122,26 +122,40 @@ const shareImage = heroImage
           ) : (
             <a
               class="cta-link cta-link--primary"
+              href="/handshake"
+              data-track-event="cta_click"
+              data-track-location="essay_footer_final"
+              data-track-target="handshake"
+            >
+              See what we're building
+            </a>
+          )
+        }
+        {
+          isFinalEssay ? (
+            <a
+              class="cta-link"
               href="/"
               data-track-event="cta_click"
               data-track-location="essay_footer_final"
               data-track-target="series_index"
             >
-              Return to the series index
+              Return to the series
+            </a>
+          ) : (
+            <a
+              class="cta-link"
+              href={followUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-track-event="cta_click"
+              data-track-location="essay_footer"
+              data-track-target="x_follow"
+            >
+              Follow and engage on X
             </a>
           )
         }
-        <a
-          class="cta-link"
-          href={followUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          data-track-event="cta_click"
-          data-track-location={isFinalEssay ? "essay_footer_final" : "essay_footer"}
-          data-track-target="x_follow"
-        >
-          Follow and engage on X
-        </a>
       </div>
     </section>
 

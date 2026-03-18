@@ -126,11 +126,8 @@ const entries = markdownEntries
       {
         entries.map((entry, i) => (
           <a class="series-card" href={`/${entry.slug}`} style={`--i: ${i}`}>
-            <span class="series-card-ghost" aria-hidden="true">
-              {String(entry.order).padStart(2, "0")}
-            </span>
             <div class="series-card-inner">
-              <span class="series-card-number">{String(entry.order).padStart(2, "0")}</span>
+              <span class="series-card-number">Essay {String(entry.order).padStart(2, "0")}</span>
               <h2 class="series-card-title">{entry.title}</h2>
               {entry.description && <p class="series-card-desc">{entry.description}</p>}
             </div>

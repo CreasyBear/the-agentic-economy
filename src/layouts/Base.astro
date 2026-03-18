@@ -24,6 +24,11 @@ const {
 const siteOrigin = Astro.site ?? new URL("https://the-agentic-economy.vercel.app");
 const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).toString();
 const imageUrl = new URL(image, siteOrigin).toString();
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isHandshake = currentPath === "/handshake";
+const isEssay = !isHandshake && currentPath !== "/";
+const isHome = currentPath === "/";
 ---
 
 <!doctype html>
@@ -32,7 +37,7 @@ const imageUrl = new URL(image, siteOrigin).toString();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#EAE8E3" />
+    <meta name="theme-color" content="#EFECE7" />
     <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
 
@@ -56,7 +61,7 @@ const imageUrl = new URL(image, siteOrigin).toString();
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Space+Grotesk:wght@300..700&family=JetBrains+Mono&display=swap"
       rel="stylesheet"
     />
     <Analytics />
@@ -72,9 +77,13 @@ const imageUrl = new URL(image, siteOrigin).toString();
     <header class="site-header">
       <div class="site-inner site-header-row">
         <a class="site-brand" href="/">The Agentic Economy</a>
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
-          Theme
-        </button>
+        <nav class="site-nav">
+          <a class:list={["site-nav-link", { "site-nav-link--active": isHome || isEssay }]} href="/">Essays</a>
+          <a class:list={["site-nav-link", { "site-nav-link--active": isHandshake }]} href="/handshake">Handshake</a>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+            Theme
+          </button>
+        </nav>
       </div>
     </header>
 
@@ -86,7 +95,7 @@ const imageUrl = new URL(image, siteOrigin).toString();
 
     <footer class="site-footer">
       <div class="site-inner site-footer-row">
-        <span>Standalone Publication</span>
+        <span>By the team building <a href="/handshake">Handshake</a></span>
         <span>2026</span>
       </div>
     </footer>
