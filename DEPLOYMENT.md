@@ -33,7 +33,7 @@
 
 1. Verify route rendering:
    - `/`
-   - `/the-agentic-economy`
+   - `/entry`
    - `/actors-without-standing`
    - `/judgment-without-context`
    - `/scale-without-organization`

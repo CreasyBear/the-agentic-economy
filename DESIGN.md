@@ -16,9 +16,9 @@
 
 ## Typography
 
-- **Display/Hero:** `Playfair Display` (A high-contrast serif used at architectural scale). It should feel literary, load-bearing, and deliberate rather than slick.
+- **Display/Hero:** `Inter` (Tight, heavy, structural sans-serif). Used for massive, load-bearing headlines.
 - **Body:** `Playfair Display` (A serif with high contrast between thick and thin strokes). Gives the text a very physical, carved-in-stone feel.
-- **UI/Labels:** `Playfair Display` (Restrained, tracked, and formal). Small UI should feel editorial and institutional, not product-like.
+- **UI/Labels:** `Inter` (Uppercase, tracked out).
 - **Data/Tables:** `JetBrains Mono` (Optional, for strictly technical data).
 - **Scale:**
   - Hero: `clamp(4rem, 10vw, 9rem)`
@@ -64,5 +64,3 @@
   Replaces generic cyan to evoke construction, warning, and heavy machinery.
 - `2026-03-18` Remove all border-radius
   Reinforces the brutal, structural, "cut from stone" aesthetic.
-- `2026-03-18` Eliminate sans-serif typography
-  Unifies the publication under a single literary serif system while keeping mono only for payload/code surfaces.
