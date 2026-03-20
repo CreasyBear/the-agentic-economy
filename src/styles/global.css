@@ -1302,3 +1302,51 @@ svg {
   font-family: var(--ui);
   font-size: 13px;
 }
+
+/* ─── Vision Section ─── */
+.vision-section {
+  padding: var(--space-4xl) 0;
+  margin: var(--space-3xl) 0;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 700ms var(--ease-heavy), transform 700ms var(--ease-heavy);
+}
+
+.vision-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vision-inner {
+  max-width: var(--col-read);
+  margin: 0 auto;
+}
+
+.vision-label {
+  display: block;
+  font-family: var(--display);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 500;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: var(--space-xl);
+}
+
+.vision-image {
+  width: 100%;
+  max-width: 680px;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+}
+
+.vision-caption {
+  font-family: var(--ui);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  margin: var(--space-lg) 0 0 0;
+}
