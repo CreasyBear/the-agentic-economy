@@ -1200,3 +1200,105 @@ svg {
     font-size: 10px;
   }
 }
+
+/* ─── Agent Voice Section ─── */
+.agent-voice {
+  padding: var(--space-4xl) 0;
+  margin: var(--space-3xl) 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 500ms var(--ease-heavy), transform 500ms var(--ease-heavy);
+}
+
+.agent-voice.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.agent-voice-inner {
+  max-width: var(--col-read);
+  margin: 0 auto;
+}
+
+.agent-voice-label {
+  display: block;
+  font-family: var(--ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-lg);
+}
+
+.agent-voice-body {
+  margin-bottom: var(--space-xl);
+}
+
+.agent-voice-lede {
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text);
+  margin: 0 0 var(--space-lg) 0;
+}
+
+.agent-voice-body p {
+  font-family: var(--body);
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--muted);
+  margin: 0 0 var(--space-md) 0;
+}
+
+.agent-voice-body p:last-child {
+  margin-bottom: 0;
+}
+
+.agent-voice-signal {
+  display: flex;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  padding: var(--space-md) 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.signal-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.signal-label {
+  font-family: var(--ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+
+.signal-value {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--text);
+}
+
+.signal-live {
+  color: var(--accent);
+  animation: pulse-signal 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-signal {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.agent-voice .cta-link {
+  font-family: var(--ui);
+  font-size: 13px;
+}
