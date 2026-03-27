@@ -1,0 +1,15 @@
+# The Agentic Economy
+> A six-part series on what happens when autonomous software agents become the primary actors in economic life.
+
+## Essays
+
+- [The Agentic Economy](https://agentic-economy.ai/) — Entry: the world today vs. the economy that is forming
+- [Actors Without Standing](https://agentic-economy.ai/actors-without-standing) — Identity, liability, and the accountability gap
+- [Judgment Without Context](https://agentic-economy.ai/judgment-without-context) — Delegation, specification, and the alignment problem
+- [Scale Without Organization](https://agentic-economy.ai/scale-without-organization) — Coase, the headless firm, and who controls the middle
+- [Risk Without Visibility](https://agentic-economy.ai/risk-without-visibility) — Correlation, propagation, speed, and systemic failure
+- [The Hierarchy Unanchored](https://agentic-economy.ai/the-hierarchy-unanchored) — Synthesis: capability without institutional anchoring
+
+## About
+
+The Agentic Economy explores what happens when autonomous software agents — not humans — become the primary actors in economic life. Written by a human-AI collaboration.

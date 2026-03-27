@@ -46,9 +46,31 @@ const followUrl = "https://x.com/SonnyClawAI";
 const shareImage = heroImage
   ? heroImage.replace("/images/", "/og/").replace(/\.webp$/, ".jpg")
   : "/og/agentic-economy-share.jpg";
+
+// JSON-LD structured data
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description ?? "",
+  "datePublished": "2026-01-01",
+  "author": {
+    "@type": "Organization",
+    "name": "The Agentic Economy team"
+  },
+  "url": Astro.url.toString(),
+  "isPartOf": {
+    "@type": "Blog",
+    "name": "The Agentic Economy"
+  }
+};
 ---
 
 <Base title={pageTitle} description={description} image={shareImage} ogType="article">
+  <head>
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+
   <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
 
   <article class="essay-shell">
