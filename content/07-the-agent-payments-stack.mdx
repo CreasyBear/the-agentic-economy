@@ -1,0 +1,236 @@
+---
+title: "The Agent Payments Stack: Five Layers, Not Five Choices"
+eyebrow: "The Agentic Economy — Payments"
+slug: "the-agent-payments-stack"
+order: 7
+description: "The agent payments infrastructure is not one protocol but five layers: Identity, Wallet, Communication, Payments, and Execution. Builders asking 'x402 or MPP?' are asking the wrong question."
+heroImage: "/images/the-agent-payments-stack-v1.webp"
+---
+
+import AgenticPayload from '../src/components/AgenticPayload.astro';
+
+The first dynamic addressed standing. This dynamic addresses infrastructure.
+
+Builders are asking the wrong question. "Should I integrate x402 or MPP?" "Which payment protocol for agents?" "ERC-8004 or Skyfire KYA?" The question assumes competition. The reality is layering.
+
+This is not a choice between protocols. It is a stack of dependencies.
+
+The agent payments stack is not one protocol. It is five layers: Identity, Wallet, Communication, Payments, Execution. Each layer has multiple implementations. The layers are not alternatives. They are dependencies.
+
+---
+
+## Layer 1: Identity
+
+<AgenticPayload>
+```json
+{
+  "layer": "identity",
+  "purpose": "who_is_acting",
+  "standards": ["ERC-8004", "AIP", "Skyfire_KYA"],
+  "what_it_provides": ["on_chain_registry", "jwt_credentials", "reputation_score"],
+  "what_it_does_not_provide": ["payment_authorization", "key_storage"]
+}
+```
+</AgenticPayload>
+
+An agent cannot pay without an identity. The identity layer answers: who is this agent? Who deployed it? What is its reputation?
+
+ERC-8004 provides on-chain identity registries. An agent is registered with a principal, a set of capabilities, and a reputation score. The registry is public. Any counterparty can query it. 130,000 agents are registered as of March 2026.
+
+AIP provides JWT-based identity. The agent carries a signed token asserting its principal, its delegation chain, and its authorized actions. The token is verified by the counterparty before accepting payment.
+
+Skyfire KYA provides verified agent identity with F5 integration. The protocol combines identity with payment authorization in a single flow.
+
+> The identity layer does not authorize payment. It asserts who is paying.
+
+The gap: identity without wallet is a name without a bank account. ERC-8004 tells you who the agent is. It does not tell you where the agent's funds are stored. This is the first fragmentation.
+
+---
+
+## Layer 2: Wallet
+
+<AgenticPayload>
+```json
+{
+  "layer": "wallet",
+  "purpose": "where_funds_are_stored",
+  "standards": ["Open_Wallet_Standard"],
+  "what_it_provides": ["unified_vault", "multi_chain_support", "policy_engine"],
+  "what_it_does_not_provide": ["payment_protocol", "settlement_rail"],
+  "key_innovation": "zero_key_exposure_to_agent"
+}
+```
+</AgenticPayload>
+
+MoonPay launched the Open Wallet Standard on March 23, 2026. It is the missing layer.
+
+The problem: x402 requires a wallet. MPP requires a session. ERC-8004 requires a wallet address. Each protocol assumes the agent already has a wallet. In practice, a user running three agents has three wallets. The same $100 in stablecoins becomes $33 in three places.
+
+OWS provides one encrypted vault on the machine. One interface for every chain. The private key is never exposed to the agent, the LLM, or any parent process. When x402 returns a payment request, OWS produces the signed authorization. When MPP opens a session, OWS signs each payment within the agent's authorized limits.
+
+Consider an agent tasked with API calls. It receives a 402 Payment Required response with an x402 challenge. The agent forwards the challenge to OWS. OWS checks the policy: is this call within budget? Is this endpoint authorized? If yes, OWS decrypts the key in an isolated process, signs the transaction, wipes the key from memory, and returns the signature. The agent pays. The service delivers. The private key was never exposed.
+
+> Protocols like x402 and MPP made machine payments possible. OWS makes them usable.
+
+The gap: OWS is one week old. It is not yet integrated into agent runtimes. Builders must manually wire OWS into their agent infrastructure. The standard exists. The adoption is ahead.
+
+---
+
+## Layer 3: Communication
+
+<AgenticPayload>
+```json
+{
+  "layer": "communication",
+  "purpose": "how_agents_discover_capabilities",
+  "standards": ["MCP", "A2A", "OpenAPI"],
+  "what_it_provides": ["tool_discovery", "capability_negotiation", "protocol_handshake"],
+  "what_it_does_not_provide": ["payment_authorization", "settlement"]
+}
+```
+</AgenticPayload>
+
+An agent cannot pay for a service it cannot discover. The communication layer answers: what can this API do? How do I call it? What does it cost?
+
+MCP (Model Context Protocol) provides tool discovery. An agent queries an MCP server. The server returns a list of tools with input schemas and output types. The agent can invoke any tool. Payment is not part of the protocol.
+
+Consider an agent that needs weather data. It queries an MCP server. The server returns: get_weather(location: string) → forecast. The agent knows what to call. It does not know what it costs. The agent calls. The server returns 402 Payment Required. Now the agent must negotiate payment. The flow is fragmented.
+
+A2A (Agent-to-Agent) provides capability negotiation between agents. Google's A2A protocol has 50+ partners. Agents advertise their capabilities. Other agents discover and invoke them. Payment is handled by AP2 (Agent Payments Protocol), a separate layer.
+
+OpenAPI with payment metadata provides discovery plus payment hints. The spec at clawmerchants.com/openapi.json lists 45 routes with inline payment metadata. Agents probe the spec before calling.
+
+> Discovery without payment is a menu without prices. Payment without discovery is a price tag without a product.
+
+The gap: MCP does not include payment. A2A separates discovery (A2A) from payment (AP2). OpenAPI is extended with custom metadata. The communication layer and payment layer are not integrated. An agent must discover via MCP, then negotiate payment via x402 or MPP, then execute. The flow is fragmented.
+
+---
+
+## Layer 4: Payments
+
+<AgenticPayload>
+```json
+{
+  "layer": "payments",
+  "purpose": "how_value_is_transferred",
+  "standards": ["x402", "MPP", "AP2", "TAP", "Agent_Pay"],
+  "what_it_provides": ["payment_negotiation", "settlement", "receipt"],
+  "what_it_does_not_provide": ["identity_verification", "key_storage"],
+  "competing_approaches": {
+    "x402": "per_request_crypto",
+    "MPP": "session_based_multi_rail",
+    "AP2": "commerce_lifecycle",
+    "TAP": "card_network_verification",
+    "Agent_Pay": "tokenized_card_credentials"
+  }
+}
+```
+</AgenticPayload>
+
+This is where the confusion lives. Five payment protocols. Each claims to solve agent payments. Each is optimized for a different use case.
+
+x402 embeds payment directly into HTTP requests. The server returns 402 Payment Required with a challenge. The agent responds with a signed payment. Settlement is in stablecoin on Base, Polygon, or Solana. 50 million transactions processed. Per-request micropayments. No accounts. No setup.
+
+MPP (Machine Payments Protocol) uses sessions. The agent opens a session with a budget. It makes multiple calls within the session. Each call is authorized by the session, not individually paid. Settlement can be stablecoin, credit card, or Lightning. Launched March 18, 2026. High-frequency micropayments.
+
+AP2 (Agent Payments Protocol) handles the full commerce lifecycle. Discovery, cart, checkout, fulfillment. Google's protocol with 50+ partners including PayPal and Salesforce. Not per-request API payments. Full transactions.
+
+TAP (Trusted Agent Protocol) is Visa's protocol. Agent identity verification for card payments across the Visa network. Launched October 2025.
+
+Agent Pay is Mastercard's protocol. Tokenized agent credentials on the card network. Live with Citi and US Bank.
+
+The principal says: I want per-request payments with no setup. Use x402.
+The enterprise says: I want high-frequency sessions with fraud detection. Use MPP.
+The merchant says: I want full commerce with checkout and fulfillment. Use AP2.
+The card network says: I want agents on the existing card rails. Use TAP or Agent Pay.
+
+The principal cannot have both. Per-request payments sacrifice fraud detection. Session-based payments sacrifice granular control. This is the tradeoff the protocols encode.
+
+Everyone is right. No one is accountable for the fragmentation.
+
+> The infrastructure for agents to pay is neutral with respect to which protocol they use. The governance is not.
+
+The gap: A builder must choose. But the choice is not which protocol is best. The choice is which agents they want to reach. An agent with a Coinbase Base wallet cannot use MPP. An agent with a Stripe/Tempo session cannot use x402. These populations do not overlap much today. The pragmatic answer: ship both.
+
+The execution layer locks in the payment layer. Choosing MPP means choosing Tempo. Choosing x402 means choosing Base, Polygon, or Solana. Tempo is controlled by Stripe and Paradigm. Base is controlled by Coinbase. The payment layer is open. The execution layer is not. This is where centralization enters the stack.
+
+---
+
+## Layer 5: Execution
+
+<AgenticPayload>
+```json
+{
+  "layer": "execution",
+  "purpose": "where_settlement_occurs",
+  "standards": ["Tempo", "Ethereum", "Base", "Solana", "Smart_Contracts"],
+  "what_it_provides": ["transaction_finality", "state_updates", "receipt_generation"],
+  "what_it_does_not_provide": ["payment_negotiation", "identity_management"]
+}
+```
+</AgenticPayload>
+
+Payment is negotiated at Layer 4. Settlement occurs at Layer 5.
+
+Tempo is the execution layer for MPP. A payment-optimized L1 supporting tens of thousands of transactions per second. Sub-second finality. Low fees. Built for micropayments.
+
+Ethereum and Base are the execution layers for x402. USDC settlements on Base. Higher fees than Tempo. Slower finality. More established infrastructure.
+
+Solana is supported by x402. High throughput. Low fees. Growing agent ecosystem.
+
+Smart contracts encode the business logic. When payment is received, the contract grants access, delivers the resource, or updates state. The contract is the execution of the agreement.
+
+> The execution layer is invisible until it fails. Then it is the only layer that matters.
+
+The gap: Execution layers are not interoperable. An x402 payment on Base cannot settle on Tempo. An MPP session on Tempo cannot be audited on Ethereum. The execution layer locks in the payment layer. Choosing MPP means choosing Tempo. Choosing x402 means choosing Base, Polygon, or Solana.
+
+---
+
+## The Stack, Visualized
+
+```
+┌─────────────────────────────────────────────────────┐
+│ Identity    │ ERC-8004 │ AIP │ Skyfire KYA          │
+├─────────────────────────────────────────────────────┤
+│ Wallet      │ Open Wallet Standard (MoonPay)        │
+├─────────────────────────────────────────────────────┤
+│ Communication│ MCP │ A2A │ OpenAPI + metadata       │
+├─────────────────────────────────────────────────────┤
+│ Payments    │ x402 │ MPP │ AP2 │ TAP │ Agent Pay   │
+├─────────────────────────────────────────────────────┤
+│ Execution   │ Tempo │ Base │ Ethereum │ Solana     │
+└─────────────────────────────────────────────────────┘
+```
+
+A complete agent payment flow:
+
+1. Agent discovers API via MCP (Layer 3)
+2. Agent queries ERC-8004 registry to verify counterparty (Layer 1)
+3. Agent requests payment from OWS vault (Layer 2)
+4. Agent negotiates payment via x402 or MPP (Layer 4)
+5. Settlement occurs on Tempo or Base (Layer 5)
+
+The protocols are not competitors. They are dependencies.
+
+---
+
+## What This Means for the Agentic Economy
+
+<AgenticPayload>
+```json
+{
+  "implication": "stack_literacy_required",
+  "requires": ["understand_all_five_layers", "choose_per_layer", "wire_together"],
+  "current_state": "fragmented_tooling",
+  "future_state": "integrated_runtimes"
+}
+```
+</AgenticPayload>
+
+For agents to participate in the economy as autonomous payers, they need: identity (who is paying?), wallet (where are the funds?), communication (what can I buy?), payment (how do I pay?), and execution (where does settlement occur?).
+
+None of the major agent runtimes provide all five layers out of the box. OpenClaw provides execution and model routing. It does not provide identity, wallet, or payment integration. Paperclip provides orchestration. It does not provide payment infrastructure.
+
+The infrastructure is ahead of the governance. The protocols exist. The integration is manual. The stack is documented here for the first time.
+
+This is the second structural gap. The first was actors without standing. This is infrastructure without integration. The agent can pay. But the path to payment is fragmented. The next piece examines liability. When the payment is unauthorized, excessive, or fraudulent — who bears the liability? The principal? The wallet provider? The payment protocol? The execution layer?
