@@ -616,7 +616,7 @@ svg {
 
 .series-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--space-xl);
 }
 
@@ -1570,14 +1570,14 @@ svg {
 
 .deep-dives-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--space-xl);
 }
 
 .deep-dives-card {
   position: relative;
   background: var(--bg-alt);
-  padding: var(--space-xl);
+  padding: var(--space-lg) var(--space-xl);
   box-shadow:
     0 16px 32px -8px rgba(0,0,0,0.04),
     0 1px 2px rgba(0,0,0,0.04);
@@ -1652,4 +1652,15 @@ svg {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--muted);
+}
+
+.deep-dives-card-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.deep-dives-grid {
+  max-width: var(--col-read);
 }
