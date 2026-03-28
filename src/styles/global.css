@@ -1350,3 +1350,306 @@ svg {
   color: var(--subtle);
   margin: var(--space-lg) 0 0 0;
 }
+
+/* ─── Blog: Extends field (on blog post pages) ───────────────────────── */
+
+.blog-extends {
+  padding: var(--space-lg) 0;
+  margin-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--border);
+}
+
+.blog-extends-label {
+  font-family: var(--ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.blog-extends-link {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-block;
+  transition: color 100ms ease-out;
+}
+
+.blog-extends-link:hover {
+  color: var(--accent-strong);
+}
+
+.blog-extends-desc {
+  font-family: var(--body);
+  font-size: 1rem;
+  color: var(--muted);
+  margin: var(--space-sm) 0 0 0;
+  line-height: 1.6;
+}
+
+/* ─── Blog: Hero (on blog index) ──────────────────────────────────────── */
+
+.blog-hero {
+  padding: var(--space-4xl) 0 var(--space-3xl);
+  max-width: var(--col-read);
+  margin: 0 auto;
+  padding-left: var(--space-xl);
+  padding-right: var(--space-xl);
+}
+
+.blog-hero-inner {
+  text-align: left;
+}
+
+.blog-hero-label {
+  font-family: var(--ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+.blog-hero-title {
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-lg);
+  color: var(--text);
+}
+
+.blog-hero-desc {
+  font-family: var(--body);
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 540px;
+  margin: 0 0 var(--space-xl);
+}
+
+.blog-hero-actions {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* ─── Blog: List layout (on blog index) ───────────────────────────────── */
+
+.blog-list {
+  max-width: var(--col-read);
+  margin: 0 auto;
+  padding: 0 var(--space-xl) var(--space-4xl);
+}
+
+.blog-list-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-list-item {
+  display: block;
+  text-decoration: none;
+  padding: var(--space-xl) 0;
+  border-bottom: 1px solid var(--border);
+  transition: opacity 100ms ease-out;
+}
+
+.blog-list-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.blog-list-item:hover {
+  opacity: 0.85;
+}
+
+.blog-list-meta {
+  margin-bottom: var(--space-xs);
+}
+
+.blog-list-extends,
+.blog-list-eyebrow {
+  font-family: var(--ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-block;
+}
+
+.blog-list-eyebrow {
+  color: var(--subtle);
+}
+
+.blog-list-title {
+  font-family: var(--display);
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-sm);
+  color: var(--text);
+  transition: color 100ms ease-out;
+}
+
+.blog-list-item:hover .blog-list-title {
+  color: var(--accent);
+}
+
+.blog-list-desc {
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ─── Blog: Deep Dives section (on homepage) ──────────────────────────── */
+
+.deep-dives {
+  padding: var(--space-4xl) 0;
+  position: relative;
+}
+
+.deep-dives::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 1px;
+  background: var(--border);
+}
+
+.deep-dives-inner {
+  max-width: var(--site-max);
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+}
+
+.deep-dives-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.deep-dives-label {
+  font-family: var(--ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.deep-dives-all {
+  font-family: var(--ui);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 100ms ease-out;
+}
+
+.deep-dives-all:hover {
+  color: var(--accent-strong);
+}
+
+.deep-dives-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+}
+
+.deep-dives-card {
+  position: relative;
+  background: var(--bg-alt);
+  padding: var(--space-xl);
+  box-shadow:
+    0 16px 32px -8px rgba(0,0,0,0.04),
+    0 1px 2px rgba(0,0,0,0.04);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.4s var(--ease-heavy);
+}
+
+[data-theme="dark"] .deep-dives-card {
+  border-color: var(--border);
+  box-shadow: 0 16px 32px -8px rgba(0,0,0,0.2);
+}
+
+.deep-dives-card:hover {
+  transform: translateY(-6px);
+}
+
+.deep-dives-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 400ms var(--ease-heavy);
+}
+
+.deep-dives-card:hover::after {
+  transform: scaleX(1);
+}
+
+.deep-dives-card-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.deep-dives-card-extends {
+  font-family: var(--ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+.deep-dives-card-title {
+  font-family: var(--display);
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-sm);
+  color: var(--text);
+  transition: color 100ms ease-out;
+}
+
+.deep-dives-card:hover .deep-dives-card-title {
+  color: var(--accent);
+}
+
+.deep-dives-card-desc {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted);
+}

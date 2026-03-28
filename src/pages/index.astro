@@ -6,6 +6,7 @@ type MarkdownEntry = {
   file?: string;
 };
 
+// Whitepapers (series)
 const markdownEntries = Object.values(
   import.meta.glob("../../content/*.{md,mdx}", { eager: true }),
 ) as MarkdownEntry[];
@@ -44,6 +45,33 @@ const entries = markdownEntries
     return { title, slug, order, description };
   })
   .sort((a, b) => a.order - b.order);
+
+// Blog posts (deep dives)
+const blogEntries = Object.values(
+  import.meta.glob("../../blog/*.{md,mdx}", { eager: true }),
+) as MarkdownEntry[];
+
+const whitepaperMap = entries.reduce((acc, e) => {
+  acc[`/${e.slug}`] = e.title;
+  return acc;
+}, {} as Record<string, string>);
+
+const blogPosts = blogEntries
+  .map((entry) => {
+    const fm = entry.frontmatter ?? {};
+    const fileName = entry.file?.split("/").pop()?.replace(/\.mdx?$/, "") ?? "";
+    const extendsSlug = typeof fm.extends === "string" ? fm.extends : undefined;
+    const extendsTitle = extendsSlug ? whitepaperMap[extendsSlug] : undefined;
+
+    return {
+      title: typeof fm.title === "string" && fm.title.length > 0 ? fm.title : formatTitle(fileName),
+      slug: typeof fm.slug === "string" && fm.slug.length > 0 ? fm.slug : fileName,
+      description: typeof fm.description === "string" ? fm.description : "",
+      extendsTitle,
+    };
+  })
+  .reverse()
+  .slice(0, 2);
 ---
 
 <Base
@@ -199,6 +227,32 @@ const entries = markdownEntries
       }
     </div>
   </section>
+
+  {blogPosts.length > 0 && (
+    <section class="deep-dives">
+      <div class="deep-dives-inner">
+        <div class="deep-dives-header">
+          <span class="deep-dives-label">Deep Dives</span>
+          <a class="deep-dives-all" href="/blog">All analysis →</a>
+        </div>
+        <div class="deep-dives-grid">
+          {
+            blogPosts.map((post) => (
+              <a class="deep-dives-card" href={`/blog/${post.slug}`}>
+                <div class="deep-dives-card-inner">
+                  {post.extendsTitle && (
+                    <span class="deep-dives-card-extends">Extends: {post.extendsTitle}</span>
+                  )}
+                  <h2 class="deep-dives-card-title">{post.title}</h2>
+                  {post.description && <p class="deep-dives-card-desc">{post.description}</p>}
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  )}
 </Base>
 
 <script>
