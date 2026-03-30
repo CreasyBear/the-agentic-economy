@@ -1,0 +1,101 @@
+---
+import Base from "../../layouts/Base.astro";
+
+type MarkdownEntry = {
+  frontmatter?: Record<string, unknown>;
+  file?: string;
+  default: any;
+};
+
+export async function getStaticPaths() {
+  const entries = Object.values(
+    import.meta.glob("../../ref/*.{md,mdx}", { eager: true }),
+  ) as MarkdownEntry[];
+
+  return entries.map((entry) => {
+    const fm = entry.frontmatter ?? {};
+    const fileName = entry.file?.split("/").pop()?.replace(/\.mdx?$/, "") ?? "";
+    const slug = typeof fm.slug === "string" ? fm.slug : fileName;
+
+    return {
+      params: { slug },
+      props: { entry, title: fm.title ?? fileName },
+    };
+  });
+}
+
+const { entry, title } = Astro.props;
+const Content = entry.default as any;
+---
+
+<Base title={title}>
+  <article class="ref-page">
+    <div class="ref-page-inner">
+      <Content />
+    </div>
+  </article>
+</Base>
+
+<style>
+  .ref-page {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    color: var(--color-text, #e4e4e7);
+    font-family: var(--font-body, "Inter", sans-serif);
+    line-height: 1.7;
+  }
+  .ref-page :global(h1) {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--color-heading, #fafafa);
+  }
+  .ref-page :global(h2) {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    color: var(--color-heading, #fafafa);
+  }
+  .ref-page :global(h3) {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-heading, #fafafa);
+  }
+  .ref-page :global(p) {
+    margin-bottom: 1.25rem;
+  }
+  .ref-page :global(hr) {
+    border: none;
+    border-top: 1px solid var(--color-border, #27272a);
+    margin: 3rem 0;
+  }
+  .ref-page :global(blockquote) {
+    border-left: 3px solid var(--color-accent, #c4842d);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: var(--color-muted, #a1a1aa);
+    font-style: italic;
+  }
+  .ref-page :global(em) {
+    color: var(--color-muted, #a1a1aa);
+  }
+  .ref-page :global(strong) {
+    color: var(--color-heading, #fafafa);
+  }
+  .ref-page :global(pre) {
+    background: var(--color-code-bg, #18181b);
+    border: 1px solid var(--color-border, #27272a);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+  }
+  .ref-page :global(code) {
+    font-family: var(--font-mono, "JetBrains Mono", monospace);
+  }
+</style>
