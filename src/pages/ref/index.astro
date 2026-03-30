@@ -2,12 +2,13 @@
 import Base from "../../layouts/Base.astro";
 
 const pieces = [
-  { slug: "pd-01-guarantor", title: "The Guarantor Became the Source", num: "01" },
-  { slug: "pd-02-vault-drain", title: "The Vault Drain", num: "02" },
-  { slug: "pd-03-yuan-strait", title: "Yuan at the Strait", num: "03" },
-  { slug: "pd-04-hierarchy", title: "The Hierarchy Breaks From the Bottom", num: "04" },
-  { slug: "pd-05-who-pays", title: "Who Pays", num: "05" },
-  { slug: "pd-06-petrodollar-2", title: "Petrodollar 2.0", num: "06" },
+  { slug: "pd-00-infrastructure-hits", title: "Gulf Infrastructure Hit List", num: "00", desc: "The physical evidence — 40+ energy assets damaged across 9 countries" },
+  { slug: "pd-01-guarantor", title: "The Guarantor Became the Source", num: "01", desc: "The paradox" },
+  { slug: "pd-02-vault-drain", title: "The Vault Drain", num: "02", desc: "The evidence" },
+  { slug: "pd-03-yuan-strait", title: "Yuan at the Strait", num: "03", desc: "The mechanism" },
+  { slug: "pd-04-hierarchy", title: "The Hierarchy Breaks From the Bottom", num: "04", desc: "The framework" },
+  { slug: "pd-05-who-pays", title: "Who Pays", num: "05", desc: "The cost" },
+  { slug: "pd-06-petrodollar-2", title: "Petrodollar 2.0", num: "06", desc: "The counter-move" },
 ];
 ---
 <Base title="The Petrodollar Series">
@@ -18,7 +19,7 @@ const pieces = [
       <span>2026</span>
     </div>
     <h1 class="essay-title">The Fracturing of the Petrodollar</h1>
-    <p class="essay-standfirst">A six-part structural analysis of what's breaking in the global monetary system, what replaces it, and who pays.</p>
+    <p class="essay-standfirst">A six-part structural analysis of what's breaking in the global monetary system, what replaces it, and who pays. Plus the infrastructure damage assessment that started it.</p>
     <hr class="essay-standfirst-rule" aria-hidden="true" />
     <div class="essay-context-links" aria-label="Navigation">
       <a href="/">Series overview</a>
@@ -29,7 +30,10 @@ const pieces = [
       {pieces.map((piece) => (
         <a class="ref-series-item" href={`/ref/${piece.slug}`}>
           <span class="ref-series-num">{piece.num}</span>
-          <span class="ref-series-title">{piece.title}</span>
+          <div class="ref-series-text">
+            <span class="ref-series-title">{piece.title}</span>
+            <span class="ref-series-desc">{piece.desc}</span>
+          </div>
           <span class="ref-series-arrow" aria-hidden="true">→</span>
         </a>
       ))}
@@ -66,10 +70,20 @@ const pieces = [
     color: var(--color-muted, #a1a1aa);
     min-width: 2rem;
   }
-  .ref-series-title {
+  .ref-series-text {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .ref-series-title {
     font-size: 1.25rem;
     font-weight: 500;
+    font-family: var(--font-body, "Inter", sans-serif);
+  }
+  .ref-series-desc {
+    font-size: 0.9rem;
+    color: var(--color-muted, #a1a1aa);
     font-family: var(--font-body, "Inter", sans-serif);
   }
   .ref-series-arrow {
