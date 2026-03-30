@@ -11,7 +11,7 @@ import AgenticPayload from '../src/components/AgenticPayload.astro';
 
 ---
 
-*The Persian Gulf is not simply a geographic feature. It is the strategic jugular of the global energy system. Every day before the war, roughly twenty-one million barrels of crude oil and an equivalent volume of liquefied natural gas flowed through the Strait of Hormuz. The infrastructure feeding that flow represents trillions of dollars in sunk capital and decades of engineering expertise. In weeks, part of it became a ruin.*
+*The Persian Gulf is not simply a geographic feature. It is the strategic jugular of the global energy system. Every day before the war, roughly twenty-one million barrels of crude oil and an equivalent volume of liquefied natural gas flowed through the Strait of Hormuz — about twenty percent of the world's petroleum liquids. The infrastructure feeding that flow represents trillions of dollars in sunk capital and decades of engineering expertise. In weeks, precision strikes, retaliatory barrages, and the chaos of war turned part of this network into a smoking ruin.*
 
 ---
 
@@ -20,7 +20,6 @@ import AgenticPayload from '../src/components/AgenticPayload.astro';
   "scope": {
     "assets_targeted": "40+ energy assets across 9 countries",
     "oil_blocked": "~20 million b/d at Hormuz (20% of global consumption)",
-    "spare_capacity_trapped": "4+ million b/d normally acts as market relief valve",
     "repair_costs": "$25+ billion estimated",
     "IEA_comparison": "4x larger than 1973 Arab oil embargo"
   }
@@ -29,132 +28,190 @@ import AgenticPayload from '../src/components/AgenticPayload.astro';
 
 ---
 
-## I. Ras Laffan — The World's Largest LNG Complex
+## I. Iran — The Target That Closed the Strait
 
-The strikes hit Ras Laffan on March 2, 2026. Ras Laffan is not a single facility. It is a city-sized industrial complex on Qatar's northeast coast — the world's largest LNG processing and helium extraction operation. Before the war, it processed gas from the North Field, the world's largest non-associated gas reservoir, and shipped LNG to buyers across Asia and Europe. It also produced a commodity most people never think about until it vanishes: helium.
+South Pars, the world's largest natural-gas reservoir shared with Qatar, has been central to Iran's energy independence and export ambitions. Located offshore in the Gulf, it supplies nearly seventy percent of Iran's domestic gas needs and feeds the massive Asaluyeh onshore complex. On March 18, Israeli strikes damaged four gas-treatment plants at Asaluyeh, destroying critical dehydration and sweetening units essential for removing hydrogen sulfide and water from raw gas. Fires raged for days, forcing emergency flaring that wasted millions of cubic meters and released massive plumes of carbon dioxide and pollutants. Further inland, a gas-pressure regulation station in Isfahan province was hit, disrupting flows to power plants and petrochemical facilities.
 
-The damage was extensive. Seventeen percent of Qatar's LNG export capacity was permanently destroyed — not temporarily offline, but structurally damaged in ways that require reconstruction, not repair. Fourteen percent of helium production capacity was knocked out. Associated product lines — condensate, LPG, naphtha, sulphur — were halted.
+Kharg Island, Iran's primary oil-export terminal, handled up to 1.6 million barrels per day of crude and condensates before the war. Multiple missile strikes cratered storage tanks, severed loading jetties, and ignited fires that consumed an estimated 300,000 barrels of product. Satellite imagery revealed widespread collateral damage to crude-storage infrastructure and associated pipelines. The Bushehr nuclear plant, while not directly targeted, sits uncomfortably close to damaged gas infrastructure that supplies its cooling systems, raising fears of secondary power disruptions.
 
-QatarEnergy CEO Saad al-Kaabi confirmed the timeline: partial restoration in six to twelve months, optimistically, assuming security guarantees hold. Full capacity: three to five years. The cost exceeds twenty billion dollars for Ras Laffan alone.
+Iran's losses represent not just lost export revenue but a collapse in domestic energy supply. Pre-war exports of 1.69 million barrels per day have fallen to approximately 500,000 — a two-thirds reduction. Nationwide blackouts have been reported. Fuel shortages grip major cities. An estimated forty-eight million barrels sit in floating storage offshore, aging on shadow fleet tankers. The country is producing at roughly thirty percent of its pre-war export capacity.
 
-The significance of this facility is difficult to overstate. Qatar produces a third of the world's helium. Helium is not mined independently — it is a byproduct of natural gas refining. When you take an LNG train offline, you also take the helium line offline. There is no way to produce helium at scale without the gas operations that produce it. The thirty-three percent of global helium supply that Qatar provides does not have a quick substitute. The United States produces thirty-five percent of the global total, but cannot rapidly scale. Algeria and Russia have reserves, but geopolitical and logistical constraints limit immediate expansion.
-
-```json
-{
-  "ras_laffan": {
-    "products_hit": ["LNG (17% capacity)", "Helium (14% capacity)", "Condensate", "LPG", "Naphtha", "Sulphur"],
-    "repair_timeline": "3-5 years full restoration",
-    "cost": "$20+ billion",
-    "global_helium_share": "33% of global supply disrupted",
-    "strategic_role": "World's largest LNG + helium extraction complex"
-  }
-}
-```
-
----
-
-## II. The Saudi and UAE Facilities
-
-Saudi Arabia's oil infrastructure sustained limited direct damage. The kingdom's most critical facilities — Abqaiq, the world's largest crude processing plant; Khurais, one of its largest fields; Ras Tanura, its oldest refinery; Shaybah, the deep-desert field that produces a million barrels a day — all reported limited hits. The Aramco system, hardened after the 2019 drone attacks on Abqaiq, absorbed the strikes with less damage than the 2019 precedent might have suggested.
-
-But limited direct damage is not the same as operational capacity. Saudi Arabia's spare production capacity — the ability to surge output during a crisis — is trapped behind the Hormuz blockade along with everything else. Just over four million barrels per day of spare capacity across Iraq, Kuwait, Saudi Arabia, and the UAE sits behind the strait, unusable. This spare capacity is the market's relief valve during supply shocks. With Hormuz closed, the relief valve does not exist.
-
-The UAE's ADNOC refineries at Ruwais remain operational, but their export routes are constrained. Habshan's gas processing is disrupted. Fujairah's storage terminal — the bypass facility built specifically to avoid Hormuz dependency — is accessible only by routes that are themselves contested. The bypass was designed for a world where Hormuz might be disrupted temporarily. It was not designed for this.
-
-```json
-{
-  "saudi_uae": {
-    "direct_damage": "Limited — Aramco hardened after 2019 Abqaiq attacks",
-    "spare_capacity_trapped": "4+ million b/d behind Hormuz blockade",
-    "relief_valve_status": "Non-functional while Hormuz closed",
-    "UAE_constraint": "ADNOC operational but export routes blocked",
-    "Fujairah": "Bypass facility built for Hormuz disruption — not designed for sustained closure"
-  }
-}
-```
-
----
-
-## III. Iraq and Kuwait — Capacity Without Exit
-
-Iraq's Basra export terminals represent 3.63 million barrels per day of production capacity — a significant portion of the country's GDP and the Iraqi government's primary revenue source. That oil is being produced. It cannot be shipped. The terminals themselves are undamaged. The sea lanes are not.
-
-Kuwait's Burgan field, one of the world's largest, continues to operate. Its exports, like Iraq's, are blocked at Hormuz. Kuwait's economy depends on oil revenue for roughly ninety percent of its government income. The oil is in the ground, pumped to the surface, and sitting in storage with nowhere to go.
-
-The irony is structural: the countries with the most capacity to compensate for the disruption are the countries whose capacity is most trapped by the disruption. Iraq, Kuwait, Saudi Arabia, and the UAE together hold the spare production that the global market needs. All four are blocked by the same chokepoint.
-
-```json
-{
-  "iraq_kuwait": {
-    "Iraq_Basra_capacity": "3.63 million b/d — produced but cannot ship",
-    "Kuwait_Burgan": "Operational — exports blocked at Hormuz",
-    "Kuwait_fiscal_dependency": "~90% government revenue from oil",
-    "paradox": "Countries with most spare capacity are most trapped by the blockade"
-  }
-}
-```
-
----
-
-## IV. Iran — The Target That Closed the Strait
-
-Iran absorbed the heaviest strikes. Kharg Island — the country's primary crude oil export terminal, through which the vast majority of Iran's pre-war 1.69 million barrels per day of exports flowed — was heavily damaged. Bushehr's nuclear facility reported strikes, though its status remains unclear. Iran's refining capacity, already strained by years of sanctions and underinvestment, degraded an estimated forty to sixty percent.
-
-The domestic consequences are severe. Fuel shortages have been reported in major Iranian cities. Pre-war exports of 1.69 million barrels per day have collapsed to approximately 500,000 — a two-thirds reduction. What remains is moving through shadow fleet vessels and the Kunlun loop to China. An estimated forty-eight million barrels sit in floating storage offshore, aging on tankers that are themselves deteriorating.
-
-But the strikes did not eliminate Iran's asymmetric capability. Mines, anti-ship missiles, and IRGC fast boats — the tools that close the Strait of Hormuz — survived the bombardment. Iran cannot project conventional military power. It can deny passage. And denial of passage at Hormuz is the single most consequential military capability in the global energy system.
+But the strikes did not eliminate Iran's asymmetric capability. Mines, anti-ship missiles, and IRGC fast boats survived the bombardment. Iran cannot project conventional military power. It can deny passage. And denial of passage at Hormuz is the single most consequential military capability in the global energy system.
 
 ```json
 {
   "iran": {
-    "Kharg_Island": "Heavily damaged — primary export terminal",
-    "Bushehr": "Strikes reported, status unclear",
-    "refining_capacity": "40-60% degradation",
-    "export_collapse": "1.69M b/d → ~0.5M b/d",
-    "floating_storage": "~48 million barrels on aging shadow fleet",
-    "asymmetric_capability": "Mines, anti-ship missiles, fast boats — survived bombardment",
-    "capability_assessment": "Cannot project conventional power. Can deny passage at Hormuz."
+    "South_Pars": "4 gas-treatment plants at Asaluyeh destroyed — dehydration and sweetening units lost",
+    "Kharg_Island": "Storage tanks cratered, jetties severed, 300,000 barrels consumed by fire",
+    "Bushehr": "Not directly targeted — cooling infrastructure concerns",
+    "export_collapse": "1.69M b/d → ~0.5M b/d (two-thirds reduction)",
+    "domestic_impact": "Nationwide blackouts, fuel shortages in major cities",
+    "asymmetric_capability": "Mines, anti-ship missiles, fast boats — survived bombardment"
   }
 }
 ```
 
 ---
 
-## V. The Cascading Failures
+## II. Qatar — The Blow That Reshaped Global Gas
 
-The infrastructure damage is the first-order effect. The cascading failures are what make it a structural break rather than a temporary disruption.
+Qatar, until recently the world's third-largest LNG exporter, absorbed what may prove the single most consequential strike to global gas markets.
 
-**Helium.** Thirty-three percent of global supply, disrupted. South Korea imported sixty-four point seven percent of its helium from Qatar in 2025 — two hundred and twenty-six million dollars' worth. Samsung Electronics and SK Hynix are operating on limited inventories. Taiwan's TSMC, which produces eighteen percent of the world's semiconductors, is monitoring the situation. Fifty-four percent of China's helium imports came from Qatar. The semiconductor fabrication process requires helium for wafer cooling, plasma etching, and leak detection. There is no substitute. Airgas declared force majeure in March 2026. Air Liquide is reallocating supply from other regions. Linde is rationing.
+The Ras Laffan Industrial City, sprawling across the northern coast, was home to the planet's largest concentration of LNG export trains — fourteen operational units capable of shipping seventy-seven million tonnes per year. Iranian missiles struck on March 18–19, igniting fires across at least six trains. QatarEnergy declared force majeure on all contracts within hours, confirming that seventeen percent of its nameplate LNG capacity is now offline.
 
-**Fertilizer.** Forty-nine percent of global urea exports and thirty percent of ammonia exports originate in the Gulf states. One-third of global seaborne fertilizer trade passes through Hormuz. Urea prices surged thirty-five to forty percent since the conflict began. The disruption coincides with the Northern Hemisphere planting season — March through May — when demand peaks and alternatives are least available. Ethiopia, ninety-percent dependent on imported nitrogen fertilizer, cannot plant. The fertilizer isn't there. The Food and Agriculture Organization warned that African food production could fall five to fifteen percent in the second half of 2026.
+The Pearl GTL plant, a joint venture with Shell and the largest gas-to-liquids facility on earth, suffered direct hits to its synthesis reactors and hydrocrackers. This complex converts natural gas into ultra-clean diesel, kerosene, and lubricants using Fischer-Tropsch technology that is extraordinarily difficult to replicate or repair quickly. The catalyst beds and high-pressure vessels must be custom-fabricated and certified under international safety standards.
 
-**Energy.** Twenty million barrels per day of crude oil — twenty percent of global consumption — blocked at Hormuz. Brent crude surged from seventy-five to one hundred and fourteen dollars per barrel before settling near one hundred. LNG flows disrupted as Qatar's export capacity degraded. The IEA confirmed this exceeds both the 1973 embargo (five million b/d removed) and the 1979 Iranian Revolution in magnitude.
+The planned North Field expansion — six additional trains scheduled for completion by 2027 — has been suspended indefinitely. Repair crews cannot even begin full assessments until fires are fully extinguished and unexploded ordnance is cleared. QatarEnergy's internal assessment projects three to five years for full restoration. The Pearl GTL plant could take longer.
 
-**Insurance.** Gulf shipping insurance premiums increased twenty-fold. The cost of moving a barrel of oil through the strait — even if passage were available — has made Gulf crude uncompetitive against alternative sources. This is not a temporary spike. It is a structural repricing of risk in the most important energy corridor on earth.
+The economic symbolism is devastating: Qatar's entire national development model rested on the reliability of these assets. Their partial destruction removes roughly twenty percent of global seaborne LNG supply at a stroke — a shock larger than the 2022 Russian curtailments to Europe.
+
+But the most consequential product from Ras Laffan is not LNG. It is helium. Qatar produces a third of the world's helium as a byproduct of natural gas refining. When you take an LNG train offline, you also take the helium line offline. Thirty-three percent of global helium supply is disrupted. South Korea imported sixty-four point seven percent of its helium from Qatar in 2025 — two hundred and twenty-six million dollars' worth. Samsung Electronics and SK Hynix are operating on limited inventories. Fifty-four percent of China's helium imports came from Qatar. Airgas declared force majeure. There is no substitute for helium in semiconductor fabrication, MRI cooling, or aerospace.
 
 ```json
 {
-  "cascading_failures": {
-    "helium": {
-      "disrupted": "33% of global supply",
-      "critical_dependencies": ["Semiconductor fabrication (no substitute)", "MRI cooling", "Aerospace", "Fiber optics"],
-      "key_exposed": ["South Korea (64.7% from Qatar)", "China (54% from Qatar)", "Taiwan (TSMC monitoring)"],
-      "force_majeure": "Airgas declared, Air Liquide reallocating, Linde rationing"
-    },
-    "fertilizer": {
-      "disrupted": "49% of global urea exports, 30% of ammonia",
-      "price_increase": "35-40% since conflict began",
-      "timing": "Northern Hemisphere planting season — worst possible timing",
-      "key_exposed": ["Ethiopia (90% dependent)", "Africa broadly", "India supply constrained"]
-    },
-    "energy": {
-      "oil_blocked": "20 million b/d at Hormuz (20% of global consumption)",
-      "Brent": "$75 → $114/barrel (settled ~$100)",
-      "IEA_comparison": "Exceeds 1973 embargo (5M b/d) and 1979 Iranian Revolution"
-    },
-    "insurance": {
-      "premium_increase": "20x on Gulf shipping",
-      "implication": "Structural repricing of risk — not temporary spike"
+  "qatar": {
+    "Ras_Laffan": "Fires across 6+ of 14 LNG trains. 17% capacity offline. 3-5 year repair.",
+    "Pearl_GTL": "Synthesis reactors and hydrocrackers hit. Fischer-Tropsch — custom fabrication required.",
+    "North_Field_expansion": "Suspended indefinitely",
+    "helium": "33% of global supply disrupted. No substitute. Semiconductor, MRI, aerospace dependent.",
+    "global_LNG_impact": "~20% of seaborne LNG supply removed — exceeds 2022 Russian curtailments"
+  }
+}
+```
+
+---
+
+## III. Saudi Arabia — The Swing Producer's Vulnerability
+
+Saudi Arabia, the world's swing producer and de facto OPEC leader, saw its carefully cultivated image of resilience shattered.
+
+Ras Tanura, the kingdom's flagship refining and export complex on the Gulf coast, processes 550,000 barrels per day and serves as the primary loading terminal for Arab Light crude. Early drone strikes damaged distillation units, tank farms, and control rooms. The facility was shut for days before a partial restart at reduced rates.
+
+The SAMREF refinery, a joint venture with ExxonMobil at Yanbu on the Red Sea, suffered direct missile impacts that destroyed a catalytic cracker and associated storage.
+
+The Shaybah oil field in the Empty Quarter, producing one million barrels per day of extra-light crude from carbonate reservoirs, was repeatedly targeted. Wellheads were damaged, gathering lines severed, and associated gas-processing plants forced offline.
+
+Yanbu's export port suspended loadings for more than a week. The Jubail petrochemical complex — home to world-scale ethylene crackers and fertilizer plants — reported collateral damage from debris and power-grid failures.
+
+Saudi Aramco's master gas system, which collects associated gas from multiple fields to feed domestic power and industry, is operating at sixty percent capacity.
+
+But the deeper vulnerability is not the direct damage — which is limited. It is the spare capacity trap. Just over four million barrels per day of spare oil production capacity across Iraq, Kuwait, Saudi Arabia, and the UAE sits behind the Hormuz blockade, unusable. This spare capacity is the market's relief valve during supply shocks. With Hormuz closed, the relief valve does not exist. The kingdom can produce. It cannot export.
+
+```json
+{
+  "saudi_arabia": {
+    "Ras_Tanura": "550,000 b/d — distillation units, tank farms, control rooms damaged. Partial restart at reduced rates.",
+    "SAMREF_refinery": "Catalytic cracker destroyed — Yanbu, ExxonMobil JV",
+    "Shaybah": "1M b/d — wellheads damaged, gathering lines severed, gas processing offline",
+    "Yanbu": "Export port suspended 1+ week",
+    "Jubail": "Ethylene crackers and fertilizer plants — collateral damage",
+    "master_gas_system": "Operating at 60% capacity",
+    "spare_capacity_trap": "4M+ b/d trapped behind Hormuz — market's relief valve closed"
+  }
+}
+```
+
+---
+
+## IV. The UAE — Bypass That Wasn't
+
+The UAE had built Fujairah specifically to bypass Hormuz dependency. That bypass now offers limited protection.
+
+The Ruwais refinery complex in Abu Dhabi, one of the largest in the world at 837,000 barrels per day, was shut after a drone-induced fire gutted its hydrotreating units.
+
+Habshan, the central gas-processing hub that sweetens and fractionates associated gas from the Bab and Bu Hasa fields, was struck by debris. Three of its four trains remain offline.
+
+The Fujairah oil terminal and port on the Gulf of Oman — the bypass designed for exactly this scenario — endured repeated closures due to missile threats and shipping insurance spikes. The bypass was designed for a world where Hormuz might be disrupted temporarily. It was not designed for sustained closure under fire.
+
+Jebel Ali, the region's largest container port and logistics hub, suspended operations for days, snarling supply chains for spare parts and chemicals needed elsewhere in the Gulf.
+
+Das Island LNG plant, which exports associated gas from offshore fields, is running at minimal capacity because outbound tankers cannot safely navigate the Strait.
+
+The Shah gas field, a sour-gas development critical for domestic supply, was hit directly, forcing emergency imports from neighbors already struggling with their own losses.
+
+```json
+{
+  "uae": {
+    "Ruwais": "837,000 b/d — shut after drone fire gutted hydrotreating units",
+    "Habshan": "3 of 4 gas processing trains offline",
+    "Fujairah": "Bypass terminal — repeated closures from missile threats and insurance spikes",
+    "Jebel_ali": "Container port suspended — spare parts supply chains disrupted",
+    "Das_Island": "LNG at minimal capacity — tanker transit unsafe",
+    "Shah_gas_field": "Direct hit — emergency imports from strained neighbors"
+  }
+}
+```
+
+---
+
+## V. Kuwait, Bahrain, Oman, Iraq
+
+Kuwait's Mina Al-Ahmadi and Mina Abdullah refineries, together processing more than 700,000 barrels per day, were struck early. Fires destroyed atmospheric distillation columns and catalytic reformers. Roughly half the country's oil output remains offline.
+
+Bahrain's Bapco Energies refinery at Sitra, with 400,000 barrels per day capacity, declared force majeure after precision strikes on its visbreaker and storage tanks.
+
+Oman closed its Sohar, Mina Al Fahal, and Salalah export terminals temporarily after threats and minor damage to loading arms.
+
+Iraq saw the Lanaz refinery near Erbil and the Majnoon oil field in the south targeted. Production from Iraq's southern fields, already hampered by aging infrastructure, has fallen by thirty percent. Pipelines crossing the region — particularly the Iraq-Turkey line and intra-Gulf feeders — have been severed in multiple places, creating bottlenecks that compound terminal damage. Iraq's Basra export terminals, representing 3.63 million barrels per day of capacity, are produced but cannot be shipped. The terminals are undamaged. The sea lanes are not.
+
+```json
+{
+  "kuwait_bahrain_oman_iraq": {
+    "Kuwait": "Mina Al-Ahmadi + Mina Abdullah — 700,000 b/d. Atmospheric columns and reformers destroyed. ~50% output offline.",
+    "Bahrain": "Bapco Sitra — 400,000 b/d. Force majeure declared.",
+    "Oman": "Sohar, Mina Al Fahal, Salalah — closed temporarily",
+    "Iraq": "Lanaz refinery + Majnoon field targeted. Southern production down 30%. Pipelines severed. Basra 3.63M b/d trapped."
+  }
+}
+```
+
+---
+
+## VI. The Strait Itself
+
+The Strait of Hormuz is effectively closed. Mines, anti-ship missiles, and Iranian Revolutionary Guard speedboats have turned the waterway into a no-go zone. Insurance premiums for tankers have risen twentyfold. Shipping firms refuse to transit without naval escorts that no coalition has yet provided at scale.
+
+This is not a temporary inconvenience but a strategic strangulation that has halted the physical movement of oil and gas even from undamaged facilities. Saudi Arabia can produce. Iraq can pump. Kuwait can refine. None of them can ship.
+
+Secondary effects compound the primary destruction. Ruptured storage tanks have spilled millions of barrels into Gulf waters, creating environmental disasters that will hinder future operations. Power plants supplying the complexes have been forced into emergency shutdowns. Steel prices have tripled. Skilled welders and process engineers are in short supply worldwide. Insurance markets demand exorbitant premiums before repair work even begins.
+
+```json
+{
+  "strait_closure": {
+    "mechanism": "Mines, anti-ship missiles, IRGC fast boats",
+    "insurance": "Premiums increased 20x — shipping firms refuse transit without naval escorts",
+    "effect": "Physical movement halted even from undamaged facilities",
+    "secondary_effects": ["Oil spills in Gulf waters", "Power plant shutdowns", "Steel prices 3x", "Skilled labor shortage", "Insurance exorbitant"]
+  }
+}
+```
+
+---
+
+## VII. Repair Timelines
+
+Modern energy infrastructure is not modular Lego. It consists of precision-engineered components forged from exotic alloys, controlled by proprietary software, and assembled by cadres of highly specialized technicians who cannot be conjured overnight.
+
+Each LNG train at Ras Laffan incorporates massive cryogenic heat exchangers, turbo-expanders, and liquefaction units that operate at minus 162 degrees Celsius. Replacement parts for damaged compressors and cold boxes require foundries in Japan, Germany, or the United States that already operate at capacity. The Pearl GTL's Fischer-Tropsch reactors require custom-fabricated catalyst beds and high-pressure vessels certified under international safety standards. Global supply chains for these items were already strained before the war by post-pandemic backlogs and sanctions on Russian and Chinese suppliers.
+
+Saudi and UAE refineries face eighteen-to-twenty-four-month timelines for major repairs. Distillation columns warped by fire must be replaced. Catalyst beds contaminated by debris must be regenerated or discarded. Electronic control systems damaged by power surges require complete rewiring.
+
+After the 1991 Gulf War, Kuwait's oil infrastructure — far simpler than today's digitalized plants — took nearly two years to regain pre-war output despite massive international assistance. The 2019 Abqaiq attack, which affected only a fraction of capacity and caused no structural fires, required four months. This conflict's damage is broader, deeper, and compounded by supply-chain chaos.
+
+In the most optimistic scenario — immediate ceasefire, no further strikes, unlimited capital, international cooperation — simpler oil-production facilities might see partial restarts within three to six months. Gas-processing plants would achieve only fifty percent recovery within eighteen months. Full pre-war export capacity through Hormuz would not return until 2029 or 2031 at the earliest.
+
+```json
+{
+  "repair_timelines": {
+    "Ras_Laffan_LNG": "3-5 years (QatarEnergy CEO confirmation). Cryogenic components from Japan/Germany/US foundries at capacity.",
+    "Pearl_GTL": "Longer — Fischer-Tropsch reactors require custom fabrication",
+    "Saudi_UAE_refineries": "18-24 months",
+    "partial_oil_restart": "3-6 months (optimistic)",
+    "gas_processing_50pct": "18 months",
+    "full_capacity_restore": "2029-2031 earliest",
+    "historical_parallels": {
+      "1991_Kuwait": "~2 years despite massive international assistance",
+      "2019_Abqaiq": "4 months — fraction of current damage, no structural fires"
     }
   }
 }
@@ -162,79 +219,108 @@ The infrastructure damage is the first-order effect. The cascading failures are 
 
 ---
 
-## VI. The Ten Most Exposed
+## VIII. The Ten Most Exposed
 
 The cascading failures do not distribute evenly. Ten countries face disproportionate impact — not because they were targets, but because their supply chains terminate in the Gulf.
 
-**Ethiopia.** Ninety percent of its nitrogen fertilizer imported, primarily from the Gulf via Djibouti. The planting season is now. The fertilizer is not there. Food production projections for Q3–Q4 2026 are already declining.
+**Japan** imports ninety-five percent of its oil and a substantial share of LNG from the Gulf. Strategic reserves are being drawn at record rates. Industrial giants like Toyota and Sony have announced production cuts. A weakening yen compounds imported inflation.
 
-**South Korea.** Sixty-four point seven percent of helium imports from Qatar. Samsung and SK Hynix — the world's largest memory chip producers — operating on limited helium inventories. If the outage persists beyond sixty days, semiconductor production slowdowns become probable.
+**South Korea** faces factory slowdowns across its export-oriented chaebols. Shipbuilding and petrochemical plants have declared force majeure. The government is preparing worst-case scenarios that include mandatory energy-saving measures and potential GDP contraction of four percent this year. Sixty-four point seven percent of its helium imports came from Qatar — Samsung and SK Hynix are on limited inventories.
 
-**Egypt.** Sixty percent of wheat imported. Ten percent of the government budget spent on food subsidies. A food price increase of the magnitude projected for Q3–Q4 2026 either blows out the fiscal position or forces subsidy cuts — both of which destabilize a population that experienced bread riots in 2008 and revolution in 2011.
+**India** relies on the Gulf for ninety percent of its crude and sixty percent of its LPG. Four-day workweeks for government offices, school closures, and fuel rationing have been implemented nationwide. Diesel shortages threaten the agricultural sector during harvest season. Inflation is approaching double digits. The rupee is under heavy pressure. Sixty million barrels settled in yuan and dirhams in March — the bypass already operational.
 
-**Japan.** Major semiconductor fabrication and MRI manufacturing hub. Helium-dependent. Vulnerable if Qatari supply disruption persists beyond the sixty-day window that current inventories can sustain.
+**Pakistan** has seen acute LNG and oil shortages. Textile exports — the country's lifeline — have plummeted. Food riots have broken out in Karachi and Lahore. The IMF program is in jeopardy as fiscal deficits balloon.
 
-**Pakistan.** Already in an IMF program with thirty-percent-plus inflation. A food and energy shock on top of a fiscal crisis. The most fragile large economy in the region.
+**The Philippines** declared a national energy emergency within days of the Hormuz closure. Fuel prices at pumps have doubled. Protests in Manila have turned violent. Manufacturing and tourism are contracting sharply.
 
-**India.** Government prioritizing domestic urea supply. Plants running below capacity despite a seventy-percent gas subsidy. Sixty million barrels settled in yuan and dirhams in March — the bypass already operational.
+**Bangladesh** faces threats to its garment sector from power cuts and higher transport costs. Rolling blackouts have closed universities and forced millions into darkness. Rice prices are surging. The taka has depreciated by twenty percent against the dollar.
 
-**Australia.** Eighty to ninety percent of refined petroleum imported. Strategic reserves cover thirty to thirty-eight days. A Hormuz disruption lasting more than six weeks puts fuel supplies at risk. Perth, four thousand kilometres from the nearest major refining hub, would feel it first.
+**Thailand** has imposed office-temperature mandates at twenty-seven degrees Celsius, car-pooling requirements, and television campaigns urging air-conditioner reductions. Tourism recovery has stalled as jet-fuel costs deter long-haul visitors.
 
-**Taiwan.** TSMC's eighteen percent of global chip production depends on stable helium supply. The disruption has not yet hit fabrication, but the sixty-day inventory window is closing.
+**China**, despite its size and domestic coal, remains a massive net importer. Fuel-price caps and strategic-reserve releases have bought time, but domestic inflation risks are rising. Factories in Guangdong and Zhejiang are operating below capacity. The property sector, already fragile, faces higher construction costs. Fifty-four percent of helium imports came from Qatar — accelerating Russian imports by sixty percent year-on-year.
 
-**China.** Fifty-four percent of helium imports from Qatar. Responding by accelerating Russian helium imports (up sixty percent year-on-year in 2025) and settling Hormuz passage in yuan. Building the bypass in real time.
+**Vietnam and Myanmar** have introduced odd-even vehicle rationing and factory slowdowns. Textile and electronics assembly lines have reduced shifts. Export earnings are falling while import bills soar.
 
-**Lebanon.** Already in economic collapse. Food and energy price shocks on an economy that has no remaining fiscal buffers. The humanitarian consequences are the most acute of any country on this list.
+**The European Union**, especially Germany, Italy, and the United Kingdom, is grappling with the loss of Qatari LNG at a time when Russian pipeline gas remains curtailed. Storage levels are dangerously low. Coal and nuclear restarts are being debated urgently. Industrial giants like BASF and Volkswagen have warned of permanent plant closures if shortages persist into winter.
+
+**Australia**, though not appearing in the strict volume-based ranking, stands out as a particularly vulnerable developed economy. Despite being one of the world's largest LNG and coal exporters, the country imports eighty to ninety percent of its refined petroleum products. Strategic fuel reserves cover only thirty to thirty-eight days — well below the IEA's ninety-day standard. Local shortages have appeared within days of the Hormuz closure: service stations in Sydney, Melbourne, and Perth have reported dry pumps, panic buying, and temporary rationing. Airlines have cut domestic routes. For a nation whose economy depends on long-haul transport and mining, these shortages are not abstract.
 
 ```json
 {
   "most_exposed": {
-    "Ethiopia": "90% fertilizer dependent — planting season now",
-    "South_Korea": "64.7% helium from Qatar — chip production at risk",
-    "Egypt": "60% wheat imported — fiscal/social stability threatened",
-    "Japan": "Semiconductor + MRI hub — helium-dependent beyond 60-day inventory",
-    "Pakistan": "IMF program + 30%+ inflation — fragile",
-    "India": "Domestic urea constrained + bypass already operational (yuan/dirham)",
-    "Australia": "80-90% petroleum imported — 30-38 day reserves",
-    "Taiwan": "TSMC helium-dependent — 60-day window closing",
-    "China": "54% helium from Qatar — accelerating Russian imports + yuan bypass",
-    "Lebanon": "Economic collapse — no fiscal buffers remaining"
+    "Japan": "95% oil from Gulf. Production cuts at Toyota, Sony. Yen weakening.",
+    "South_Korea": "Force majeure on shipbuilding/petrochemicals. 64.7% helium from Qatar. GDP -4% worst case.",
+    "India": "90% crude, 60% LPG from Gulf. Fuel rationing. Inflation approaching double digits.",
+    "Pakistan": "Textile exports collapsed. Food riots. IMF program in jeopardy.",
+    "Philippines": "National energy emergency. Fuel prices doubled. Protests.",
+    "Bangladesh": "Garment sector threatened. Rolling blackouts. Taka -20%.",
+    "Thailand": "Temperature mandates. Tourism stalled.",
+    "China": "Massive net importer. Factories below capacity. 54% helium from Qatar.",
+    "Vietnam_Myanmar": "Vehicle rationing. Factory slowdowns.",
+    "EU": "Qatari LNG lost. Storage low. BASF/VW warning of permanent closures.",
+    "Australia": "80-90% refined petroleum imported. 30-38 day reserves. Dry pumps in Sydney, Melbourne, Perth."
   }
 }
 ```
 
 ---
 
-## VII. The Repair Reality
+## IX. Shortages Across Every Carbon Product
 
-The repair timelines are not measured in weeks. They are measured in years.
+Shortages are manifesting across multiple categories simultaneously.
 
-Ras Laffan: three to five years for full restoration. LNG trains and helium units are bespoke engineering — you cannot order them off a shelf. The QatarEnergy CEO has confirmed this publicly. Twenty billion dollars and a half-decade, optimistically.
+Crude oil has lost an estimated eleven million barrels per day — almost ten percent of the world's daily production. Gasoline and diesel rationing is probable across Asia and parts of Europe by the second quarter of 2026. Jet-fuel scarcity threatens to ground flights and raise freight costs dramatically. Bunker fuel for shipping is pushing global trade costs higher, accelerating inflation in imported goods.
 
-Saudi facilities: limited damage, but the spare capacity remains trapped as long as Hormuz is closed. The Aramco system can resume full production within weeks of the blockade lifting. The blockade has not lifted.
+LNG and pipeline natural gas face a structural deficit of roughly twenty percent of seaborne supply. Europe and Asia will compete fiercely for remaining cargoes from the United States and Australia. Poorer nations will be priced out entirely. Winter 2026–27 could see widespread blackouts in gas-dependent power grids.
 
-Iranian infrastructure: Kharg Island, the primary export terminal, will require major reconstruction. Iran's refining capacity — already degraded before the war — will take years to restore to pre-war levels. The country is producing at roughly thirty percent of its pre-war export capacity.
+Petrochemicals and derivatives — ethylene, propylene, aromatics, ammonia — are tightening rapidly. Plastics production for packaging and consumer goods will contract. Fertilizer output, dependent on natural gas, will fall, threatening food security in 2027. Helium for medical imaging and electronics faces constraints. Sulfur for fertilizers and batteries is in short supply.
 
-The IEA's comparison is precise. The 1973 Arab oil embargo removed five million barrels per day from global markets. The 1979 Iranian Revolution removed five to six million. The 2026 Hormuz blockade removes twenty million — four times the 1973 disruption, three times the 1979 disruption. This is the largest supply shock in the history of the global oil market.
-
-And unlike 1973 or 1979, there is no spare capacity available to compensate. In 1973, other OPEC members increased production. In 1979, Saudi Arabia surged output. In 2026, the spare capacity is trapped behind the same chokepoint. The market's relief valve is closed.
+Ten to twenty percent global energy-price inflation is expected to persist into 2027 even under optimistic repair scenarios. These shortages are the new baseline until physical infrastructure is rebuilt.
 
 ```json
 {
-  "repair_reality": {
-    "Ras_Laffan": "3-5 years, $20B+",
-    "Saudi": "Limited damage — spare capacity trapped until Hormuz reopens",
-    "Iran": "Years to restore — currently at 30% of pre-war export capacity",
-    "IEA_comparison": "20M b/d blocked vs. 5M in 1973, 5-6M in 1979",
-    "key_difference": "No spare capacity available to compensate — relief valve is behind the same blockade"
+  "shortages": {
+    "crude_oil": "~11M b/d lost (~10% of global production). Gasoline/diesel rationing probable by Q2 2026.",
+    "LNG": "20% structural deficit of seaborne supply. Europe vs Asia competition. Poor nations priced out.",
+    "winter_2026_27": "Widespread blackouts in gas-dependent power grids probable",
+    "petrochemicals": "Ethylene, propylene, aromatics, ammonia tightening. Plastics/fertilizer production contracting.",
+    "helium": "Semiconductor, MRI, aerospace constrained",
+    "inflation": "10-20% energy price inflation persisting into 2027"
   }
 }
 ```
 
 ---
 
-The infrastructure is not coming back quickly. The cascading failures are not temporary. The countries most exposed are not the countries that caused the disruption. And the spare capacity that would normally buffer a shock of this magnitude is itself trapped behind the chokepoint that created the crisis.
+## X. The Financial Reckoning
 
-The physical toll is the first chapter. The financial toll — inflation, trade disruption, fiscal stress, political instability — is the second. The structural toll — the permanent repricing of risk in the world's most important energy corridor — is the third.
+Crude-oil benchmarks have surged past $110 per barrel in spot trading, with forward curves in backwardation signaling acute near-term scarcity. European natural-gas prices at the TTF hub jumped forty-five percent in a single week — the largest move since 2022. Refined products have followed: gasoline and diesel contracts in Singapore and Rotterdam have risen thirty to fifty percent.
+
+Global equities lost more than ten trillion dollars in market capitalization within the first ten trading days. Energy stocks have soared while airlines, chemicals, and consumer discretionary names have collapsed. Inflation expectations, as measured by five-year break-evens, have climbed sharply in every major economy.
+
+Central banks face an impossible trilemma: hike rates to fight energy-driven inflation and risk recession, or ease and accept entrenched price rises. Emerging markets with large current-account deficits are seeing capital flight and currency depreciations that echo the 1997 Asian crisis.
+
+The true cost extends far beyond headline commodity prices. Petrochemical feedstocks — naphtha, ethane, propane — are tightening rapidly, threatening the production of plastics, fertilizers, synthetic fibers, and pharmaceuticals. Global supply chains for semiconductors, automobiles, and construction materials are rerouting around higher freight rates caused by longer voyages around the Cape of Good Hope.
+
+In developing nations, fuel rationing has triggered protests and political instability. In developed economies, four-day workweeks and school closures are becoming normalized responses to power shortages.
+
+```json
+{
+  "financial_impact": {
+    "oil_price": "$110+/barrel — backwardation signaling acute scarcity",
+    "gas_price": "TTF +45% in one week — largest since 2022",
+    "equities": "$10T+ market cap lost in first 10 trading days",
+    "central_bank_trilemma": "Hike → recession. Ease → entrenched inflation. Neither → crisis.",
+    "emerging_markets": "Capital flight, currency depreciation — echoing 1997 Asian crisis",
+    "developed_economies": "4-day workweeks, school closures — normalized"
+  }
+}
+```
+
+---
+
+The facilities were not built for wartime resilience. They were engineered for peacetime efficiency. Their destruction severs not only current production but future investment. Global markets have never faced simultaneous damage across so many interdependent nodes in such a concentrated geography.
+
+The repair bills will be paid not only in higher prices and lost output but ultimately in reordered global power structures. The age of easy energy and easy money is almost over. What comes next tests every assumption of the post-war economic order.
 
 The guarantor struck. The infrastructure burned. The consequences are measured in years, not headlines.
