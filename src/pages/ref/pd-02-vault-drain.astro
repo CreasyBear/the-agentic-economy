@@ -1,13 +1,11 @@
 ---
 import Base from "../../layouts/Base.astro";
-
-const posts = import.meta.glob("../../ref/*.mdx", { eager: true });
-const entry = Object.values(posts).find((p: any) => p.file?.includes("pd-02-vault-drain.mdx"));
-if (!entry) return Astro.redirect("/404");
-const Content = (entry as any).default;
-const fm = (entry as any).frontmatter ?? {};
+import * as pd_02_vault_drain from "../../../ref/pd-02-vault-drain.mdx";
+const Content = pd_02_vault_drain.default;
+const fm = pd_02_vault_drain.frontmatter || {};
+const pageTitle = fm.title || "The Vault Drain";
 ---
-<Base title={fm.title ?? "Reference"}>
+<Base title={pageTitle}>
   <article class="ref-page">
     <div class="ref-page-inner">
       <Content />

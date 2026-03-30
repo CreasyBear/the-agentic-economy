@@ -1,13 +1,11 @@
 ---
 import Base from "../../layouts/Base.astro";
-
-const posts = import.meta.glob("../../ref/*.mdx", { eager: true });
-const entry = Object.values(posts).find((p: any) => p.file?.includes("pd-06-petrodollar-2.mdx"));
-if (!entry) return Astro.redirect("/404");
-const Content = (entry as any).default;
-const fm = (entry as any).frontmatter ?? {};
+import * as pd_06_petrodollar_2 from "../../../ref/pd-06-petrodollar-2.mdx";
+const Content = pd_06_petrodollar_2.default;
+const fm = pd_06_petrodollar_2.frontmatter || {};
+const pageTitle = fm.title || "Petrodollar 2.0";
 ---
-<Base title={fm.title ?? "Reference"}>
+<Base title={pageTitle}>
   <article class="ref-page">
     <div class="ref-page-inner">
       <Content />

@@ -1,13 +1,11 @@
 ---
 import Base from "../../layouts/Base.astro";
-
-const posts = import.meta.glob("../../ref/*.mdx", { eager: true });
-const entry = Object.values(posts).find((p: any) => p.file?.includes("pd-01-guarantor.mdx"));
-if (!entry) return Astro.redirect("/404");
-const Content = (entry as any).default;
-const fm = (entry as any).frontmatter ?? {};
+import * as pd_01_guarantor from "../../../ref/pd-01-guarantor.mdx";
+const Content = pd_01_guarantor.default;
+const fm = pd_01_guarantor.frontmatter || {};
+const pageTitle = fm.title || "The Guarantor Became the Source";
 ---
-<Base title={fm.title ?? "Reference"}>
+<Base title={pageTitle}>
   <article class="ref-page">
     <div class="ref-page-inner">
       <Content />

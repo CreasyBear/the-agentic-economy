@@ -1,13 +1,11 @@
 ---
 import Base from "../../layouts/Base.astro";
-
-const posts = import.meta.glob("../../ref/*.mdx", { eager: true });
-const entry = Object.values(posts).find((p: any) => p.file?.includes("pd-04-hierarchy.mdx"));
-if (!entry) return Astro.redirect("/404");
-const Content = (entry as any).default;
-const fm = (entry as any).frontmatter ?? {};
+import * as pd_04_hierarchy from "../../../ref/pd-04-hierarchy.mdx";
+const Content = pd_04_hierarchy.default;
+const fm = pd_04_hierarchy.frontmatter || {};
+const pageTitle = fm.title || "The Hierarchy Breaks From the Bottom";
 ---
-<Base title={fm.title ?? "Reference"}>
+<Base title={pageTitle}>
   <article class="ref-page">
     <div class="ref-page-inner">
       <Content />
