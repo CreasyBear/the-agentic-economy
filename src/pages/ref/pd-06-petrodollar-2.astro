@@ -1,0 +1,29 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const posts = import.meta.glob("../../ref/*.mdx", { eager: true });
+const entry = Object.values(posts).find((p: any) => p.file?.includes("pd-06-petrodollar-2.mdx"));
+if (!entry) return Astro.redirect("/404");
+const Content = (entry as any).default;
+const fm = (entry as any).frontmatter ?? {};
+---
+<Base title={fm.title ?? "Reference"}>
+  <article class="ref-page">
+    <div class="ref-page-inner">
+      <Content />
+    </div>
+  </article>
+</Base>
+
+<style>
+  .ref-page { max-width: 48rem; margin: 0 auto; padding: 4rem 1.5rem; color: var(--color-text, #e4e4e7); font-family: var(--font-body, "Inter", sans-serif); line-height: 1.7; }
+  .ref-page :global(h1) { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-heading, #fafafa); }
+  .ref-page :global(h2) { font-size: 1.5rem; font-weight: 600; margin-top: 3rem; margin-bottom: 1rem; color: var(--color-heading, #fafafa); }
+  .ref-page :global(p) { margin-bottom: 1.25rem; }
+  .ref-page :global(hr) { border: none; border-top: 1px solid var(--color-border, #27272a); margin: 3rem 0; }
+  .ref-page :global(blockquote) { border-left: 3px solid var(--color-accent, #c4842d); padding-left: 1rem; margin: 1.5rem 0; color: var(--color-muted, #a1a1aa); font-style: italic; }
+  .ref-page :global(em) { color: var(--color-muted, #a1a1aa); }
+  .ref-page :global(strong) { color: var(--color-heading, #fafafa); }
+  .ref-page :global(pre) { background: var(--color-code-bg, #18181b); border: 1px solid var(--color-border, #27272a); border-radius: 0.5rem; padding: 1rem; overflow-x: auto; margin: 1.5rem 0; font-size: 0.875rem; }
+  .ref-page :global(.agentic-payload) { display: none; }
+</style>
