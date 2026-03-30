@@ -2,9 +2,12 @@
 import Essay from "../../layouts/Essay.astro";
 import * as pd_06_petrodollar_2 from "../../../ref/pd-06-petrodollar-2.mdx";
 const Content = pd_06_petrodollar_2.default;
-const fm = pd_06_petrodollar_2.frontmatter || {};
-const pageTitle = fm.title || "Petrodollar 2.0";
 ---
-<Essay title={pageTitle} eyebrow="Reference">
+<Essay
+    title="Petrodollar 2.0"
+    eyebrow="Reference"
+    description="The same outcome through a different mechanism"
+    prev={{ slug: "pd-05-who-pays", title: "Who Pays" }}
+  >
   <Content />
 </Essay>

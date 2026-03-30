@@ -2,9 +2,13 @@
 import Essay from "../../layouts/Essay.astro";
 import * as pd_04_hierarchy from "../../../ref/pd-04-hierarchy.mdx";
 const Content = pd_04_hierarchy.default;
-const fm = pd_04_hierarchy.frontmatter || {};
-const pageTitle = fm.title || "The Hierarchy Breaks From the Bottom";
 ---
-<Essay title={pageTitle} eyebrow="Reference">
+<Essay
+    title="The Hierarchy Breaks From the Bottom"
+    eyebrow="Reference"
+    description="Where everyone is looking is not where it's happening"
+    prev={{ slug: "pd-03-yuan-strait", title: "Yuan at the Strait" }}
+    next={{ slug: "pd-05-who-pays", title: "Who Pays" }}
+  >
   <Content />
 </Essay>

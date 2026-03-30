@@ -1,0 +1,82 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const pieces = [
+  { slug: "pd-01-guarantor", title: "The Guarantor Became the Source", num: "01" },
+  { slug: "pd-02-vault-drain", title: "The Vault Drain", num: "02" },
+  { slug: "pd-03-yuan-strait", title: "Yuan at the Strait", num: "03" },
+  { slug: "pd-04-hierarchy", title: "The Hierarchy Breaks From the Bottom", num: "04" },
+  { slug: "pd-05-who-pays", title: "Who Pays", num: "05" },
+  { slug: "pd-06-petrodollar-2", title: "Petrodollar 2.0", num: "06" },
+];
+---
+<Base title="The Petrodollar Series">
+  <div class="essay-shell">
+    <div class="essay-meta">
+      <span class="essay-meta-label">Reference Series</span>
+      <span class="essay-meta-sep" aria-hidden="true">·</span>
+      <span>2026</span>
+    </div>
+    <h1 class="essay-title">The Fracturing of the Petrodollar</h1>
+    <p class="essay-standfirst">A six-part structural analysis of what's breaking in the global monetary system, what replaces it, and who pays.</p>
+    <hr class="essay-standfirst-rule" aria-hidden="true" />
+    <div class="essay-context-links" aria-label="Navigation">
+      <a href="/">Series overview</a>
+      <span aria-hidden="true">·</span>
+      <a href="/entry">Start the agentic economy series</a>
+    </div>
+    <nav class="ref-series-nav">
+      {pieces.map((piece) => (
+        <a class="ref-series-item" href={`/ref/${piece.slug}`}>
+          <span class="ref-series-num">{piece.num}</span>
+          <span class="ref-series-title">{piece.title}</span>
+          <span class="ref-series-arrow" aria-hidden="true">→</span>
+        </a>
+      ))}
+    </nav>
+  </div>
+</Base>
+
+<style>
+  .ref-series-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 3rem;
+  }
+  .ref-series-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--color-border, #27272a);
+    text-decoration: none;
+    color: var(--color-text, #e4e4e7);
+    transition: color 0.15s;
+  }
+  .ref-series-item:first-child {
+    border-top: 1px solid var(--color-border, #27272a);
+  }
+  .ref-series-item:hover {
+    color: var(--color-accent, #c4842d);
+  }
+  .ref-series-num {
+    font-family: var(--font-mono, "JetBrains Mono", monospace);
+    font-size: 0.85rem;
+    color: var(--color-muted, #a1a1aa);
+    min-width: 2rem;
+  }
+  .ref-series-title {
+    flex: 1;
+    font-size: 1.25rem;
+    font-weight: 500;
+    font-family: var(--font-body, "Inter", sans-serif);
+  }
+  .ref-series-arrow {
+    color: var(--color-muted, #a1a1aa);
+    transition: transform 0.15s;
+  }
+  .ref-series-item:hover .ref-series-arrow {
+    transform: translateX(4px);
+  }
+</style>

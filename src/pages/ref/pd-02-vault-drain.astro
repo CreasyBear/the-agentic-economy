@@ -2,9 +2,13 @@
 import Essay from "../../layouts/Essay.astro";
 import * as pd_02_vault_drain from "../../../ref/pd-02-vault-drain.mdx";
 const Content = pd_02_vault_drain.default;
-const fm = pd_02_vault_drain.frontmatter || {};
-const pageTitle = fm.title || "The Vault Drain";
 ---
-<Essay title={pageTitle} eyebrow="Reference">
+<Essay
+    title="The Vault Drain"
+    eyebrow="Reference"
+    description="When paper and physical part ways"
+    prev={{ slug: "pd-01-guarantor", title: "The Guarantor Became the Source" }}
+    next={{ slug: "pd-03-yuan-strait", title: "Yuan at the Strait" }}
+  >
   <Content />
 </Essay>

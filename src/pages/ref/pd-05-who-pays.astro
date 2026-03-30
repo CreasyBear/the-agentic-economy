@@ -2,9 +2,13 @@
 import Essay from "../../layouts/Essay.astro";
 import * as pd_05_who_pays from "../../../ref/pd-05-who-pays.mdx";
 const Content = pd_05_who_pays.default;
-const fm = pd_05_who_pays.frontmatter || {};
-const pageTitle = fm.title || "Who Pays";
 ---
-<Essay title={pageTitle} eyebrow="Reference">
+<Essay
+    title="Who Pays"
+    eyebrow="Reference"
+    description="The last link in every chain"
+    prev={{ slug: "pd-04-hierarchy", title: "The Hierarchy Breaks From the Bottom" }}
+    next={{ slug: "pd-06-petrodollar-2", title: "Petrodollar 2.0" }}
+  >
   <Content />
 </Essay>
