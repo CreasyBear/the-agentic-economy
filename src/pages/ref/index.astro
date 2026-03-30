@@ -2,95 +2,131 @@
 import Base from "../../layouts/Base.astro";
 
 const pieces = [
-  { slug: "pd-00-infrastructure-hits", title: "Gulf Infrastructure Hit List", num: "00", desc: "The physical evidence — 40+ energy assets damaged across 9 countries" },
-  { slug: "pd-01-guarantor", title: "The Guarantor Became the Source", num: "01", desc: "The paradox" },
-  { slug: "pd-02-vault-drain", title: "The Vault Drain", num: "02", desc: "The evidence" },
-  { slug: "pd-03-yuan-strait", title: "Yuan at the Strait", num: "03", desc: "The mechanism" },
-  { slug: "pd-04-hierarchy", title: "The Hierarchy Breaks From the Bottom", num: "04", desc: "The framework" },
-  { slug: "pd-05-who-pays", title: "Who Pays", num: "05", desc: "The cost" },
-  { slug: "pd-06-petrodollar-2", title: "Petrodollar 2.0", num: "06", desc: "The counter-move" },
+  { slug: "pd-00-infrastructure-hits", title: "The Physical Toll", num: "00", desc: "Naming the wreckage — 40+ energy assets damaged across 9 countries, repair timelines measured in years.", category: "Reference" },
+  { slug: "pd-01-guarantor", title: "The Guarantor Became the Source", num: "01", desc: "The petrodollar was a security arrangement disguised as a market. When the guarantor struck the system it guaranteed, the system broke.", category: "The Paradox" },
+  { slug: "pd-02-vault-drain", title: "The Vault Drain", num: "02", desc: "The paper market and the physical market have decoupled. Central banks are demanding metal, not promises.", category: "The Evidence" },
+  { slug: "pd-03-yuan-strait", title: "Yuan at the Strait", num: "03", desc: "Fifteen years of plumbing — built for one purpose, repurposed for another — cleared its first transaction at the world's most important chokepoint.", category: "The Mechanism" },
+  { slug: "pd-04-hierarchy", title: "The Hierarchy Breaks From the Bottom", num: "04", desc: "The dollar is still dominant. The hierarchy it sits on is fracturing — at the base, not the top.", category: "The Framework" },
+  { slug: "pd-05-who-pays", title: "Who Pays", num: "05", desc: "The architects debate frameworks. The last link eats less. Every monetary transition redistributes costs downward.", category: "The Cost" },
+  { slug: "pd-06-petrodollar-2", title: "Petrodollar 2.0", num: "06", desc: "Not a treaty. Not a military guarantee. Private digital dollars that create Treasury demand through market adoption.", category: "The Counter-Move" },
 ];
 ---
-<Base title="The Petrodollar Series">
-  <div class="essay-shell">
-    <div class="essay-meta">
-      <span class="essay-meta-label">Reference Series</span>
-      <span class="essay-meta-sep" aria-hidden="true">·</span>
-      <span>2026</span>
-    </div>
-    <h1 class="essay-title">The Fracturing of the Petrodollar</h1>
-    <p class="essay-standfirst">A six-part structural analysis of what's breaking in the global monetary system, what replaces it, and who pays. Plus the infrastructure damage assessment that started it.</p>
-    <hr class="essay-standfirst-rule" aria-hidden="true" />
-    <div class="essay-context-links" aria-label="Navigation">
-      <a href="/">Series overview</a>
-      <span aria-hidden="true">·</span>
-      <a href="/entry">Start the agentic economy series</a>
-    </div>
-    <nav class="ref-series-nav">
+<Base title="The Petrodollar Series — Reference">
+  <div class="ref-index">
+    <header class="ref-index-header">
+      <span class="ref-index-label">Reference Series</span>
+      <h1 class="ref-index-title">The Fracturing of the Petrodollar</h1>
+      <p class="ref-index-subtitle">A six-part structural analysis of what's breaking in the global monetary system, what replaces it, and who pays.</p>
+    </header>
+
+    <div class="ref-index-grid">
       {pieces.map((piece) => (
-        <a class="ref-series-item" href={`/ref/${piece.slug}`}>
-          <span class="ref-series-num">{piece.num}</span>
-          <div class="ref-series-text">
-            <span class="ref-series-title">{piece.title}</span>
-            <span class="ref-series-desc">{piece.desc}</span>
+        <a class="ref-card" href={`/ref/${piece.slug}`}>
+          <div class="ref-card-meta">
+            <span class="ref-card-num">{piece.num}</span>
+            <span class="ref-card-category">{piece.category}</span>
           </div>
-          <span class="ref-series-arrow" aria-hidden="true">→</span>
+          <h2 class="ref-card-title">{piece.title}</h2>
+          <p class="ref-card-desc">{piece.desc}</p>
+          <span class="ref-card-link">Read →</span>
         </a>
       ))}
-    </nav>
+    </div>
   </div>
 </Base>
 
 <style>
-  .ref-series-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-top: 3rem;
+  .ref-index {
+    max-width: 52rem;
+    margin: 0 auto;
+    padding: 5rem 1.5rem 4rem;
   }
-  .ref-series-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid var(--color-border, #27272a);
+  .ref-index-header {
+    margin-bottom: 3rem;
+  }
+  .ref-index-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent, #c4842d);
+    margin-bottom: 0.75rem;
+  }
+  .ref-index-title {
+    font-family: var(--font-heading, "Fraunces", serif);
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--color-heading, #fafafa);
+    margin-bottom: 1rem;
+  }
+  .ref-index-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-muted, #a1a1aa);
+    line-height: 1.6;
+    max-width: 40rem;
+  }
+  .ref-index-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .ref-card {
+    display: block;
     text-decoration: none;
     color: var(--color-text, #e4e4e7);
-    transition: color 0.15s;
-  }
-  .ref-series-item:first-child {
+    padding: 2rem 0;
     border-top: 1px solid var(--color-border, #27272a);
+    transition: all 0.2s;
   }
-  .ref-series-item:hover {
+  .ref-card:last-child {
+    border-bottom: 1px solid var(--color-border, #27272a);
+  }
+  .ref-card:hover {
+    color: var(--color-heading, #fafafa);
+  }
+  .ref-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .ref-card-num {
+    font-family: var(--font-mono, "JetBrains Mono", monospace);
+    font-size: 0.8rem;
+    color: var(--color-muted, #a1a1aa);
+  }
+  .ref-card-category {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     color: var(--color-accent, #c4842d);
   }
-  .ref-series-num {
-    font-family: var(--font-mono, "JetBrains Mono", monospace);
+  .ref-card-title {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+    color: inherit;
+  }
+  .ref-card-desc {
+    font-size: 0.95rem;
+    color: var(--color-muted, #a1a1aa);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+    max-width: 40rem;
+  }
+  .ref-card-link {
     font-size: 0.85rem;
-    color: var(--color-muted, #a1a1aa);
-    min-width: 2rem;
-  }
-  .ref-series-text {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-  .ref-series-title {
-    font-size: 1.25rem;
+    color: var(--color-accent, #c4842d);
     font-weight: 500;
-    font-family: var(--font-body, "Inter", sans-serif);
-  }
-  .ref-series-desc {
-    font-size: 0.9rem;
-    color: var(--color-muted, #a1a1aa);
-    font-family: var(--font-body, "Inter", sans-serif);
-  }
-  .ref-series-arrow {
-    color: var(--color-muted, #a1a1aa);
     transition: transform 0.15s;
+    display: inline-block;
   }
-  .ref-series-item:hover .ref-series-arrow {
+  .ref-card:hover .ref-card-link {
     transform: translateX(4px);
   }
 </style>
