@@ -11,4 +11,13 @@ const Content = pd_01_guarantor.default;
     next={{ slug: "ref/pd-02-vault-drain", title: "The Vault Drain" }}
   >
   <Content />
+<style>
+  /* Hide JSON payloads on mobile — they fall into the text flow */
+  @media (max-width: 1099px) {
+    :global(.agentic-payload) { display: none !important; }
+  }
+  /* Tighten prose for reading */
+  :global(.essay-prose h2) { margin-top: 3rem; }
+  :global(.essay-prose blockquote) { font-size: 1.1rem; }
+</style>
 </Essay>

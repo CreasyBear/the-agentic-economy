@@ -11,4 +11,13 @@ const Content = pd_04_hierarchy.default;
     next={{ slug: "ref/pd-05-who-pays", title: "Who Pays" }}
   >
   <Content />
+<style>
+  /* Hide JSON payloads on mobile — they fall into the text flow */
+  @media (max-width: 1099px) {
+    :global(.agentic-payload) { display: none !important; }
+  }
+  /* Tighten prose for reading */
+  :global(.essay-prose h2) { margin-top: 3rem; }
+  :global(.essay-prose blockquote) { font-size: 1.1rem; }
+</style>
 </Essay>
