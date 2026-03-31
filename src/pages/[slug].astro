@@ -14,6 +14,7 @@ type Meta = {
   eyebrow?: string;
   description?: string;
   heroImage?: string;
+  date?: string;
 };
 
 type NormalizedEntry = {
@@ -61,8 +62,12 @@ const normalizeEntry = (entry: MarkdownEntry): NormalizedEntry => {
       typeof frontmatter.heroImage === "string" && frontmatter.heroImage.length > 0
         ? frontmatter.heroImage
         : undefined;
+    const date =
+      typeof frontmatter.date === "string" && frontmatter.date.length > 0
+        ? frontmatter.date
+        : undefined;
 
-    return { entry, meta: { title, slug, order, eyebrow, description, heroImage } };
+    return { entry, meta: { title, slug, order, eyebrow, description, heroImage, date } };
   };
 
   const markdownEntries = Object.values(
@@ -98,6 +103,6 @@ const {
 const Content = entry.default as any;
 ---
 
-<Essay title={meta.title} eyebrow={meta.eyebrow} description={meta.description} heroImage={meta.heroImage} prev={prev} next={next}>
+<Essay title={meta.title} eyebrow={meta.eyebrow} description={meta.description} heroImage={meta.heroImage} date={meta.date} prev={prev} next={next}>
   <Content />
 </Essay>

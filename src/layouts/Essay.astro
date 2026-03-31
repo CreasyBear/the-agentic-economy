@@ -17,6 +17,7 @@ const seriesEntries = allMarkdown
       title: typeof fm.title === "string" ? fm.title : "",
       slug: typeof fm.slug === "string" ? fm.slug : "",
       order: typeof fm.order === "number" ? fm.order : 999,
+      date: typeof fm.date === "string" ? fm.date : "2026-01-01",
     };
   })
   .sort((a, b) => a.order - b.order);
@@ -31,11 +32,12 @@ interface Props {
   eyebrow?: string;
   description?: string;
   heroImage?: string;
+  date?: string;
   prev?: NavItem | null;
   next?: NavItem | null;
 }
 
-const { title, eyebrow, description, heroImage, prev = null, next = null } = Astro.props;
+const { title, eyebrow, description, heroImage, date = "2026-01-01", prev = null, next = null } = Astro.props;
 
 const currentSlug = Astro.url.pathname.replace(/^\//, "").replace(/\/$/, "");
 const pageTitle = `${title} — The Agentic Economy`;
@@ -47,13 +49,14 @@ const shareImage = heroImage
   ? heroImage.replace("/images/", "/og/").replace(/\.webp$/, ".jpg")
   : "/og/agentic-economy-share.jpg";
 
-// JSON-LD structured data
-const jsonLd = {
+// JSON-LD: Article
+const articleJsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": title,
   "description": description ?? "",
-  "datePublished": "2026-01-01",
+  "datePublished": date,
+  "dateModified": date,
   "author": {
     "@type": "Organization",
     "name": "The Agentic Economy team"
@@ -64,11 +67,32 @@ const jsonLd = {
     "name": "The Agentic Economy"
   }
 };
+
+// JSON-LD: Breadcrumb
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Series",
+      "item": new URL("/", Astro.site).toString()
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": title,
+      "item": Astro.url.toString()
+    }
+  ]
+};
 ---
 
-<Base title={pageTitle} description={description} image={shareImage} ogType="article">
+<Base title={pageTitle} description={description} image={shareImage} ogType="article" publishedTime={date} modifiedTime={date}>
   <head>
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
   </head>
 
   <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>

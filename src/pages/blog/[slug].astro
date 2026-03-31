@@ -15,6 +15,7 @@ type Meta = {
   heroImage?: string;
   extends?: string;
   extendsDescription?: string;
+  date?: string;
 };
 
 export async function getStaticPaths() {
@@ -38,6 +39,7 @@ export async function getStaticPaths() {
         heroImage: typeof fm.heroImage === "string" ? fm.heroImage : undefined,
         extends: typeof fm.extends === "string" ? fm.extends : undefined,
         extendsDescription: typeof fm.exts_description === "string" ? fm.exts_description : undefined,
+        date: typeof fm.date === "string" ? fm.date : undefined,
       },
     };
   };
@@ -63,6 +65,7 @@ const Content = entry.default as any;
   heroImage={meta.heroImage}
   extends={meta.extends}
   extendsDescription={meta.extendsDescription}
+  date={meta.date}
 >
   <Content />
 </BlogPost>

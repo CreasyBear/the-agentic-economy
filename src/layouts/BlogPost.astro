@@ -26,9 +26,10 @@ interface Props {
   heroImage?: string;
   extends?: string;
   extendsDescription?: string;
+  date?: string;
 }
 
-const { title, eyebrow, description, heroImage, extends: extendsSlug, extendsDescription } = Astro.props;
+const { title, eyebrow, description, heroImage, extends: extendsSlug, extendsDescription, date = "2026-03-28" } = Astro.props;
 
 const pageTitle = `${title} — The Agentic Economy`;
 const shareImage = heroImage
@@ -37,12 +38,14 @@ const shareImage = heroImage
 
 const extendsTitle = extendsSlug ? whitepaperMap[extendsSlug] : undefined;
 
-const jsonLd = {
+// JSON-LD: Article
+const articleJsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": title,
   "description": description ?? "",
-  "datePublished": "2026-03-28",
+  "datePublished": date,
+  "dateModified": date,
   "author": {
     "@type": "Organization",
     "name": "The Agentic Economy team"
@@ -53,11 +56,38 @@ const jsonLd = {
     "name": "The Agentic Economy"
   }
 };
+
+// JSON-LD: Breadcrumb
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": new URL("/", Astro.site).toString()
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": new URL("/blog", Astro.site).toString()
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": title,
+      "item": Astro.url.toString()
+    }
+  ]
+};
 ---
 
-<Base title={pageTitle} description={description} image={shareImage} ogType="article">
+<Base title={pageTitle} description={description} image={shareImage} ogType="article" publishedTime={date} modifiedTime={date}>
   <head>
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
   </head>
 
   <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
