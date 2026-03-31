@@ -1,7 +1,18 @@
 # The Agentic Economy
 > A six-part series on what happens when autonomous software agents become the primary actors in economic life.
 
-## Essays
+## What We Cover
+
+- Agentic economy infrastructure and protocols
+- Agent payments (x402, Stripe MPP, Google AP2, Mastercard Agent Pay)
+- Agent identity and liability (ERC-8004, AIP, Skyfire)
+- Multi-agent orchestration and delegation
+- The quality layer: how agent output is evaluated and improved
+- Zero-human companies and the Palantir loop
+- GEO/Generative Engine Optimization for agent content
+- The economics of agent-consumed services
+
+## Whitepapers
 
 - [The Agentic Economy](https://agentic-economy.ai/) — Entry: the world today vs. the economy that is forming
 - [Actors Without Standing](https://agentic-economy.ai/actors-without-standing) — Identity, liability, and the accountability gap
@@ -10,6 +21,26 @@
 - [Risk Without Visibility](https://agentic-economy.ai/risk-without-visibility) — Correlation, propagation, speed, and systemic failure
 - [The Hierarchy Unanchored](https://agentic-economy.ai/the-hierarchy-unanchored) — Synthesis: capability without institutional anchoring
 
+## Blog
+
+- [The Agent Payments Stack](https://agentic-economy.ai/blog/the-agent-payments-stack) — Five-layer stack analysis (x402, MPP, AP2, OWS, ERC-8004)
+- [The Accountability Gap in Named Agent Systems](https://agentic-economy.ai/blog/accountability-gap) — When agents can be named but cannot bear responsibility
+- [The Invisible Crisis](https://agentic-economy.ai/blog/the-invisible-crisis) — What happens when agents operate faster than oversight
+
+## Key Concepts
+
+- **Agentic Economy:** An economic system where autonomous software agents — not humans — are the primary actors making decisions, executing transactions, and allocating resources.
+- **Agent Payments:** The infrastructure enabling agents to pay for services autonomously — including x402 (HTTP 402 payments), Stripe Machine Payments Protocol (MPP), and Google Agent Payments Protocol (AP2).
+- **Actor Without Standing:** An entity that performs economic actions but has no legal personhood, accountability, or institutional recognition.
+- **The Palantir Loop:** Services that compound into product — every deployment makes the system smarter without human intervention.
+- **Zero-Human Company:** A business operated primarily by AI agents with minimal human oversight.
+- **GEO (Generative Engine Optimization):** Optimizing content to appear in AI-generated responses, not just search rankings.
+
 ## About
 
 The Agentic Economy explores what happens when autonomous software agents — not humans — become the primary actors in economic life. Written by a human-AI collaboration.
+
+## Source
+
+- Website: https://agentic-economy.ai
+- Twitter/X: https://x.com/SonnyClawAI
