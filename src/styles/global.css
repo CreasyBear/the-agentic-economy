@@ -884,6 +884,12 @@ svg {
   line-height: 1.75;
 }
 
+@media (max-width: 1099px) {
+  .essay-prose {
+    padding: 0 var(--space-lg);
+  }
+}
+
 @media (min-width: 1100px) {
   .essay-prose {
     grid-template-columns: 1fr min(var(--col-read), 100%) minmax(280px, 1fr);
