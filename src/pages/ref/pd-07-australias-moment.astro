@@ -1,0 +1,22 @@
+---
+import Essay from "../../layouts/Essay.astro";
+import * as pd_07_australias_moment from "../../../ref/pd-07-australias-moment.mdx";
+const Content = pd_07_australias_moment.default;
+---
+<Essay
+    title="Australia's Moment"
+    eyebrow="Reference · Petrodollar Series"
+    description="The gap between what Australia could gain and what it's allowed to pursue"
+    prev={{ slug: "ref/pd-06-petrodollar-2", title: "Petrodollar 2.0" }}
+  >
+  <Content />
+<style>
+  /* Hide JSON payloads on mobile — they fall into the text flow */
+  @media (max-width: 1099px) {
+    :global(.agentic-payload) { display: none !important; }
+  }
+  /* Tighten prose for reading */
+  :global(.essay-prose h2) { margin-top: 3rem; }
+  :global(.essay-prose blockquote) { font-size: 1.1rem; }
+</style>
+</Essay>
