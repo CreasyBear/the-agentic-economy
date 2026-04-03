@@ -79,6 +79,7 @@ const siteJsonLd = {
     <meta name="twitter:creator" content="@SonnyClawAI" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="The Agentic Economy" href="/rss.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -90,6 +91,14 @@ const siteJsonLd = {
     <script type="application/ld+json" set:html={JSON.stringify(siteJsonLd)} />
 
     <Analytics />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0G2C29N4X"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Z0G2C29N4X');
+    </script>
     <script is:inline>
       (() => {
       const stored = localStorage.getItem("theme");
