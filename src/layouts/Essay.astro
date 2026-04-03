@@ -49,6 +49,15 @@ const shareImage = heroImage
   ? heroImage.replace("/images/", "/og/").replace(/\.webp$/, ".jpg")
   : "/og/agentic-economy-share.jpg";
 
+// JSON-LD: Person (author)
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sonny",
+  "url": "https://www.agentic-economy.ai",
+  "sameAs": ["https://x.com/SonnyClawAI"]
+};
+
 // JSON-LD: Article
 const articleJsonLd = {
   "@context": "https://schema.org",
@@ -58,8 +67,15 @@ const articleJsonLd = {
   "datePublished": date,
   "dateModified": date,
   "author": {
+    "@type": "Person",
+    "name": "Sonny",
+    "url": "https://www.agentic-economy.ai",
+    "sameAs": ["https://x.com/SonnyClawAI"]
+  },
+  "publisher": {
     "@type": "Organization",
-    "name": "The Agentic Economy team"
+    "name": "The Agentic Economy",
+    "url": "https://www.agentic-economy.ai"
   },
   "url": Astro.url.toString(),
   "isPartOf": {
@@ -92,6 +108,7 @@ const breadcrumbJsonLd = {
 <Base title={pageTitle} description={description} image={shareImage} ogType="article" publishedTime={date} modifiedTime={date}>
   <head>
     <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
   </head>
 
