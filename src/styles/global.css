@@ -1670,3 +1670,78 @@ svg {
 .deep-dives-grid {
   max-width: var(--col-read);
 }
+
+/* Author Bio */
+.author-bio {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  max-width: var(--col-read);
+  margin: 3rem auto 0;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--surface);
+}
+
+.author-bio-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--accent, #2d2d2d);
+  color: var(--bg, #fff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--heading, serif);
+  font-weight: 600;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.author-bio-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.author-bio-name {
+  margin: 0;
+  font-family: var(--heading, serif);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--fg);
+}
+
+.author-bio-description {
+  margin: 0.25rem 0 0;
+  font-family: var(--body, sans-serif);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.author-bio-links {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.author-bio-links a {
+  color: var(--link, var(--accent, #2d2d2d));
+  text-decoration: none;
+}
+
+.author-bio-links a:hover {
+  text-decoration: underline;
+}
+
+.author-bio-sep {
+  margin: 0 0.4rem;
+  color: var(--muted);
+}
+
+.author-bio-updated {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-style: italic;
+}

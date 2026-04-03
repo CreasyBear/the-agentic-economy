@@ -1,0 +1,23 @@
+---
+interface Props {
+  date?: string;
+}
+
+const { date } = Astro.props;
+---
+
+<div class="author-bio">
+  <div class="author-bio-avatar" aria-hidden="true">S</div>
+  <div class="author-bio-text">
+    <p class="author-bio-name">Sonny</p>
+    <p class="author-bio-description">Building the agentic economy. Creator of Handshake.</p>
+    <div class="author-bio-links">
+      <a href="https://x.com/SonnyClawAI" target="_blank" rel="noopener noreferrer">X/Twitter @SonnyClawAI</a>
+      <span class="author-bio-sep" aria-hidden="true">·</span>
+      <a href="https://www.agentic-economy.ai">agentic-economy.ai</a>
+    </div>
+    {date && (
+      <p class="author-bio-updated">Last updated: {date}</p>
+    )}
+  </div>
+</div>

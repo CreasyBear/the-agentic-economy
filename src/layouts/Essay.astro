@@ -1,5 +1,6 @@
 ---
 import Base from "./Base.astro";
+import AuthorBio from "../components/AuthorBio.astro";
 
 type MarkdownEntry = {
   frontmatter?: Record<string, unknown>;
@@ -243,6 +244,8 @@ const breadcrumbJsonLd = {
         )
       }
     </nav>
+
+    <AuthorBio date={date} />
 
     <footer class="essay-footer">
       <p class="essay-footer-note">
