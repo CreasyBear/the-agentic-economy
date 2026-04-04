@@ -431,4 +431,34 @@ const webpageJsonLd = {
     line-height: 1.6;
     color: var(--muted);
   }
+
+  @media (max-width: 768px) {
+    .doctrine-hero {
+      padding: var(--space-3xl) 0 var(--space-xl);
+    }
+
+    .doctrine-hero-title {
+      font-size: clamp(1.75rem, 5vw, 3.25rem);
+    }
+
+    .doctrine-context-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .doctrine-series-header,
+    .doctrine-branches-header {
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .series-card {
+      padding: var(--space-lg);
+    }
+
+    .doctrine-hero {
+      padding: var(--space-2xl) 0 var(--space-lg);
+    }
+  }
 </style>

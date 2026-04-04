@@ -115,7 +115,10 @@ const siteJsonLd = {
     <header class="site-header">
       <div class="site-inner site-header-row">
         <a class="site-brand" href="/">The Agentic Economy</a>
-        <nav class="site-nav">
+        <button class="site-nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+          ☰
+        </button>
+        <nav class="site-nav" id="site-nav">
           <a class:list={["site-nav-link", { "site-nav-link--active": isHome }]} href="/">Home</a>
           <a class:list={["site-nav-link", { "site-nav-link--active": isDoctrine }]} href="/doctrine">Doctrine</a>
           <a class:list={["site-nav-link", { "site-nav-link--active": isSignals }]} href="/blog">Signals</a>
@@ -167,6 +170,30 @@ const siteJsonLd = {
         });
 
         applyButtonLabel();
+      })();
+    </script>
+    <script is:inline>
+      (() => {
+        const toggle = document.getElementById("nav-toggle");
+        const nav = document.getElementById("site-nav");
+        if (!toggle || !nav) return;
+
+        toggle.addEventListener("click", () => {
+          const isOpen = nav.classList.toggle("is-open");
+          toggle.textContent = isOpen ? "✕" : "☰";
+          toggle.setAttribute("aria-expanded", String(isOpen));
+          toggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+        });
+
+        // Close on link click (mobile)
+        nav.querySelectorAll(".site-nav-link").forEach((link) => {
+          link.addEventListener("click", () => {
+            nav.classList.remove("is-open");
+            toggle.textContent = "☰";
+            toggle.setAttribute("aria-expanded", "false");
+            toggle.setAttribute("aria-label", "Open navigation");
+          });
+        });
       })();
     </script>
     <script>

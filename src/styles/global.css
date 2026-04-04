@@ -239,6 +239,9 @@ svg {
   text-decoration: none;
   font-weight: 500;
   color: var(--muted);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   transition: color 100ms ease-out;
 }
 
@@ -271,6 +274,27 @@ svg {
   background: var(--text);
   color: var(--bg);
   border-color: var(--text);
+}
+
+/* ─── Mobile nav toggle ─────────────────────────────────────────────────── */
+
+.site-nav-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  font-family: var(--ui);
+  transition: color 100ms ease-out;
+}
+
+.site-nav-toggle:hover {
+  color: var(--accent);
 }
 
 /* ─── Footer ────────────────────────────────────────────────────────────── */
@@ -973,6 +997,10 @@ svg {
   color: var(--text);
   text-decoration: none;
   font-weight: 500;
+  padding: var(--space-sm) 0;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   transition: color 100ms ease-out;
 }
 
@@ -1020,6 +1048,7 @@ svg {
   align-items: baseline;
   gap: var(--space-md);
   padding: var(--space-xs) 0;
+  min-height: 44px;
   border-bottom: 1px solid var(--border);
   text-decoration: none;
   transition: color 100ms ease-out;
@@ -1065,6 +1094,47 @@ svg {
   color: var(--accent);
 }
 
+/* ─── Essay Related Signals ─────────────────────────────────────────────── */
+
+.essay-related {
+  max-width: var(--col-read);
+  margin: var(--space-3xl) auto 0;
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--border);
+}
+
+.essay-related-heading {
+  font-family: var(--ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 var(--space-md);
+}
+
+.essay-related-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.essay-related-list li a {
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text);
+  transition: color 100ms ease-out;
+}
+
+.essay-related-list li a:hover {
+  color: var(--accent-strong);
+}
+
 /* ─── Responsive ────────────────────────────────────────────────────────── */
 
 @media (max-width: 900px) {
@@ -1076,6 +1146,50 @@ svg {
 @media (max-width: 768px) {
   .site-inner {
     width: min(100% - 40px, var(--site-max));
+  }
+
+  .site-nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: stretch;
+    padding: var(--space-md) var(--space-xl);
+    gap: 0;
+    z-index: 19;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .site-nav-link {
+    padding: var(--space-sm) 0;
+    font-size: 12px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .site-header {
+    position: sticky;
+  }
+
+  .theme-toggle {
+    margin-top: var(--space-sm);
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -1110,9 +1224,20 @@ svg {
   }
 
   .hero-actions,
-  .essay-cta-actions {
+  .essay-cta-actions,
+  .blog-hero-actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .blog-hero {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .blog-list {
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .essay-prose {
@@ -1124,6 +1249,14 @@ svg {
     padding: var(--space-xl) 0 var(--space-3xl);
   }
 
+  .site-footer-row {
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-md) 0;
+  }
+
   .essay-nav {
     flex-direction: column;
     align-items: flex-start;
@@ -1131,14 +1264,6 @@ svg {
 
   .essay-nav-spacer {
     display: none;
-  }
-
-  .site-nav {
-    gap: var(--space-md);
-  }
-
-  .site-nav-link {
-    font-size: 10px;
   }
 }
 
