@@ -688,7 +688,7 @@ svg {
   position: fixed;
   top: 0;
   left: 0;
-  height: 2px;
+  height: 3px;
   width: 0%;
   background: var(--accent);
   z-index: 100;
@@ -758,9 +758,9 @@ svg {
   max-width: var(--col-read);
   font-family: var(--body);
   font-style: italic;
-  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
   line-height: 1.45;
-  color: var(--text);
+  color: var(--muted);
   margin: 0 auto var(--space-xl);
   padding-left: var(--space-xl);
   border-left: 1px solid var(--border);
@@ -850,6 +850,9 @@ svg {
   grid-template-columns: 1fr min(var(--col-read), 100%) 1fr;
   font-size: 1.2rem;
   line-height: 1.75;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 @media (max-width: 1099px) {
@@ -916,6 +919,7 @@ svg {
   padding-left: var(--space-lg);
   border-left: 3px solid var(--accent);
   margin: var(--space-xl) 0 var(--space-lg);
+  text-align: left;
 }
 
 .essay-prose > blockquote:has(+ hr) {
@@ -976,6 +980,25 @@ svg {
 
 .essay-prose li {
   margin: 0 0 var(--space-xs);
+}
+
+.essay-prose pre {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  padding: var(--space-md) var(--space-lg);
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.essay-prose code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+
+.essay-prose pre code {
+  font-size: inherit;
 }
 
 .essay-nav {
