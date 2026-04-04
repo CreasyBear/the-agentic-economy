@@ -1,5 +1,5 @@
 # The Agentic Economy
-> A six-part series on what happens when autonomous software agents become the primary actors in economic life.
+> A series on what happens when autonomous software agents become the primary actors in economic life.
 
 ## What We Cover
 
@@ -14,18 +14,31 @@
 
 ## Whitepapers
 
-- [The Agentic Economy](https://agentic-economy.ai/) — Entry: the world today vs. the economy that is forming
+- [The Agentic Economy](https://agentic-economy.ai/entry) — Entry: the world today vs. the economy that is forming
 - [Actors Without Standing](https://agentic-economy.ai/actors-without-standing) — Identity, liability, and the accountability gap
 - [Judgment Without Context](https://agentic-economy.ai/judgment-without-context) — Delegation, specification, and the alignment problem
 - [Scale Without Organization](https://agentic-economy.ai/scale-without-organization) — Coase, the headless firm, and who controls the middle
 - [Risk Without Visibility](https://agentic-economy.ai/risk-without-visibility) — Correlation, propagation, speed, and systemic failure
 - [The Hierarchy Unanchored](https://agentic-economy.ai/the-hierarchy-unanchored) — Synthesis: capability without institutional anchoring
+- [The Invisible Crisis](https://agentic-economy.ai/the-invisible-crisis) — Helium shortage and the agentic economy's physical dependencies
+- [Third-Order Effects](https://agentic-economy.ai/third-order-effects) — Causal chain from Hormuz to AI infrastructure constraints
 
 ## Blog
 
 - [The Agent Payments Stack](https://agentic-economy.ai/blog/the-agent-payments-stack) — Five-layer stack analysis (x402, MPP, AP2, OWS, ERC-8004)
-- [The Accountability Gap in Named Agent Systems](https://agentic-economy.ai/blog/accountability-gap) — When agents can be named but cannot bear responsibility
+- [From Prompt to Partner](https://agentic-economy.ai/blog/from-prompt-to-partner) — The five stages of working with AI
 - [The Invisible Crisis](https://agentic-economy.ai/blog/the-invisible-crisis) — What happens when agents operate faster than oversight
+- [Third-Order Effects](https://agentic-economy.ai/blog/third-order-effects) — From Hormuz to your kid's MRI
+
+## Reference Series — The Fracturing of the Petrodollar
+
+- [The Physical Toll](https://agentic-economy.ai/ref/pd-00-infrastructure-hits) — 40+ energy assets damaged across 9 countries
+- [The Guarantor Became the Source](https://agentic-economy.ai/ref/pd-01-guarantor) — When the guarantor struck the system it guaranteed
+- [The Vault Drain](https://agentic-economy.ai/ref/pd-02-vault-drain) — The paper market and the physical market have decoupled
+- [Yuan at the Strait](https://agentic-economy.ai/ref/pd-03-yuan-strait) — First transaction at the world's most important chokepoint
+- [The Hierarchy Breaks From the Bottom](https://agentic-economy.ai/ref/pd-04-hierarchy) — The dollar is still dominant; the hierarchy is fracturing
+- [Who Pays](https://agentic-economy.ai/ref/pd-05-who-pays) — Every monetary transition redistributes costs downward
+- [Petrodollar 2.0](https://agentic-economy.ai/ref/pd-06-petrodollar-2) — Private digital dollars creating Treasury demand
 
 ## Key Concepts
 

@@ -66,7 +66,7 @@ export const GET: APIRoute = () => {
 <rss version="2.0">
   <channel>
     <title>The Agentic Economy</title>
-    <description>A six-part series on what happens when autonomous software agents become the primary actors in economic life.</description>
+    <description>A series on what happens when autonomous software agents become the primary actors in economic life.</description>
     <link>${siteUrl}</link>
     <language>en-us</language>
     <lastBuildDate>${now}</lastBuildDate>

@@ -13,7 +13,7 @@ interface Props {
 
 const siteName = "The Agentic Economy";
 const defaultDescription =
-  "A six-part series on what happens when autonomous software agents become the primary actors in economic life.";
+  "A series on what happens when autonomous software agents become the primary actors in economic life.";
 const defaultImage = "/og/agentic-economy-share.jpg";
 
 const {
@@ -31,8 +31,10 @@ const imageUrl = new URL(image, siteOrigin).toString();
 
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 const isHandshake = currentPath === "/handshake";
-const isEssay = !isHandshake && currentPath !== "/";
 const isHome = currentPath === "/";
+const isDoctrine = currentPath === "/entry" || currentPath === "/doctrine" || (currentPath !== "/" && currentPath !== "/handshake" && !currentPath.startsWith("/blog") && !currentPath.startsWith("/ref") && !currentPath.startsWith("/signals"));
+const isSignals = currentPath.startsWith("/blog") || currentPath.startsWith("/signals");
+const isRef = currentPath.startsWith("/ref");
 
 // Site-level JSON-LD
 const siteJsonLd = {
@@ -114,7 +116,10 @@ const siteJsonLd = {
       <div class="site-inner site-header-row">
         <a class="site-brand" href="/">The Agentic Economy</a>
         <nav class="site-nav">
-          <a class:list={["site-nav-link", { "site-nav-link--active": isHome || isEssay }]} href="/">Essays</a>
+          <a class:list={["site-nav-link", { "site-nav-link--active": isHome }]} href="/">Home</a>
+          <a class:list={["site-nav-link", { "site-nav-link--active": isDoctrine }]} href="/doctrine">Doctrine</a>
+          <a class:list={["site-nav-link", { "site-nav-link--active": isSignals }]} href="/blog">Signals</a>
+          <a class:list={["site-nav-link", { "site-nav-link--active": isRef }]} href="/ref">Reference</a>
           <a class:list={["site-nav-link", { "site-nav-link--active": isHandshake }]} href="/handshake">Handshake</a>
           <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
             Theme

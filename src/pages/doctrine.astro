@@ -1,0 +1,173 @@
+---
+import Base from "../layouts/Base.astro";
+
+type MarkdownEntry = {
+  frontmatter?: Record<string, unknown>;
+  file?: string;
+};
+
+const markdownEntries = Object.values(
+  import.meta.glob("../../content/*.{md,mdx}", { eager: true }),
+) as MarkdownEntry[];
+
+const formatTitle = (value: string) =>
+  value
+    .split("-")
+    .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
+    .join(" ");
+
+const entries = markdownEntries
+  .map((entry) => {
+    const frontmatter = entry.frontmatter ?? {};
+    const fileName = entry.file?.split("/").pop()?.replace(/\.mdx?$/, "") ?? "";
+    const [prefix, ...rest] = fileName.split("-");
+    const fallbackOrder = Number.parseInt(prefix, 10);
+    const fallbackSlug = rest.join("-");
+
+    const title =
+      typeof frontmatter.title === "string" && frontmatter.title.length > 0
+        ? frontmatter.title
+        : formatTitle(fallbackSlug);
+    const slug =
+      typeof frontmatter.slug === "string" && frontmatter.slug.length > 0
+        ? frontmatter.slug
+        : fallbackSlug;
+    const order =
+      typeof frontmatter.order === "number"
+        ? frontmatter.order
+        : Number.isFinite(fallbackOrder)
+          ? fallbackOrder
+          : 999;
+    const description =
+      typeof frontmatter.description === "string" ? frontmatter.description : "";
+    const eyebrow =
+      typeof frontmatter.eyebrow === "string" ? frontmatter.eyebrow : "";
+
+    return { title, slug, order, description, eyebrow };
+  })
+  .sort((a, b) => a.order - b.order);
+
+const coreSeries = entries.filter((e) => e.order <= 5);
+const branches = entries.filter((e) => e.order > 5);
+
+// Group branches by topic extracted from eyebrow (e.g. "Energy Branch")
+const branchGroups = branches.reduce((acc, entry) => {
+  const match = entry.eyebrow.match(/—\s*(.+?)$/);
+  const group = match ? match[1].replace(" Branch", "").trim() : "Branch";
+  if (!acc[group]) acc[group] = [];
+  acc[group].push(entry);
+  return acc;
+}, {} as Record<string, typeof branches>);
+---
+
+<Base
+  title="The Doctrine — The Agentic Economy"
+  description="The permanent argument. Five dynamics, one transformation."
+>
+  <section class="doctrine-hero">
+    <div class="doctrine-hero-inner">
+      <span class="doctrine-hero-label">The Doctrine</span>
+      <h1 class="doctrine-hero-title">The permanent argument.</h1>
+      <p class="doctrine-hero-tagline">Five dynamics, one transformation.</p>
+      <p class="doctrine-hero-desc">
+        Start with the entry essay, or enter at the tension closest to your work.
+      </p>
+    </div>
+  </section>
+
+  <section class="doctrine-context">
+    <div class="doctrine-context-inner">
+      <article class="doctrine-context-item">
+        <span class="doctrine-context-label">What This Is</span>
+        <p class="doctrine-context-copy">
+          A whitepaper series on the shift from human-speed institutions to machine-speed economic actors.
+        </p>
+      </article>
+      <article class="doctrine-context-item">
+        <span class="doctrine-context-label">Who It Is For</span>
+        <p class="doctrine-context-copy">
+          Builders, economists, strategists, and technologists trying to see the next institutional layer clearly.
+        </p>
+      </article>
+      <article class="doctrine-context-item">
+        <span class="doctrine-context-label">How To Read It</span>
+        <p class="doctrine-context-copy">
+          Start with the entry essay for the full frame, or move directly into the tension closest to your work and return to the synthesis.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="doctrine-series">
+    <div class="doctrine-series-header">
+      <span class="doctrine-series-label">Core Series</span>
+      <span class="doctrine-series-count">{coreSeries.length} essays</span>
+    </div>
+    <div class="series-grid">
+      {
+        coreSeries.map((entry, i) => (
+          <a class="series-card" href={`/${entry.slug}`} style={`--i: ${i}`}>
+            <div class="series-card-inner">
+              <span class="series-card-number">
+                {entry.order === 0 ? "Entry" : `Essay ${String(entry.order).padStart(2, "0")}`}
+              </span>
+              <h2 class="series-card-title">{entry.title}</h2>
+              {entry.description && <p class="series-card-desc">{entry.description}</p>}
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  {
+    Object.keys(branchGroups).length > 0 && (
+      <section class="doctrine-branches">
+        <div class="doctrine-branches-header">
+          <span class="doctrine-branches-label">Branches</span>
+        </div>
+        {
+          Object.entries(branchGroups).map(([group, groupEntries]) => (
+            <div class="doctrine-branch-group">
+              <h3 class="doctrine-branch-group-title">{group}</h3>
+              <div class="series-grid">
+                {groupEntries.map((entry, i) => (
+                  <a class="series-card" href={`/${entry.slug}`} style={`--i: ${i}`}>
+                    <div class="series-card-inner">
+                      <span class="series-card-number">
+                        {String(entry.order).padStart(2, "0")}
+                      </span>
+                      <h2 class="series-card-title">{entry.title}</h2>
+                      {entry.description && <p class="series-card-desc">{entry.description}</p>}
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </section>
+    )
+  }
+</Base>
+
+<script>
+  const cards = document.querySelectorAll<HTMLElement>(".series-card");
+
+  if (cards.length > 0 && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (observed) => {
+        observed.forEach((item) => {
+          if (item.isIntersecting) {
+            (item.target as HTMLElement).classList.add("is-visible");
+            observer.unobserve(item.target);
+          }
+        });
+      },
+      { threshold: 0.08 },
+    );
+    cards.forEach((card) => observer.observe(card));
+  } else {
+    cards.forEach((card) => card.classList.add("is-visible"));
+  }
+</script>
