@@ -1,18 +1,18 @@
 ---
-import Essay from "../../layouts/Essay.astro";
-import * as pd_06_petrodollar_2 from "../../../ref/pd-06-petrodollar-2.mdx";
-const Content = pd_06_petrodollar_2.default;
+import Content from "../../layouts/Content.astro";
+import * as pd_06 from "../../../ref/pd-06-petrodollar-2.mdx";
+const fm = pd_06.frontmatter;
+const ContentComponent = pd_06.default;
 ---
-<Essay
-    title="Petrodollar 2.0"
-    eyebrow="Reference · Petrodollar Series"
-    description="The same outcome through a different mechanism"
-    prev={{ slug: "ref/pd-05-who-pays", title: "Who Pays" }}
-  >
-  <Content />
-<style>
-  /* Tighten prose for reading */
-  :global(.essay-prose h2) { margin-top: 3rem; }
-  :global(.essay-prose blockquote) { font-size: 1.1rem; }
-</style>
-</Essay>
+<Content
+  type="reference"
+  title={fm.title}
+  eyebrow={fm.eyebrow}
+  description={fm.description}
+  date={fm.date}
+  extends={fm.extends}
+  prev={{ slug: "ref/pd-05-who-pays", title: "Who Pays" }}
+  next={{ slug: "ref/pd-07-australias-moment", title: "Australia's Moment" }}
+>
+  <ContentComponent />
+</Content>

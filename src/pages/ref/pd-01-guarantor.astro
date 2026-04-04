@@ -1,19 +1,18 @@
 ---
-import Essay from "../../layouts/Essay.astro";
-import * as pd_01_guarantor from "../../../ref/pd-01-guarantor.mdx";
-const Content = pd_01_guarantor.default;
+import Content from "../../layouts/Content.astro";
+import * as pd_01 from "../../../ref/pd-01-guarantor.mdx";
+const fm = pd_01.frontmatter;
+const ContentComponent = pd_01.default;
 ---
-<Essay
-    title="The Guarantor Became the Source"
-    eyebrow="Reference · Petrodollar Series"
-    description="The paradox of the guarantor striking its own system"
-    prev={{ slug: "ref/pd-00-infrastructure-hits", title: "The Physical Toll" }}
-    next={{ slug: "ref/pd-02-vault-drain", title: "The Vault Drain" }}
-  >
-  <Content />
-<style>
-  /* Tighten prose for reading */
-  :global(.essay-prose h2) { margin-top: 3rem; }
-  :global(.essay-prose blockquote) { font-size: 1.1rem; }
-</style>
-</Essay>
+<Content
+  type="reference"
+  title={fm.title}
+  eyebrow={fm.eyebrow}
+  description={fm.description}
+  date={fm.date}
+  extends={fm.extends}
+  prev={{ slug: "ref/pd-00-infrastructure-hits", title: "The Physical Toll" }}
+  next={{ slug: "ref/pd-02-vault-drain", title: "The Vault Drain" }}
+>
+  <ContentComponent />
+</Content>

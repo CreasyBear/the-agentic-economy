@@ -1,19 +1,18 @@
 ---
-import Essay from "../../layouts/Essay.astro";
-import * as pd_03_yuan_strait from "../../../ref/pd-03-yuan-strait.mdx";
-const Content = pd_03_yuan_strait.default;
+import Content from "../../layouts/Content.astro";
+import * as pd_03 from "../../../ref/pd-03-yuan-strait.mdx";
+const fm = pd_03.frontmatter;
+const ContentComponent = pd_03.default;
 ---
-<Essay
-    title="Yuan at the Strait"
-    eyebrow="Reference · Petrodollar Series"
-    description="The rails were already there"
-    prev={{ slug: "ref/pd-02-vault-drain", title: "The Vault Drain" }}
-    next={{ slug: "ref/pd-04-hierarchy", title: "The Hierarchy Breaks From the Bottom" }}
-  >
-  <Content />
-<style>
-  /* Tighten prose for reading */
-  :global(.essay-prose h2) { margin-top: 3rem; }
-  :global(.essay-prose blockquote) { font-size: 1.1rem; }
-</style>
-</Essay>
+<Content
+  type="reference"
+  title={fm.title}
+  eyebrow={fm.eyebrow}
+  description={fm.description}
+  date={fm.date}
+  extends={fm.extends}
+  prev={{ slug: "ref/pd-02-vault-drain", title: "The Vault Drain" }}
+  next={{ slug: "ref/pd-04-hierarchy", title: "The Hierarchy Breaks From the Bottom" }}
+>
+  <ContentComponent />
+</Content>

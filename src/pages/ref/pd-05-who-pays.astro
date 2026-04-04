@@ -1,19 +1,18 @@
 ---
-import Essay from "../../layouts/Essay.astro";
-import * as pd_05_who_pays from "../../../ref/pd-05-who-pays.mdx";
-const Content = pd_05_who_pays.default;
+import Content from "../../layouts/Content.astro";
+import * as pd_05 from "../../../ref/pd-05-who-pays.mdx";
+const fm = pd_05.frontmatter;
+const ContentComponent = pd_05.default;
 ---
-<Essay
-    title="Who Pays"
-    eyebrow="Reference · Petrodollar Series"
-    description="The last link in every chain"
-    prev={{ slug: "ref/pd-04-hierarchy", title: "The Hierarchy Breaks From the Bottom" }}
-    next={{ slug: "ref/pd-06-petrodollar-2", title: "Petrodollar 2.0" }}
-  >
-  <Content />
-<style>
-  /* Tighten prose for reading */
-  :global(.essay-prose h2) { margin-top: 3rem; }
-  :global(.essay-prose blockquote) { font-size: 1.1rem; }
-</style>
-</Essay>
+<Content
+  type="reference"
+  title={fm.title}
+  eyebrow={fm.eyebrow}
+  description={fm.description}
+  date={fm.date}
+  extends={fm.extends}
+  prev={{ slug: "ref/pd-04-hierarchy", title: "The Hierarchy Breaks From the Bottom" }}
+  next={{ slug: "ref/pd-06-petrodollar-2", title: "Petrodollar 2.0" }}
+>
+  <ContentComponent />
+</Content>

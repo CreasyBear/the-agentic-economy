@@ -1,19 +1,18 @@
 ---
-import Essay from "../../layouts/Essay.astro";
-import * as pd_04_hierarchy from "../../../ref/pd-04-hierarchy.mdx";
-const Content = pd_04_hierarchy.default;
+import Content from "../../layouts/Content.astro";
+import * as pd_04 from "../../../ref/pd-04-hierarchy.mdx";
+const fm = pd_04.frontmatter;
+const ContentComponent = pd_04.default;
 ---
-<Essay
-    title="The Hierarchy Breaks From the Bottom"
-    eyebrow="Reference · Petrodollar Series"
-    description="Where everyone is looking is not where it's happening"
-    prev={{ slug: "ref/pd-03-yuan-strait", title: "Yuan at the Strait" }}
-    next={{ slug: "ref/pd-05-who-pays", title: "Who Pays" }}
-  >
-  <Content />
-<style>
-  /* Tighten prose for reading */
-  :global(.essay-prose h2) { margin-top: 3rem; }
-  :global(.essay-prose blockquote) { font-size: 1.1rem; }
-</style>
-</Essay>
+<Content
+  type="reference"
+  title={fm.title}
+  eyebrow={fm.eyebrow}
+  description={fm.description}
+  date={fm.date}
+  extends={fm.extends}
+  prev={{ slug: "ref/pd-03-yuan-strait", title: "Yuan at the Strait" }}
+  next={{ slug: "ref/pd-05-who-pays", title: "Who Pays" }}
+>
+  <ContentComponent />
+</Content>

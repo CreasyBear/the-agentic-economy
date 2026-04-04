@@ -1,19 +1,18 @@
 ---
-import Essay from "../../layouts/Essay.astro";
-import * as pd_02_vault_drain from "../../../ref/pd-02-vault-drain.mdx";
-const Content = pd_02_vault_drain.default;
+import Content from "../../layouts/Content.astro";
+import * as pd_02 from "../../../ref/pd-02-vault-drain.mdx";
+const fm = pd_02.frontmatter;
+const ContentComponent = pd_02.default;
 ---
-<Essay
-    title="The Vault Drain"
-    eyebrow="Reference · Petrodollar Series"
-    description="When paper and physical part ways"
-    prev={{ slug: "ref/pd-01-guarantor", title: "The Guarantor Became the Source" }}
-    next={{ slug: "ref/pd-03-yuan-strait", title: "Yuan at the Strait" }}
-  >
-  <Content />
-<style>
-  /* Tighten prose for reading */
-  :global(.essay-prose h2) { margin-top: 3rem; }
-  :global(.essay-prose blockquote) { font-size: 1.1rem; }
-</style>
-</Essay>
+<Content
+  type="reference"
+  title={fm.title}
+  eyebrow={fm.eyebrow}
+  description={fm.description}
+  date={fm.date}
+  extends={fm.extends}
+  prev={{ slug: "ref/pd-01-guarantor", title: "The Guarantor Became the Source" }}
+  next={{ slug: "ref/pd-03-yuan-strait", title: "Yuan at the Strait" }}
+>
+  <ContentComponent />
+</Content>

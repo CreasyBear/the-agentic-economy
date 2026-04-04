@@ -1,5 +1,5 @@
 ---
-import Essay from "../layouts/Essay.astro";
+import Content from "../layouts/Content.astro";
 
 type MarkdownEntry = {
   frontmatter?: Record<string, unknown>;
@@ -100,9 +100,9 @@ const {
   next,
 }: { entry: MarkdownEntry; meta: Meta; prev: NavItem; next: NavItem } = Astro.props;
 
-const Content = entry.default as any;
+const ContentComponent = entry.default as any;
 ---
 
-<Essay title={meta.title} eyebrow={meta.eyebrow} description={meta.description} heroImage={meta.heroImage} date={meta.date} prev={prev} next={next}>
-  <Content />
-</Essay>
+<Content type="doctrine" title={meta.title} eyebrow={meta.eyebrow} description={meta.description} heroImage={meta.heroImage} date={meta.date} prev={prev} next={next}>
+  <ContentComponent />
+</Content>

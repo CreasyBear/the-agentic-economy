@@ -850,9 +850,24 @@ svg {
   grid-template-columns: 1fr min(var(--col-read), 100%) 1fr;
   font-size: 1.2rem;
   line-height: 1.75;
+}
+
+/* Doctrine essays: justified for immersive long-form reading */
+.essay-prose--doctrine {
   text-align: justify;
   hyphens: auto;
   -webkit-hyphens: auto;
+}
+
+/* Signal and reference: left-aligned for scannability */
+.essay-prose--signal,
+.essay-prose--reference {
+  text-align: left;
+}
+
+/* Reference prose: slightly wider reading column */
+.essay-prose--reference {
+  grid-template-columns: 1fr min(780px, 100%) 1fr;
 }
 
 @media (max-width: 1099px) {
@@ -982,19 +997,27 @@ svg {
   margin: 0 0 var(--space-xs);
 }
 
+/* Code blocks: clean, minimal — let content breathe */
 .essay-prose pre {
   background: var(--bg-alt);
-  border: 1px solid var(--border);
   padding: var(--space-md) var(--space-lg);
   overflow-x: auto;
   font-family: var(--mono);
   font-size: 0.85rem;
   line-height: 1.6;
+  border: none;
 }
 
 .essay-prose code {
   font-family: var(--mono);
   font-size: 0.9em;
+}
+
+/* Reference: code blocks are content, not decoration */
+.essay-prose--reference pre {
+  background: transparent;
+  padding: var(--space-md) 0;
+  font-size: 0.82rem;
 }
 
 .essay-prose pre code {

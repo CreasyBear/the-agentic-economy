@@ -1,17 +1,17 @@
 ---
-import Essay from "../../layouts/Essay.astro";
-import * as pd_00_infrastructure_hits from "../../../ref/pd-00-infrastructure-hits.mdx";
-const Content = pd_00_infrastructure_hits.default;
+import Content from "../../layouts/Content.astro";
+import * as pd_00 from "../../../ref/pd-00-infrastructure-hits.mdx";
+const fm = pd_00.frontmatter;
+const ContentComponent = pd_00.default;
 ---
-<Essay
-    title="The Physical Toll"
-    eyebrow="Reference · Petrodollar Series"
-    description="The physical evidence — 40+ energy assets damaged across 9 countries"
-    next={{ slug: "ref/pd-01-guarantor", title: "The Guarantor Became the Source" }}
-  >
-  <Content />
-<style>
-  /* Tighten prose for reading */
-  :global(.essay-prose blockquote) { font-size: 1.1rem; }
-</style>
-</Essay>
+<Content
+  type="reference"
+  title={fm.title}
+  eyebrow={fm.eyebrow}
+  description={fm.description}
+  date={fm.date}
+  extends={fm.extends}
+  next={{ slug: "ref/pd-01-guarantor", title: "The Guarantor Became the Source" }}
+>
+  <ContentComponent />
+</Content>

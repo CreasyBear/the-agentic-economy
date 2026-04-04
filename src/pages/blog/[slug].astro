@@ -1,5 +1,5 @@
 ---
-import BlogPost from "../../layouts/BlogPost.astro";
+import Content from "../../layouts/Content.astro";
 
 type MarkdownEntry = {
   frontmatter?: Record<string, unknown>;
@@ -55,10 +55,11 @@ export async function getStaticPaths() {
 }
 
 const { entry, meta } = Astro.props as { entry: MarkdownEntry; meta: Meta };
-const Content = entry.default as any;
+const ContentComponent = entry.default as any;
 ---
 
-<BlogPost
+<Content
+  type="signal"
   title={meta.title}
   eyebrow={meta.eyebrow}
   description={meta.description}
@@ -67,5 +68,5 @@ const Content = entry.default as any;
   extendsDescription={meta.extendsDescription}
   date={meta.date}
 >
-  <Content />
-</BlogPost>
+  <ContentComponent />
+</Content>
