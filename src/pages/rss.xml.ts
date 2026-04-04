@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 
-const siteUrl = "https://the-agentic-economy.vercel.app";
+const siteUrl = "https://agentic-economy.ai";
 
 const entries = [
   {
@@ -46,10 +46,33 @@ const entries = [
   },
 ];
 
+const blogPosts = [
+  {
+    slug: "the-agent-payments-stack",
+    title: "The Agent Payments Stack",
+    description: "Five-layer stack analysis (x402, MPP, AP2, OWS, ERC-8004).",
+  },
+  {
+    slug: "from-prompt-to-partner",
+    title: "From Prompt to Partner",
+    description: "The five stages of working with AI.",
+  },
+  {
+    slug: "the-invisible-crisis",
+    title: "The Invisible Crisis",
+    description: "What happens when agents operate faster than oversight.",
+  },
+  {
+    slug: "third-order-effects",
+    title: "Third-Order Effects",
+    description: "From Hormuz to your kid's MRI.",
+  },
+];
+
 export const GET: APIRoute = () => {
   const now = new Date().toUTCString();
 
-  const items = entries
+  const essayItems = entries
     .sort((a, b) => a.order - b.order)
     .map(
       (e) => `    <item>
@@ -57,6 +80,18 @@ export const GET: APIRoute = () => {
       <description><![CDATA[${e.description}]]></description>
       <link>${siteUrl}/${e.slug}</link>
       <guid isPermaLink="true">${siteUrl}/${e.slug}</guid>
+      <pubDate>${now}</pubDate>
+    </item>`
+    )
+    .join("\n");
+
+  const blogItems = blogPosts
+    .map(
+      (e) => `    <item>
+      <title><![CDATA[${e.title}]]></title>
+      <description><![CDATA[${e.description}]]></description>
+      <link>${siteUrl}/blog/${e.slug}</link>
+      <guid isPermaLink="true">${siteUrl}/blog/${e.slug}</guid>
       <pubDate>${now}</pubDate>
     </item>`
     )
@@ -70,7 +105,8 @@ export const GET: APIRoute = () => {
     <link>${siteUrl}</link>
     <language>en-us</language>
     <lastBuildDate>${now}</lastBuildDate>
-${items}
+${essayItems}
+${blogItems}
   </channel>
 </rss>`;
 

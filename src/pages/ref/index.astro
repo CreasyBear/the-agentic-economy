@@ -11,13 +11,37 @@ const pieces = [
   { slug: "pd-06-petrodollar-2", title: "Petrodollar 2.0", num: "06", desc: "Not a treaty. Not a military guarantee. Private digital dollars that create Treasury demand through market adoption.", category: "The Counter-Move" },
   { slug: "pd-07-australias-moment", title: "Australia's Moment", num: "07", desc: "The petrodollar break creates an asymmetric opportunity for Australia. AUKUS constrains Australia's ability to capitalize.", category: "The Signal" },
 ];
+
+// JSON-LD: WebPage
+const webpageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "The Petrodollar Series — Reference",
+  "description": "A structural analysis of what's breaking in the global monetary system.",
+  "url": Astro.url.toString(),
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "The Agentic Economy",
+    "url": new URL("/", Astro.site).toString()
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": new URL("/", Astro.site).toString() },
+      { "@type": "ListItem", "position": 2, "name": "Reference", "item": Astro.url.toString() }
+    ]
+  }
+};
 ---
 <Base title="The Petrodollar Series — Reference">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(webpageJsonLd)} />
+  </Fragment>
   <div class="ref-index">
     <header class="ref-index-header">
       <span class="ref-index-label">Reference Series</span>
       <h1 class="ref-index-title">The Fracturing of the Petrodollar</h1>
-      <p class="ref-index-subtitle">A six-part structural analysis of what's breaking in the global monetary system, what replaces it, and who pays.</p>
+      <p class="ref-index-subtitle">An eight-part structural analysis of what's breaking in the global monetary system, what replaces it, and who pays.</p>
     </header>
 
     <div class="ref-index-grid">

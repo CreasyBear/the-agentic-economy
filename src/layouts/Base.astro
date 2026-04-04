@@ -32,7 +32,7 @@ const imageUrl = new URL(image, siteOrigin).toString();
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 const isHandshake = currentPath === "/handshake";
 const isHome = currentPath === "/";
-const isDoctrine = currentPath === "/entry" || currentPath === "/doctrine" || (currentPath !== "/" && currentPath !== "/handshake" && !currentPath.startsWith("/blog") && !currentPath.startsWith("/ref") && !currentPath.startsWith("/signals"));
+const isDoctrine = currentPath === "/entry" || currentPath === "/doctrine" || currentPath.startsWith("/entry/") || currentPath.startsWith("/doctrine/") || (currentPath !== "/" && currentPath !== "/handshake" && !currentPath.startsWith("/blog") && !currentPath.startsWith("/ref") && !currentPath.startsWith("/signals"));
 const isSignals = currentPath.startsWith("/blog") || currentPath.startsWith("/signals");
 const isRef = currentPath.startsWith("/ref");
 
@@ -137,6 +137,13 @@ const siteJsonLd = {
     <footer class="site-footer">
       <div class="site-inner site-footer-row">
         <span>By the team building <a href="/handshake">Handshake</a></span>
+        <nav class="site-footer-links" aria-label="Footer navigation">
+          <a href="/doctrine">Doctrine</a>
+          <span aria-hidden="true">·</span>
+          <a href="/signals">Signals</a>
+          <span aria-hidden="true">·</span>
+          <a href="/ref">Reference</a>
+        </nav>
         <span>2026</span>
       </div>
     </footer>

@@ -42,6 +42,27 @@ const { title, eyebrow, description, heroImage, date = "2026-01-01", prev = null
 
 const currentSlug = Astro.url.pathname.replace(/^\//, "").replace(/\/$/, "");
 const pageTitle = `${title} — The Agentic Economy`;
+
+// Related Signals: blog posts that extend this essay
+type BlogEntry = {
+  frontmatter?: Record<string, unknown>;
+  file?: string;
+};
+
+const allBlog = Object.values(
+  import.meta.glob("../../blog/*.{md,mdx}", { eager: true }),
+) as BlogEntry[];
+
+const relatedSignals = allBlog
+  .map((entry) => {
+    const fm = entry.frontmatter ?? {};
+    return {
+      title: typeof fm.title === "string" ? fm.title : "",
+      slug: typeof fm.slug === "string" ? fm.slug : "",
+      extends: typeof fm.extends === "string" ? fm.extends : "",
+    };
+  })
+  .filter((post) => post.extends === `/${currentSlug}` && post.slug);
 const entryEssay = seriesEntries.find((entry) => entry.order === 0) ?? seriesEntries[0];
 const isEntryEssay = currentSlug === entryEssay?.slug;
 const isFinalEssay = next === null;
@@ -246,6 +267,19 @@ const breadcrumbJsonLd = {
     </nav>
 
     <AuthorBio date={date} />
+
+    {relatedSignals.length > 0 && (
+      <section class="essay-related" aria-label="Related signals">
+        <h2 class="essay-related-heading">Related Signals</h2>
+        <ul class="essay-related-list">
+          {relatedSignals.map((signal) => (
+            <li>
+              <a href={`/blog/${signal.slug}`}>{signal.title}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
 
     <footer class="essay-footer">
       <p class="essay-footer-note">

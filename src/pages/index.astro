@@ -252,7 +252,11 @@ const formatDate = (dateStr: string) => {
     align-items: baseline;
     padding: var(--space-md) 0;
     text-decoration: none;
-    transition: color 100ms ease-out;
+    transition: color 100ms ease-out, transform 200ms var(--ease-heavy);
+  }
+
+  .doctrine-link:hover {
+    transform: translateX(4px);
   }
 
   .doctrine-link:hover .doctrine-title {
@@ -341,6 +345,14 @@ const formatDate = (dateStr: string) => {
   .deep-dives-card--featured:hover {
     transform: translate(-3px, -3px);
     box-shadow: 9px 9px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  [data-theme="dark"] .deep-dives-card--featured {
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  [data-theme="dark"] .deep-dives-card--featured:hover {
+    box-shadow: 9px 9px 0 rgba(0, 0, 0, 0.3);
   }
 
   @media (max-width: 700px) {

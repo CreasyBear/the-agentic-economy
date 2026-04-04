@@ -49,12 +49,37 @@ const posts = blogEntries
     };
   })
   .reverse();
+
+// JSON-LD: CollectionPage
+const collectionJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Signals — The Agentic Economy",
+  "description": "Rapid analysis of events as they unfold.",
+  "url": Astro.url.toString(),
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "The Agentic Economy",
+    "url": new URL("/", Astro.site).toString()
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": new URL("/", Astro.site).toString() },
+      { "@type": "ListItem", "position": 2, "name": "Signals", "item": Astro.url.toString() }
+    ]
+  }
+};
 ---
 
 <Base
   title="Signals — The Agentic Economy"
   description="Rapid analysis of events as they unfold."
+  image="/og/agentic-economy-share.jpg"
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(collectionJsonLd)} />
+  </Fragment>
   <section class="blog-hero">
     <div class="blog-hero-inner">
       <span class="blog-hero-label">Analysis</span>

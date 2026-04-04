@@ -58,12 +58,37 @@ const branchGroups = branches.reduce((acc, entry) => {
   acc[group].push(entry);
   return acc;
 }, {} as Record<string, typeof branches>);
+
+// JSON-LD: WebPage
+const webpageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "The Doctrine — The Agentic Economy",
+  "description": "The permanent argument. Five dynamics, one transformation.",
+  "url": Astro.url.toString(),
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "The Agentic Economy",
+    "url": new URL("/", Astro.site).toString()
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": new URL("/", Astro.site).toString() },
+      { "@type": "ListItem", "position": 2, "name": "Doctrine", "item": Astro.url.toString() }
+    ]
+  }
+};
 ---
 
 <Base
   title="The Doctrine — The Agentic Economy"
   description="The permanent argument. Five dynamics, one transformation."
+  image="/og/agentic-economy-share.jpg"
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(webpageJsonLd)} />
+  </Fragment>
   <section class="doctrine-hero">
     <div class="doctrine-hero-inner">
       <span class="doctrine-hero-label">The Doctrine</span>
@@ -171,3 +196,239 @@ const branchGroups = branches.reduce((acc, entry) => {
     cards.forEach((card) => card.classList.add("is-visible"));
   }
 </script>
+
+<style>
+  .doctrine-hero {
+    padding: var(--space-4xl) 0 var(--space-2xl);
+  }
+
+  .doctrine-hero-inner {
+    max-width: var(--col-read);
+    margin: 0 auto;
+  }
+
+  .doctrine-hero-label {
+    font-family: var(--ui);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: var(--space-md);
+  }
+
+  .doctrine-hero-title {
+    font-family: var(--display);
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin: 0 0 var(--space-md);
+    color: var(--text);
+  }
+
+  .doctrine-hero-tagline {
+    font-family: var(--display);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--muted);
+    margin: 0 0 var(--space-md);
+  }
+
+  .doctrine-hero-desc {
+    font-family: var(--body);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .doctrine-context {
+    padding: 0 0 var(--space-3xl);
+  }
+
+  .doctrine-context-inner {
+    max-width: var(--site-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-lg);
+    padding: var(--space-xl) 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .doctrine-context-item {
+    padding: 0;
+  }
+
+  .doctrine-context-label {
+    font-family: var(--ui);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: var(--space-xs);
+  }
+
+  .doctrine-context-copy {
+    font-family: var(--body);
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .doctrine-series {
+    padding: var(--space-3xl) 0;
+  }
+
+  .doctrine-series-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .doctrine-series-label {
+    font-family: var(--ui);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .doctrine-series-count {
+    font-family: var(--ui);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--subtle);
+  }
+
+  .doctrine-branches {
+    padding: 0 0 var(--space-4xl);
+  }
+
+  .doctrine-branches-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .doctrine-branches-label {
+    font-family: var(--ui);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .doctrine-branch-group {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .doctrine-branch-group-title {
+    font-family: var(--ui);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 var(--space-lg);
+  }
+
+  .series-card {
+    position: relative;
+    background: var(--bg-alt);
+    padding: var(--space-xl);
+    box-shadow:
+      0 16px 32px -8px rgba(0,0,0,0.04),
+      0 1px 2px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.5s ease-out calc(var(--i, 0) * 80ms),
+      transform 0.4s var(--ease-heavy) calc(var(--i, 0) * 80ms);
+  }
+
+  .series-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .series-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .series-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 400ms var(--ease-heavy);
+  }
+
+  .series-card:hover::after {
+    transform: scaleX(1);
+  }
+
+  .series-card-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .series-card-number {
+    font-family: var(--ui);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--subtle);
+    margin-bottom: var(--space-sm);
+    display: block;
+  }
+
+  .series-card-title {
+    font-family: var(--display);
+    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin: 0 0 var(--space-sm);
+    color: var(--text);
+    transition: color 100ms ease-out;
+  }
+
+  .series-card:hover .series-card-title {
+    color: var(--accent);
+  }
+
+  .series-card-desc {
+    margin: 0;
+    font-family: var(--body);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+</style>
