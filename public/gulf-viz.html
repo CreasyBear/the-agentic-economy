@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Physical Toll — Gulf Infrastructure Damage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --bg: #09090b;
+  --surface: #18181b;
+  --surface2: #1c1c1f;
+  --border: rgba(255,255,255,0.06);
+  --border-bright: rgba(255,255,255,0.12);
+  --text: #fafafa;
+  --text-dim: #a1a1aa;
+  --text-muted: #71717a;
+  --accent: #c9a96e;
+  --accent-dim: rgba(201,169,110,0.12);
+  --red: #ef4444;
+  --orange: #f59e0b;
+  --purple: #a78bfa;
+  --green: #22c55e;
+  --gold: #c9a96e;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page { max-width: 1100px; margin: 0 auto; padding: 60px 24px 80px; }
+
+/* ── HERO ── */
+.hero { text-align: center; margin-bottom: 64px; }
+.hero-eyebrow {
+  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--accent); font-weight: 600; margin-bottom: 16px;
+}
+.hero h1 {
+  font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 400; line-height: 1.1; margin-bottom: 16px;
+  color: var(--text);
+}
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-sub {
+  font-size: 15px; color: var(--text-dim); max-width: 600px; margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── KPI STRIP ── */
+.kpi-strip {
+  display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+  margin-bottom: 64px; padding: 32px 0;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.kpi { text-align: center; }
+.kpi-value { font-size: 42px; font-weight: 800; line-height: 1; }
+.kpi-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--text-muted); margin-top: 4px;
+}
+
+/* ── SECTION HEADERS ── */
+.section { margin-bottom: 56px; }
+.section-title {
+  font-family: var(--font-serif); font-size: 1.6rem; font-weight: 400;
+  margin-bottom: 8px; color: var(--text);
+}
+.section-desc {
+  font-size: 14px; color: var(--text-dim); margin-bottom: 24px;
+  max-width: 640px;
+}
+
+/* ── CHART CONTAINER ── */
+.chart-wrap {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px; margin-bottom: 24px;
+}
+.chart-wrap canvas { width: 100% !important; }
+
+/* ── COUNTRY TABLE ── */
+.country-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.country-table th {
+  text-align: left; font-size: 11px; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--text-muted); padding: 8px 12px;
+  border-bottom: 1px solid var(--border-bright);
+  font-weight: 600;
+}
+.country-table td {
+  padding: 12px; border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.country-table tr:last-child td { border-bottom: none; }
+.country-table .country-name { font-weight: 600; }
+.country-table .damage-bar {
+  height: 6px; border-radius: 3px; background: var(--surface2);
+  position: relative; overflow: hidden;
+}
+.country-table .damage-fill {
+  height: 100%; border-radius: 3px;
+  position: absolute; left: 0; top: 0;
+}
+
+/* ── CASCADE FLOW ── */
+.cascade {
+  display: flex; align-items: center; gap: 0; flex-wrap: wrap;
+  justify-content: center; margin: 24px 0;
+}
+.cascade-node {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 20px; text-align: center;
+  min-width: 120px;
+}
+.cascade-node.disrupted {
+  border-color: var(--red); box-shadow: 0 0 12px rgba(239,68,68,0.15);
+}
+.cascade-node .node-label { font-size: 12px; font-weight: 600; }
+.cascade-node .node-detail { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+.cascade-arrow {
+  font-size: 18px; color: var(--text-muted); padding: 0 4px;
+  flex-shrink: 0;
+}
+
+/* ── SOURCE ── */
+.source {
+  font-size: 12px; color: var(--text-muted); margin-top: 48px;
+  padding-top: 24px; border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .kpi-strip { gap: 24px; }
+  .kpi-value { font-size: 32px; }
+  .cascade { flex-direction: column; }
+  .cascade-arrow { transform: rotate(90deg); padding: 4px 0; }
+  .country-table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Reference · Petrodollar Series · pd-00 Update</div>
+    <h1>The <em>Physical Toll</em></h1>
+    <p class="hero-sub">
+      Physical infrastructure damage from the 2026 Gulf strikes —
+      41 energy assets across 8 countries.
+      Updated through April 4, 2026.
+    </p>
+  </div>
+
+  <!-- KPI STRIP -->
+  <div class="kpi-strip">
+    <div class="kpi">
+      <div class="kpi-value" style="color:var(--text)">41</div>
+      <div class="kpi-label">Assets Hit</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-value" style="color:var(--red)">3</div>
+      <div class="kpi-label">Destroyed</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-value" style="color:var(--orange)">31</div>
+      <div class="kpi-label">Damaged</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-value" style="color:var(--purple)">7</div>
+      <div class="kpi-label">Threatened</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-value" style="color:var(--accent)">8</div>
+      <div class="kpi-label">Countries</div>
+    </div>
+  </div>
+
+  <!-- HORMUZ TRAFFIC CLIFF -->
+  <div class="section">
+    <div class="section-title">The Strait That Closed</div>
+    <div class="section-desc">
+      Daily vessel transits through the Strait of Hormuz.
+      From 138 vessels per day to 7. A 95% decline in six weeks.
+    </div>
+    <div class="chart-wrap">
+      <canvas id="hormuzChart" height="260"></canvas>
+    </div>
+  </div>
+
+  <!-- PRODUCTION WATERFALL -->
+  <div class="section">
+    <div class="section-title">Gulf Production Collapse</div>
+    <div class="section-desc">
+      Pre-war production vs current capacity, by country.
+      Iran lost two-thirds of its exports. Saudi spare capacity trapped behind Hormuz.
+    </div>
+    <div class="chart-wrap">
+      <canvas id="productionChart" height="300"></canvas>
+    </div>
+  </div>
+
+  <!-- DAMAGE BY COUNTRY -->
+  <div class="section">
+    <div class="section-title">Damage by Country</div>
+    <div class="section-desc">
+      Asset count and severity across the Gulf region.
+    </div>
+    <div class="chart-wrap">
+      <table class="country-table">
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>Total</th>
+            <th>Destroyed</th>
+            <th>Damaged</th>
+            <th>Threatened</th>
+            <th style="width:30%">Severity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="country-name">Iran</td>
+            <td>6</td>
+            <td style="color:var(--red)">2</td>
+            <td style="color:var(--orange)">3</td>
+            <td style="color:var(--purple)">1</td>
+            <td><div class="damage-bar"><div class="damage-fill" style="width:100%;background:linear-gradient(90deg,var(--red) 33%,var(--orange) 83%,var(--purple) 100%)"></div></div></td>
+          </tr>
+          <tr>
+            <td class="country-name">UAE</td>
+            <td>9</td>
+            <td style="color:var(--red)">0</td>
+            <td style="color:var(--orange)">7</td>
+            <td style="color:var(--purple)">2</td>
+            <td><div class="damage-bar"><div class="damage-fill" style="width:100%;background:linear-gradient(90deg,var(--orange) 78%,var(--purple) 100%)"></div></div></td>
+          </tr>
+          <tr>
+            <td class="country-name">Saudi Arabia</td>
+            <td>8</td>
+            <td style="color:var(--red)">0</td>
+            <td style="color:var(--orange)">8</td>
+            <td style="color:var(--purple)">0</td>
+            <td><div class="damage-bar"><div class="damage-fill" style="width:100%;background:var(--orange)"></div></div></td>
+          </tr>
+          <tr>
+            <td class="country-name">Kuwait</td>
+            <td>6</td>
+            <td style="color:var(--red)">0</td>
+            <td style="color:var(--orange)">6</td>
+            <td style="color:var(--purple)">0</td>
+            <td><div class="damage-bar"><div class="damage-fill" style="width:100%;background:var(--orange)"></div></div></td>
+          </tr>
+          <tr>
+            <td class="country-name">Iraq</td>
+            <td>4</td>
+            <td style="color:var(--red)">0</td>
+            <td style="color:var(--orange)">3</td>
+            <td style="color:var(--purple)">1</td>
+            <td><div class="damage-bar"><div class="damage-fill" style="width:100%;background:linear-gradient(90deg,var(--orange) 75%,var(--purple) 100%)"></div></div></td>
+          </tr>
+          <tr>
+            <td class="country-name">Qatar</td>
+            <td>3</td>
+            <td style="color:var(--red)">1</td>
+            <td style="color:var(--orange)">2</td>
+            <td style="color:var(--purple)">0</td>
+            <td><div class="damage-bar"><div class="damage-fill" style="width:100%;background:linear-gradient(90deg,var(--red) 33%,var(--orange) 100%)"></div></div></td>
+          </tr>
+          <tr>
+            <td class="country-name">Oman</td>
+            <td>3</td>
+            <td style="color:var(--red)">0</td>
+            <td style="color:var(--orange)">0</td>
+            <td style="color:var(--purple)">3</td>
+            <td><div class="damage-bar"><div class="damage-fill" style="width:100%;background:var(--purple)"></div></div></td>
+          </tr>
+          <tr>
+            <td class="country-name">Bahrain</td>
+            <td>2</td>
+            <td style="color:var(--red)">0</td>
+            <td style="color:var(--orange)">2</td>
+            <td style="color:var(--purple)">0</td>
+            <td><div class="damage-bar"><div class="damage-fill" style="width:100%;background:var(--orange)"></div></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SUPPLY CASCADE -->
+  <div class="section">
+    <div class="section-title">The Cascade</div>
+    <div class="section-desc">
+      How Hormuz closure propagates through the global economy.
+      Oil disruption becomes agricultural and industrial disruption.
+    </div>
+    <div class="cascade">
+      <div class="cascade-node disrupted">
+        <div class="node-label">Strait of Hormuz</div>
+        <div class="node-detail">94% traffic decline</div>
+      </div>
+      <div class="cascade-arrow">→</div>
+      <div class="cascade-node disrupted">
+        <div class="node-label">Oil & LNG Supply</div>
+        <div class="node-detail">-9.6 mb/d Gulf</div>
+      </div>
+      <div class="cascade-arrow">→</div>
+      <div class="cascade-node disrupted">
+        <div class="node-label">Refining & Diesel</div>
+        <div class="node-detail">Diesel +100%</div>
+      </div>
+      <div class="cascade-arrow">→</div>
+      <div class="cascade-node">
+        <div class="node-label">Logistics</div>
+        <div class="node-detail">Costs rising</div>
+      </div>
+      <div class="cascade-arrow">→</div>
+      <div class="cascade-node">
+        <div class="node-label">Food & Fertiliser</div>
+        <div class="node-detail">Supply chain shock</div>
+      </div>
+      <div class="cascade-arrow">→</div>
+      <div class="cascade-node">
+        <div class="node-label">Inflation</div>
+        <div class="node-detail">Central bank trap</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICE DIVERGENCE -->
+  <div class="section">
+    <div class="section-title">The Split</div>
+    <div class="section-desc">
+      Brent futures vs physical spot price. The gap between what the market prices
+      and what oil actually costs when you need it delivered through a war zone.
+    </div>
+    <div class="chart-wrap">
+      <canvas id="priceChart" height="260"></canvas>
+    </div>
+  </div>
+
+  <div class="source">
+    Sources: Lloyd's List Intelligence, S&P Global Commodity Insights, Bloomberg, OIES, AP, CCIWA.
+    Data through April 4, 2026.
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<script>
+const gold = '#c9a96e';
+const red = '#ef4444';
+const orange = '#f59e0b';
+const purple = '#a78bfa';
+const dim = '#71717a';
+const grid = 'rgba(255,255,255,0.04)';
+const gridBright = 'rgba(255,255,255,0.08)';
+
+Chart.defaults.color = dim;
+Chart.defaults.borderColor = grid;
+Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
+Chart.defaults.font.size = 12;
+
+// ── HORMUZ TRAFFIC CLIFF ──
+new Chart(document.getElementById('hormuzChart'), {
+  type: 'line',
+  data: {
+    labels: ['Feb 15','Feb 28','Mar 5','Mar 10','Mar 15','Mar 22','Mar 31','Apr 1','Apr 4'],
+    datasets: [{
+      label: 'Vessels per day',
+      data: [138, 120, 80, 40, 10, 5, 3, 7, 7],
+      borderColor: gold,
+      backgroundColor: 'rgba(201,169,110,0.08)',
+      fill: true,
+      tension: 0.3,
+      pointRadius: 4,
+      pointBackgroundColor: gold,
+      pointBorderColor: '#09090b',
+      pointBorderWidth: 2,
+      borderWidth: 2.5,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#18181b',
+        borderColor: gridBright,
+        borderWidth: 1,
+        titleColor: '#fafafa',
+        bodyColor: dim,
+        callbacks: {
+          label: ctx => `${ctx.parsed.y} vessels/day`
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 150,
+        grid: { color: grid },
+        ticks: { callback: v => v + '/day' }
+      },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// ── PRODUCTION WATERFALL ──
+new Chart(document.getElementById('productionChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Iran','Saudi Arabia','UAE','Iraq','Kuwait','Oman','Qatar'],
+    datasets: [
+      {
+        label: 'Pre-war (mb/d)',
+        data: [1.69, 9.50, 3.20, 4.50, 2.70, 1.00, 0.60],
+        backgroundColor: 'rgba(255,255,255,0.12)',
+        borderColor: 'rgba(255,255,255,0.2)',
+        borderWidth: 1,
+        borderRadius: 4,
+      },
+      {
+        label: 'Current (mb/d)',
+        data: [0.50, 7.50, 2.50, 3.50, 1.80, 0.80, 0.50],
+        backgroundColor: 'rgba(201,169,110,0.5)',
+        borderColor: gold,
+        borderWidth: 1,
+        borderRadius: 4,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+        align: 'end',
+        labels: { boxWidth: 12, padding: 16 }
+      },
+      tooltip: {
+        backgroundColor: '#18181b',
+        borderColor: gridBright,
+        borderWidth: 1,
+        callbacks: {
+          label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y} mb/d`
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: { color: grid },
+        ticks: { callback: v => v + ' mb/d' }
+      },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// ── PRICE DIVERGENCE ──
+new Chart(document.getElementById('priceChart'), {
+  type: 'line',
+  data: {
+    labels: ['Feb 28','Mar 10','Mar 18','Mar 25','Apr 1','Apr 3'],
+    datasets: [
+      {
+        label: 'Brent Futures',
+        data: [78, 95, 112, 118, 100, 109],
+        borderColor: 'rgba(255,255,255,0.5)',
+        backgroundColor: 'transparent',
+        tension: 0.3,
+        pointRadius: 3,
+        borderWidth: 2,
+        borderDash: [6, 3],
+      },
+      {
+        label: 'Brent Physical Spot',
+        data: [78, 105, 125, 135, 120, 141],
+        borderColor: red,
+        backgroundColor: 'rgba(239,68,68,0.06)',
+        fill: true,
+        tension: 0.3,
+        pointRadius: 4,
+        pointBackgroundColor: red,
+        pointBorderColor: '#09090b',
+        pointBorderWidth: 2,
+        borderWidth: 2.5,
+      },
+      {
+        label: 'WTI',
+        data: [72, 92, 108, 115, 98, 111],
+        borderColor: orange,
+        backgroundColor: 'transparent',
+        tension: 0.3,
+        pointRadius: 3,
+        borderWidth: 1.5,
+        borderDash: [3, 3],
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+        align: 'end',
+        labels: { boxWidth: 12, padding: 16 }
+      },
+      tooltip: {
+        backgroundColor: '#18181b',
+        borderColor: gridBright,
+        borderWidth: 1,
+        callbacks: {
+          label: ctx => `${ctx.dataset.label}: $${ctx.parsed.y}/bbl`
+        }
+      },
+      annotation: undefined
+    },
+    scales: {
+      y: {
+        min: 60,
+        grid: { color: grid },
+        ticks: { callback: v => '$' + v }
+      },
+      x: { grid: { display: false } }
+    }
+  }
+});
+</script>
+</body>
+</html>
