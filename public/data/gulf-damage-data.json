@@ -1,0 +1,1011 @@
+{
+  "metadata": {
+    "title": "Gulf Infrastructure Damage Database",
+    "version": "1.0",
+    "generated": "2026-04-04",
+    "sources": [
+      "pd-00-infrastructure-hits.mdx",
+      "gulf-signal-monitor.md",
+      "pd00-research-output.md"
+    ],
+    "scope": "40+ energy assets across 9 countries, plus data centers and military infrastructure"
+  },
+  "assets": [
+    {
+      "id": "south-pars",
+      "name": "South Pars / Asaluyeh Gas Complex",
+      "country": "IR",
+      "type": "gas",
+      "lat": 27.47,
+      "lng": 52.61,
+      "prewar_capacity": "Largest natural gas reservoir globally; supplies ~70% of Iran domestic gas needs; feeds Asaluyeh onshore complex with 24+ processing phases",
+      "damage_date": "2026-03-18",
+      "severity": "damaged",
+      "details": "Israeli strikes damaged 4 gas-treatment plants at Asaluyeh \u2014 dehydration and sweetening units destroyed. Fires raged for days, forcing emergency flaring wasting millions of cubic meters. Critical H2S removal and water-separation infrastructure lost.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Partially offline. 4 treatment plants destroyed. Emergency flaring ongoing. Domestic gas supply severely impacted."
+    },
+    {
+      "id": "kharg-island",
+      "name": "Kharg Island Oil Export Terminal",
+      "country": "IR",
+      "type": "oil",
+      "lat": 29.24,
+      "lng": 50.32,
+      "prewar_capacity": "1.6 million b/d crude and condensates export capacity; Iran's primary oil-export terminal",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Multiple missile strikes cratered storage tanks, severed loading jetties, ignited fires consuming estimated 300,000 barrels. Satellite imagery revealed widespread collateral damage to crude-storage infrastructure and associated pipelines.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Operational at reduced capacity for ghost fleet loading. Trump threatened further strikes by April 6 deadline. ~1.5M bpd loading continuing (mostly ghost fleet/Chinese circuit)."
+    },
+    {
+      "id": "bushehr-nuclear",
+      "name": "Bushehr Nuclear Power Plant",
+      "country": "IR",
+      "type": "power",
+      "lat": 28.83,
+      "lng": 50.89,
+      "prewar_capacity": "1,000 MW nuclear reactor; Iran's sole nuclear power plant",
+      "damage_date": null,
+      "severity": "threatened",
+      "details": "Not directly targeted but sits uncomfortably close to damaged gas infrastructure that supplies cooling systems. Fears of secondary power disruptions if gas supply to backup cooling fails.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Not directly hit. Cooling infrastructure concerns remain if gas supply deteriorates further."
+    },
+    {
+      "id": "isfahan-gas-station",
+      "name": "Isfahan Gas Pressure Regulation Station",
+      "country": "IR",
+      "type": "gas",
+      "lat": 32.65,
+      "lng": 51.68,
+      "prewar_capacity": "Major gas-pressure regulation station feeding power plants and petrochemical facilities across central Iran",
+      "damage_date": "2026-03-18",
+      "severity": "damaged",
+      "details": "Gas-pressure regulation station hit, disrupting flows to power plants and petrochemical facilities in Isfahan province.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Offline. Disruption to power plants and petrochemical facilities."
+    },
+    {
+      "id": "iran-oil-export-infrastructure",
+      "name": "Iran National Oil Export Infrastructure",
+      "country": "IR",
+      "type": "oil",
+      "lat": 32.0,
+      "lng": 52.0,
+      "prewar_capacity": "1.69 million b/d crude exports pre-war",
+      "damage_date": "2026-02-28",
+      "severity": "destroyed",
+      "details": "Pre-war exports of 1.69M b/d fallen to ~500K b/d \u2014 two-thirds reduction. Nationwide blackouts reported. Fuel shortages grip major cities. ~48M barrels sit in floating storage offshore on shadow fleet tankers. Producing at ~30% of pre-war export capacity.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "~30% export capacity. 1.5M bpd crude loadings via ghost fleet/toll circuit. Domestic supply in crisis \u2014 nationwide blackouts, fuel shortages."
+    },
+    {
+      "id": "ras-laffan",
+      "name": "Ras Laffan Industrial City",
+      "country": "QT",
+      "type": "gas",
+      "lat": 25.92,
+      "lng": 51.61,
+      "prewar_capacity": "14 operational LNG trains, 77 million tonnes/year LNG capacity; world's largest concentration of LNG export trains",
+      "damage_date": "2026-03-18",
+      "severity": "damaged",
+      "details": "Iranian missiles struck March 18-19, igniting fires across at least 6 of 14 trains. QatarEnergy declared force majeure on all contracts within hours. 17% of nameplate LNG capacity offline. 3-5 year repair timeline confirmed by QatarEnergy CEO.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Still offline. 3-5 year repair. Cryogenic components from Japan/Germany/US foundries at capacity. Fires may still be partially active."
+    },
+    {
+      "id": "pearl-gtl",
+      "name": "Pearl Gas-to-Liquids Plant",
+      "country": "QT",
+      "type": "gas",
+      "lat": 25.93,
+      "lng": 51.59,
+      "prewar_capacity": "World's largest GTL facility (Shell JV). Converts natural gas into ultra-clean diesel, kerosene, lubricants via Fischer-Tropsch technology. 140,000 b/d capacity.",
+      "damage_date": "2026-03-18",
+      "severity": "damaged",
+      "details": "Direct hits to synthesis reactors and hydrocrackers. Catalyst beds and high-pressure vessels require custom fabrication and certification under international safety standards. Extraordinarily difficult to repair quickly.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Offline. Repair timeline longer than LNG \u2014 Fischer-Tropsch reactors require custom fabrication. Catalyst beds and high-pressure vessels must be custom-made."
+    },
+    {
+      "id": "north-field-expansion",
+      "name": "North Field LNG Expansion",
+      "country": "QT",
+      "type": "gas",
+      "lat": 25.85,
+      "lng": 51.55,
+      "prewar_capacity": "6 additional LNG trains scheduled for completion by 2027; would have added ~48 mtpa capacity",
+      "damage_date": "2026-03-18",
+      "severity": "destroyed",
+      "details": "Suspended indefinitely. Repair crews cannot begin full assessments until fires extinguished and unexploded ordnance cleared. Future expansion plans frozen.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Suspended indefinitely. Construction halted. No timeline for resumption."
+    },
+    {
+      "id": "ras-tanura",
+      "name": "Ras Tanura Refinery and Export Complex",
+      "country": "SA",
+      "type": "refining",
+      "lat": 26.65,
+      "lng": 50.16,
+      "prewar_capacity": "550,000 b/d processing capacity; primary loading terminal for Arab Light crude",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Early drone strikes damaged distillation units, tank farms, and control rooms. Facility shut for days before partial restart at reduced rates.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Partial restart at reduced rates. Distillation units, tank farms, control rooms damaged."
+    },
+    {
+      "id": "samref-refinery",
+      "name": "SAMREF Refinery (Yanbu)",
+      "country": "SA",
+      "type": "refining",
+      "lat": 24.09,
+      "lng": 38.06,
+      "prewar_capacity": "Major joint venture with ExxonMobil at Yanbu on the Red Sea",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Direct missile impacts destroyed catalytic cracker and associated storage. ExxonMobil JV facility severely impacted.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Catalytic cracker destroyed. Offline for major repairs \u2014 18-24 month timeline."
+    },
+    {
+      "id": "shaybah-oilfield",
+      "name": "Shaybah Oil Field",
+      "country": "SA",
+      "type": "oil",
+      "lat": 22.5,
+      "lng": 53.8,
+      "prewar_capacity": "1 million b/d extra-light crude from carbonate reservoirs in the Empty Quarter",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Repeatedly targeted. Wellheads damaged, gathering lines severed, associated gas-processing plants forced offline.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Wellheads and gathering lines damaged. Gas processing offline. Production severely reduced."
+    },
+    {
+      "id": "yanbu-port",
+      "name": "Yanbu Export Terminal",
+      "country": "SA",
+      "type": "port",
+      "lat": 24.08,
+      "lng": 38.07,
+      "prewar_capacity": "Major Red Sea export port for Saudi crude and refined products",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Export port suspended loadings for more than a week.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Suspended for 1+ week. Partially resumed operations."
+    },
+    {
+      "id": "jubail-petrochemical",
+      "name": "Jubail Petrochemical Complex",
+      "country": "SA",
+      "type": "refining",
+      "lat": 27.0,
+      "lng": 49.65,
+      "prewar_capacity": "World-scale ethylene crackers and fertilizer plants; major petrochemical hub",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Collateral damage from debris and power-grid failures. Ethylene crackers and fertilizer plants impacted.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Collateral damage from debris. Power grid failures impacting operations."
+    },
+    {
+      "id": "saudi-master-gas",
+      "name": "Saudi Aramco Master Gas System",
+      "country": "SA",
+      "type": "gas",
+      "lat": 26.0,
+      "lng": 50.0,
+      "prewar_capacity": "Collects associated gas from multiple fields to feed domestic power and industry; integrated pipeline network",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Operating at 60% capacity. Associated gas collection from multiple fields disrupted.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Operating at 60% capacity. Feed to domestic power and industry constrained."
+    },
+    {
+      "id": "ruwais-refinery",
+      "name": "Ruwais Refinery Complex",
+      "country": "AE",
+      "type": "refining",
+      "lat": 24.11,
+      "lng": 52.73,
+      "prewar_capacity": "837,000 b/d; one of the largest refineries in the world (ADNOC)",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Shut after drone-induced fire gutted hydrotreating units. ADNOC complex severely impacted.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Shut down. Hydrotreating units gutted by fire. 18-24 month repair timeline."
+    },
+    {
+      "id": "habshan-gas",
+      "name": "Habshan Gas Processing Hub",
+      "country": "AE",
+      "type": "gas",
+      "lat": 23.8,
+      "lng": 53.65,
+      "prewar_capacity": "Central gas-processing hub \u2014 sweetens and fractionates associated gas from Bab and Bu Hasa fields; 4 processing trains",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Struck by debris. 3 of 4 gas processing trains remain offline.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "3 of 4 trains offline. Partial operation only."
+    },
+    {
+      "id": "fujairah-terminal",
+      "name": "Fujairah Oil Terminal and Port",
+      "country": "AE",
+      "type": "port",
+      "lat": 25.13,
+      "lng": 56.33,
+      "prewar_capacity": "Hormuz bypass terminal on Gulf of Oman; designed to export oil without transiting Strait; major bunkering hub",
+      "damage_date": "2026-02-28",
+      "severity": "threatened",
+      "details": "Endured repeated closures due to missile threats and shipping insurance spikes. Bypass designed for temporary Hormuz disruption \u2014 not sustained closure under fire.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Repeated closures from missile threats and insurance spikes. Limited protection against sustained Hormuz closure."
+    },
+    {
+      "id": "jebel-ali",
+      "name": "Jebel Ali Port",
+      "country": "AE",
+      "type": "port",
+      "lat": 25.02,
+      "lng": 55.06,
+      "prewar_capacity": "Region's largest container port and logistics hub; 19.3M TEU capacity",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Suspended operations for days, snarling supply chains for spare parts and chemicals needed elsewhere in the Gulf.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Operations resumed but supply chains for spare parts and chemicals disrupted region-wide."
+    },
+    {
+      "id": "das-island",
+      "name": "Das Island LNG Plant",
+      "country": "AE",
+      "type": "gas",
+      "lat": 25.15,
+      "lng": 52.87,
+      "prewar_capacity": "LNG exports from associated gas from offshore fields",
+      "damage_date": "2026-02-28",
+      "severity": "threatened",
+      "details": "Running at minimal capacity because outbound tankers cannot safely navigate the Strait of Hormuz.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Minimal capacity. Tanker transit unsafe through Strait."
+    },
+    {
+      "id": "shah-gas-field",
+      "name": "Shah Gas Field",
+      "country": "AE",
+      "type": "gas",
+      "lat": 23.5,
+      "lng": 53.9,
+      "prewar_capacity": "Sour-gas development critical for UAE domestic supply; ADNOC operated",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Hit directly, forcing emergency imports from neighbors already struggling with their own losses.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Direct hit. Emergency imports from strained neighbors."
+    },
+    {
+      "id": "mina-al-ahmadi",
+      "name": "Mina Al-Ahmadi Refinery",
+      "country": "KW",
+      "type": "refining",
+      "lat": 29.08,
+      "lng": 48.13,
+      "prewar_capacity": "Part of Kuwait's 700,000+ b/d refining complex (with Mina Abdullah). Atmospheric distillation columns and catalytic reformers.",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Struck early. Fires destroyed atmospheric distillation columns and catalytic reformers. Re-hit on April 3, 2026 \u2014 damage compounding. ~50% of Kuwait's oil output remains offline.",
+      "source": "pd-00-infrastructure-hits.mdx + gulf-signal-monitor.md (Apr 3 re-strike)",
+      "in_pd00": true,
+      "current_status": "Re-hit April 3. Damage compounding. Atmospheric columns and reformers destroyed. ~50% of Kuwait output offline."
+    },
+    {
+      "id": "mina-abdullah",
+      "name": "Mina Abdullah Refinery",
+      "country": "KW",
+      "type": "refining",
+      "lat": 29.03,
+      "lng": 48.13,
+      "prewar_capacity": "Part of Kuwait's 700,000+ b/d refining complex (with Mina Al-Ahmadi)",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Struck early alongside Mina Al-Ahmadi. Atmospheric distillation columns and catalytic reformers damaged.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Damaged. ~50% of Kuwait output offline."
+    },
+    {
+      "id": "bapco-sitra",
+      "name": "Bapco Energies Refinery (Sitra)",
+      "country": "BH",
+      "type": "refining",
+      "lat": 26.17,
+      "lng": 50.62,
+      "prewar_capacity": "400,000 b/d processing capacity",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Declared force majeure after precision strikes on its visbreaker and storage tanks.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Force majeure declared. Visbreaker and storage tanks damaged."
+    },
+    {
+      "id": "sohar-terminal",
+      "name": "Sohar Export Terminal",
+      "country": "OM",
+      "type": "port",
+      "lat": 24.51,
+      "lng": 56.64,
+      "prewar_capacity": "Major Omani export terminal for crude and refined products",
+      "damage_date": "2026-02-28",
+      "severity": "threatened",
+      "details": "Closed temporarily after threats and minor damage to loading arms.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Temporarily closed. Minor loading arm damage."
+    },
+    {
+      "id": "mina-al-fahal",
+      "name": "Mina Al Fahal Export Terminal",
+      "country": "OM",
+      "type": "oil",
+      "lat": 23.63,
+      "lng": 58.5,
+      "prewar_capacity": "Oman's primary crude oil export terminal near Muscat",
+      "damage_date": "2026-02-28",
+      "severity": "threatened",
+      "details": "Closed temporarily after threats and minor damage.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Temporarily closed."
+    },
+    {
+      "id": "salalah-terminal",
+      "name": "Salalah Export Terminal",
+      "country": "OM",
+      "type": "port",
+      "lat": 16.94,
+      "lng": 54.0,
+      "prewar_capacity": "Southern Oman export terminal; LNG and container operations",
+      "damage_date": "2026-02-28",
+      "severity": "threatened",
+      "details": "Closed temporarily after threats.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Temporarily closed."
+    },
+    {
+      "id": "lanaz-refinery",
+      "name": "Lanaz Refinery (Erbil)",
+      "country": "IQ",
+      "type": "refining",
+      "lat": 36.19,
+      "lng": 44.01,
+      "prewar_capacity": "Regional refinery near Erbil in Kurdistan",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Targeted during initial strikes. Damage details limited.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Damaged. Limited details on current status."
+    },
+    {
+      "id": "majnoon-oilfield",
+      "name": "Majnoon Oil Field",
+      "country": "IQ",
+      "type": "oil",
+      "lat": 31.1,
+      "lng": 47.4,
+      "prewar_capacity": "Major southern Iraq oil field; ~400,000 b/d capacity",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Targeted in southern Iraq. Wellhead and infrastructure damage.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Production down. Southern Iraqi fields down ~30% overall."
+    },
+    {
+      "id": "basra-terminals",
+      "name": "Basra Export Terminals",
+      "country": "IQ",
+      "type": "oil",
+      "lat": 30.51,
+      "lng": 47.82,
+      "prewar_capacity": "3.63 million b/d export capacity; Iraq's primary southern export infrastructure",
+      "damage_date": null,
+      "severity": "threatened",
+      "details": "Terminals are undamaged but sea lanes are blocked by Strait closure. 3.63M b/d produced but cannot be shipped. Iraq beginning to truck oil via Syria as bypass.",
+      "source": "pd-00-infrastructure-hits.mdx + gulf-signal-monitor.md",
+      "in_pd00": true,
+      "current_status": "Terminals undamaged. 3.63M b/d trapped \u2014 sea lanes blocked. Iraq rerouting via Syria land bridge."
+    },
+    {
+      "id": "iraq-pipelines",
+      "name": "Iraq-Turkey and Intra-Gulf Pipelines",
+      "country": "IQ",
+      "type": "oil",
+      "lat": 35.0,
+      "lng": 42.0,
+      "prewar_capacity": "Major pipeline network including Iraq-Turkey line (1.6M b/d) and intra-Gulf feeders",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Severed in multiple places, creating bottlenecks that compound terminal damage. Cross-regional flows disrupted.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Severed in multiple locations. Bottlenecks compounding."
+    },
+    {
+      "id": "amazon-dc-uae",
+      "name": "Amazon Data Center (UAE)",
+      "country": "AE",
+      "type": "data_center",
+      "lat": 25.2,
+      "lng": 55.27,
+      "prewar_capacity": "AWS cloud infrastructure serving Middle East region; hyperscale facility",
+      "damage_date": "2026-03-05",
+      "severity": "damaged",
+      "details": "Early March drones struck Amazon data centers in UAE. US tech infrastructure confirmed as kinetic target by IRGC.",
+      "source": "gulf-signal-monitor.md + pd00-research-output.md",
+      "in_pd00": false,
+      "current_status": "Damaged by early March drone strikes. Compute thesis confirmed at kinetic level."
+    },
+    {
+      "id": "amazon-dc-bahrain",
+      "name": "Amazon Data Center (Bahrain)",
+      "country": "BH",
+      "type": "data_center",
+      "lat": 26.07,
+      "lng": 50.56,
+      "prewar_capacity": "AWS cloud infrastructure serving Middle East region; hyperscale facility",
+      "damage_date": "2026-03-05",
+      "severity": "damaged",
+      "details": "Early March drones struck Amazon data centers in Bahrain alongside UAE strikes.",
+      "source": "gulf-signal-monitor.md + pd00-research-output.md",
+      "in_pd00": false,
+      "current_status": "Damaged by early March drone strikes."
+    },
+    {
+      "id": "oracle-dc-dubai",
+      "name": "Oracle Data Center (Dubai)",
+      "country": "AE",
+      "type": "data_center",
+      "lat": 25.2,
+      "lng": 55.27,
+      "prewar_capacity": "Oracle Cloud Infrastructure serving Middle East enterprise customers",
+      "damage_date": "2026-04-03",
+      "severity": "damaged",
+      "details": "IRGC struck Oracle's Dubai data center. Confirmed hit following earlier Amazon/Bahrain strikes. US tech infrastructure now actively being targeted in Gulf.",
+      "source": "gulf-signal-monitor.md + pd00-research-output.md",
+      "in_pd00": false,
+      "current_status": "Struck April 3. Compute thesis no longer theoretical \u2014 data centers are kinetic targets."
+    },
+    {
+      "id": "kuwait-fuel-depots",
+      "name": "Kuwait Fuel Depots",
+      "country": "KW",
+      "type": "oil",
+      "lat": 29.37,
+      "lng": 47.98,
+      "prewar_capacity": "National fuel storage and distribution depots",
+      "damage_date": "2026-04-03",
+      "severity": "damaged",
+      "details": "Iran retaliatory strikes hit Kuwait fuel depots on April 3, 2026 following Trump address.",
+      "source": "gulf-signal-monitor.md + pd00-research-output.md",
+      "in_pd00": false,
+      "current_status": "Hit April 3. Fuel depots damaged in retaliatory barrage."
+    },
+    {
+      "id": "kuwait-airport-fuel",
+      "name": "Kuwait International Airport Fuel Tanks",
+      "country": "KW",
+      "type": "oil",
+      "lat": 29.23,
+      "lng": 47.97,
+      "prewar_capacity": "Aviation fuel storage and supply for Kuwait International Airport",
+      "damage_date": "2026-04-01",
+      "severity": "damaged",
+      "details": "Iran drone struck fuel tanks at Kuwait International Airport. New target type \u2014 aviation fuel infrastructure.",
+      "source": "gulf-signal-monitor.md + pd00-research-output.md",
+      "in_pd00": false,
+      "current_status": "Fuel tanks struck by drone April 1. Aviation supply disrupted."
+    },
+    {
+      "id": "bubiyan-island-depot",
+      "name": "Bubiyan Island US Military Depot",
+      "country": "KW",
+      "type": "military",
+      "lat": 29.78,
+      "lng": 48.4,
+      "prewar_capacity": "US military logistics depot on Bubiyan Island, Kuwait \u2014 staging and supply facility",
+      "damage_date": "2026-04-02",
+      "severity": "damaged",
+      "details": "Strike on US military depot on Bubiyan Island, Kuwait. Part of Iran's continued strikes on US military infrastructure across Gulf. Collateral context in US 48-hour ceasefire proposal rejection.",
+      "source": "gulf-signal-monitor.md + pd00-research-output.md",
+      "in_pd00": false,
+      "current_status": "Struck ~Apr 2-4. US military logistics infrastructure damaged."
+    },
+    {
+      "id": "us-military-bases-gulf",
+      "name": "US Military Bases Across Gulf (7+ bases)",
+      "country": "SA",
+      "type": "military",
+      "lat": 24.5,
+      "lng": 46.7,
+      "prewar_capacity": "US military infrastructure across Bahrain, Qatar, Kuwait, Saudi Arabia, UAE \u2014 radar, satellite comms, aircraft",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Iran struck radar, satellite comms, and mission-critical aircraft at 7+ US bases across Gulf since Feb 28. E-3 Sentry AWACS damaged at Prince Sultan AB (Mar 27). Five KC-135 tankers damaged Mar 13. AN/TPY-2 THAAD radar destroyed in Jordan. 66-75% of available E-3 fleet already deployed \u2014 losses tightening coverage gaps.",
+      "source": "gulf-signal-monitor.md",
+      "in_pd00": false,
+      "current_status": "Extensive damage across 7+ bases. E-3 AWACS damaged, KC-135 tankers hit, THAAD radar destroyed."
+    },
+    {
+      "id": "prince-sultan-ab",
+      "name": "Prince Sultan Air Base",
+      "country": "SA",
+      "type": "military",
+      "lat": 24.06,
+      "lng": 47.58,
+      "prewar_capacity": "Major US Air Force base in Saudi Arabia; host to E-3 Sentry AWACS and fighter operations",
+      "damage_date": "2026-03-27",
+      "severity": "damaged",
+      "details": "E-3 Sentry AWACS aircraft damaged at Prince Sultan AB on March 27, 2026. 66-75% of available E-3 fleet already deployed \u2014 losses tightening coverage gaps.",
+      "source": "gulf-signal-monitor.md",
+      "in_pd00": false,
+      "current_status": "E-3 AWACS damaged. Operational capability reduced."
+    },
+    {
+      "id": "shuaiba-refinery",
+      "name": "Shuaiba Refinery",
+      "country": "KW",
+      "type": "refining",
+      "lat": 29.04,
+      "lng": 48.16,
+      "prewar_capacity": "Southern Kuwait refinery; part of national refining complex",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "Part of Kuwait refining complex impacted alongside Mina Al-Ahmadi and Mina Abdullah strikes.",
+      "source": "pd-00-infrastructure-hits.mdx",
+      "in_pd00": true,
+      "current_status": "Damaged. Kuwait refining capacity at ~50% output."
+    },
+    {
+      "id": "adnoc-hq",
+      "name": "ADNOC Headquarters and Operations (Abu Dhabi)",
+      "country": "AE",
+      "type": "oil",
+      "lat": 24.45,
+      "lng": 54.32,
+      "prewar_capacity": "Abu Dhabi National Oil Company \u2014 upstream, midstream, downstream operations; 3+ million b/d production capacity",
+      "damage_date": "2026-02-28",
+      "severity": "damaged",
+      "details": "ADNOC's operations impacted across multiple facilities (Ruwais, Habshan, Shah). UAE faced 2,000+ aerial threats since Feb 28.",
+      "source": "pd-00-infrastructure-hits.mdx + gulf-signal-monitor.md",
+      "in_pd00": true,
+      "current_status": "Multiple facilities impacted. 2,000+ aerial threats since Feb 28."
+    },
+    {
+      "id": "strait-of-hormuz",
+      "name": "Strait of Hormuz",
+      "country": "IR",
+      "type": "port",
+      "lat": 26.57,
+      "lng": 56.25,
+      "prewar_capacity": "~21 million b/d crude + equivalent LNG; ~20% of global petroleum liquids transit",
+      "damage_date": "2026-02-28",
+      "severity": "destroyed",
+      "details": "Effectively closed. Mines, anti-ship missiles, IRGC fast boats. Insurance premiums up 20x to +300%. 181 vessels in March total (vs ~138/day pre-crisis). 94% YoY decline. IRGC formal toll system at Larak Island: $0.50-$2M/bbl in yuan/stablecoins. First Western ships transited Apr 4 (CMA CGM Kribi, Mitsui vessel). 2,000 vessels stranded. Iran-Oman dual-permit protocol in final stages.",
+      "source": "pd-00-infrastructure-hits.mdx + gulf-signal-monitor.md",
+      "in_pd00": true,
+      "current_status": "Closed to most traffic. IRGC toll system operational \u2014 processing ~7 transits/day (vs 138/day pre-crisis). Yuan/stablecoin toll system. First Western ships Apr 4."
+    }
+  ],
+  "production": {
+    "iran": {
+      "prewar_export": "1.69 million b/d",
+      "current_export": "~500K b/d formal + ~1.5M b/d ghost fleet loading",
+      "change": "-70% formal exports; ~30% of pre-war capacity",
+      "domestic_impact": "Nationwide blackouts, fuel shortages in major cities"
+    },
+    "qatar": {
+      "prewar_lng": "77 million tonnes/year (14 trains)",
+      "current_lng": "~64 mtpa (17% offline \u2014 6+ trains damaged)",
+      "change": "-17% LNG capacity offline",
+      "helium_impact": "33% of global supply disrupted",
+      "repair_timeline": "3-5 years"
+    },
+    "saudi_arabia": {
+      "prewar_production": "~9.5 million b/d",
+      "current_production": "Reduced \u2014 Ras Tanura partial restart, Shaybah damaged, master gas at 60%",
+      "spare_capacity": "4+ million b/d trapped behind Hormuz \u2014 unusable",
+      "export_constraint": "Can produce but cannot ship through Hormuz"
+    },
+    "uae": {
+      "prewar_production": "~3.2 million b/d",
+      "current_production": "Ruwais shut, Habshan at 25% capacity, Das Island minimal",
+      "bypass_status": "Fujairah closed repeatedly \u2014 Hormuz bypass ineffective",
+      "data_center_impact": "Oracle and Amazon DCs struck"
+    },
+    "kuwait": {
+      "prewar_refining": "700,000+ b/d (Mina Al-Ahmadi + Mina Abdullah)",
+      "current_refining": "~50% output offline",
+      "new_damage": "Airport fuel tanks struck Apr 1, fuel depots hit Apr 3, Bubiyan Island depot struck Apr 2"
+    },
+    "bahrain": {
+      "prewar_refining": "400,000 b/d (Bapco Sitra)",
+      "current_status": "Force majeure declared. Visbreaker and storage tanks damaged."
+    },
+    "oman": {
+      "prewar_export": "Multiple terminals (Sohar, Mina Al Fahal, Salalah)",
+      "current_status": "Terminals temporarily closed. Attempting southern Hormuz route \u2014 intercepted by IRGC."
+    },
+    "iraq": {
+      "prewar_production": "~4.5 million b/d",
+      "current_production": "Southern fields down 30%. Basra 3.63M b/d trapped \u2014 terminals undamaged but sea lanes blocked.",
+      "rerouting": "Trucking oil via Syria land bridge \u2014 first confirmed bypass"
+    },
+    "gulf_total": {
+      "prewar_transit": "~21 million b/d through Hormuz",
+      "march_loss": "-8.2 million b/d (OIES)",
+      "april_loss": "-9.6 million b/d (OIES)",
+      "max_potential_shutins": "12 million b/d",
+      "hormuz_at_pct": "6% of pre-crisis levels"
+    }
+  },
+  "hormuz_traffic": [
+    {
+      "date": "2026-03-01",
+      "event": "Strait effectively closed to commercial shipping",
+      "source": "gulf-signal-monitor.md"
+    },
+    {
+      "date": "2026-03-13",
+      "event": "26 vessel transits since Mar 13 via IRGC-controlled corridor (Larak Island) \u2014 zero normal route since Mar 15",
+      "source": "Lloyd's List Intelligence via gulf-signal-monitor.md"
+    },
+    {
+      "date": "2026-03-22",
+      "event": "First verified yuan-for-Hormuz transaction (Newvoyager). CIPS cleared. Kunlun intermediaries.",
+      "source": "gulf-signal-monitor.md"
+    },
+    {
+      "date": "2026-04-01",
+      "event": "Iran operating formal yuan toll system \u2014 $0.50-1.20/bbl via Kunlun Bank, 72-96hr advance booking. ~8-10M bbl/day in yuan circuit.",
+      "source": "gulf-signal-monitor.md"
+    },
+    {
+      "date": "2026-04-01",
+      "event": "Lloyd's List: 181 vessels in March total (vs ~138/day pre-crisis). 70% Iranian-linked. Clarksons: 95% down.",
+      "source": "gulf-signal-monitor.md"
+    },
+    {
+      "date": "2026-04-01",
+      "event": "Bloomberg: weekly transits ticking up to 7 from 5 \u2014 selective fleet of China/Iran/non-hostile Asian partners only.",
+      "source": "gulf-signal-monitor.md"
+    },
+    {
+      "date": "2026-04-01",
+      "event": "Japan paid $2M toll for two vessels. Even US allies paying IRGC tolls.",
+      "source": "gulf-signal-monitor.md"
+    },
+    {
+      "date": "2026-04-02",
+      "event": "Iran crude loadings continuing at 1.5M bpd. ~1M bpd transiting strait since Mar 1. 67% of March transits had direct Iranian affiliation.",
+      "source": "gulf-signal-monitor.md"
+    },
+    {
+      "date": "2026-04-03",
+      "event": "IRGC toll system accepting cryptocurrency (stablecoins) alongside yuan. VLCCs quoted up to $2M/passage. Parliament advancing toll legislation. ~2,000 vessels stranded (IMO). Hormuz traffic down 94% YoY.",
+      "source": "gulf-signal-monitor.md"
+    },
+    {
+      "date": "2026-04-03",
+      "event": "Iraq begins trucking oil across Syria to bypass Hormuz. First confirmed rerouting by major Gulf exporter.",
+      "source": "gulf-signal-monitor.md"
+    },
+    {
+      "date": "2026-04-03",
+      "event": "Three Omani tankers attempt southern route hugging Oman coastline \u2014 intercepted by IRGC near Musandam Peninsula. All stopped transmitting.",
+      "source": "gulf-signal-monitor.md"
+    },
+    {
+      "date": "2026-04-04",
+      "event": "First Western commercial ships transit Hormuz under IRGC toll \u2014 CMA CGM Kribi and Mitsui-operated vessel.",
+      "source": "gulf-signal-monitor.md"
+    },
+    {
+      "date": "2026-04-04",
+      "event": "Pakistan secured passage for 20 vessels through toll system. IRGC intercepting alternative Omani routes.",
+      "source": "gulf-signal-monitor.md"
+    },
+    {
+      "date": "2026-04-04",
+      "event": "Insurance at +300%. UANI: 27+ ghost fleet tankers laden with Iranian oil in Gulf, ~38M bbl loaded since war start, ~$3B+ revenue for IRGC.",
+      "source": "gulf-signal-monitor.md"
+    }
+  ],
+  "price_divergence": [
+    {
+      "date": "2026-04-01",
+      "brent_spot": "$99-101/bbl",
+      "brent_note": "Crashed ~4.5% from $118 last week. Monthly gain +27-40%.",
+      "gold": "$4,098 (dropped 14% from Feb highs)",
+      "gold_note": "Countries SELLING gold reserves to raise dollars for oil purchases.",
+      "dxy": "100.19 (+2.1% YTD)",
+      "treasury_10y": "4.06%",
+      "source": "gulf-signal-monitor.md"
+    },
+    {
+      "date": "2026-04-01",
+      "brent_spot": "$4,650-4,700 gold rebound",
+      "brent_note": "Gold rebounded ~3% from $4,098.",
+      "gold": "$4,650-4,700",
+      "gold_note": "Broke above 100-day SMA at $4,617. De-escalation hopes driving.",
+      "dxy": "99.91 (-0.58%)",
+      "treasury_10y": "4.31%",
+      "source": "gulf-signal-monitor.md"
+    },
+    {
+      "date": "2026-04-02",
+      "brent_spot": "$100.19/bbl (-3.53%)",
+      "brent_note": "War-end hopes driving pullback. WTI $98.62.",
+      "gold": "$4,767.76 (+1.99%)",
+      "gold_note": "Safe-haven bid returning. Month -10.43%, year +50.68%.",
+      "dxy": "~99.9 (below 100)",
+      "treasury_10y": "4.31%",
+      "source": "gulf-signal-monitor.md"
+    },
+    {
+      "date": "2026-04-03",
+      "brent_spot": "$108-109/bbl (post-Trump speech spike)",
+      "brent_note": "WTI spiked 11.5% to $111+. WTI briefly ABOVE Brent \u2014 rare, signals US physical supply panic.",
+      "gold": "$4,790-4,816",
+      "gold_note": "Two-week high. Silver diverged: -4.8% to $71.52.",
+      "dxy": "~99.9",
+      "treasury_10y": "4.30%",
+      "source": "gulf-signal-monitor.md"
+    },
+    {
+      "date": "2026-04-03",
+      "brent_spot_physical": "$141.36/bbl",
+      "brent_note": "Spot Brent physical cargo \u2014 highest since 2008. Futures $107-109 mask real tightness. $32 gap.",
+      "gold": "$4,665 (fell ~2% post-speech)",
+      "gold_note": "UBS revised forecast down to $5,000 avg. Silver -3% to $72.66.",
+      "dxy": "~100.00 (rebounding)",
+      "treasury_10y": "4.30-4.31%",
+      "source": "S&P Global via gulf-signal-monitor.md"
+    },
+    {
+      "date": "2026-04-04",
+      "brent_spot": "WTI ~$110-111, Brent ~$107-109",
+      "brent_note": "Markets closed Good Friday. Spot Brent physical at $141.36. Monday gap risk significant.",
+      "gold": "$4,650-4,665",
+      "gold_note": "Markets closed. NFP ghost move implications for Monday.",
+      "dxy": "~100",
+      "treasury_10y": "4.30-4.31%",
+      "source": "gulf-signal-monitor.md"
+    }
+  ],
+  "repair_timelines": {
+    "ras_laffan_lng": "3-5 years (QatarEnergy CEO confirmation)",
+    "pearl_gtl": "Longer than LNG \u2014 custom Fischer-Tropsch reactor fabrication",
+    "saudi_uae_refineries": "18-24 months",
+    "partial_oil_restart": "3-6 months (optimistic)",
+    "gas_processing_50pct": "18 months",
+    "full_capacity_restore": "2029-2031 earliest",
+    "oies_projection": "Gradual Hormuz reopening to 95% by Q4 2026 (optimistic)",
+    "historical_parallels": {
+      "1991_kuwait": "~2 years despite massive international assistance",
+      "2019_abqaiq": "4 months \u2014 fraction of current damage, no structural fires"
+    }
+  },
+  "production_chart": {
+    "iran": {
+      "prewar_mbpd": 1.69,
+      "current_mbpd": 0.5,
+      "label": "Iran"
+    },
+    "qatar": {
+      "prewar_mbpd": 0.6,
+      "current_mbpd": 0.5,
+      "label": "Qatar",
+      "note": "LNG mtpa, not bpd"
+    },
+    "saudi": {
+      "prewar_mbpd": 9.5,
+      "current_mbpd": 7.5,
+      "label": "Saudi Arabia"
+    },
+    "uae": {
+      "prewar_mbpd": 3.2,
+      "current_mbpd": 2.5,
+      "label": "UAE"
+    },
+    "kuwait": {
+      "prewar_mbpd": 2.7,
+      "current_mbpd": 1.8,
+      "label": "Kuwait"
+    },
+    "iraq": {
+      "prewar_mbpd": 4.5,
+      "current_mbpd": 3.5,
+      "label": "Iraq"
+    },
+    "oman": {
+      "prewar_mbpd": 1.0,
+      "current_mbpd": 0.8,
+      "label": "Oman"
+    }
+  },
+  "hormuz_chart": [
+    {
+      "date": "2026-02-15",
+      "vessels": 138,
+      "note": "pre-crisis daily average"
+    },
+    {
+      "date": "2026-02-28",
+      "vessels": 120,
+      "note": "strikes begin"
+    },
+    {
+      "date": "2026-03-05",
+      "vessels": 80,
+      "note": "decline accelerates"
+    },
+    {
+      "date": "2026-03-10",
+      "vessels": 40,
+      "note": "retaliatory threats"
+    },
+    {
+      "date": "2026-03-15",
+      "vessels": 10,
+      "note": "normal route closed"
+    },
+    {
+      "date": "2026-03-22",
+      "vessels": 5,
+      "note": "IRGC toll only"
+    },
+    {
+      "date": "2026-03-31",
+      "vessels": 3,
+      "note": "effectively closed"
+    },
+    {
+      "date": "2026-04-01",
+      "vessels": 7,
+      "note": "toll system, weekly count"
+    },
+    {
+      "date": "2026-04-04",
+      "vessels": 7,
+      "note": "first Western ships"
+    }
+  ],
+  "price_chart": [
+    {
+      "date": "2026-02-28",
+      "brent_futures": 78,
+      "brent_spot": 78,
+      "wti": 72
+    },
+    {
+      "date": "2026-03-10",
+      "brent_futures": 95,
+      "brent_spot": 105,
+      "wti": 92
+    },
+    {
+      "date": "2026-03-18",
+      "brent_futures": 112,
+      "brent_spot": 125,
+      "wti": 108
+    },
+    {
+      "date": "2026-03-25",
+      "brent_futures": 118,
+      "brent_spot": 135,
+      "wti": 115
+    },
+    {
+      "date": "2026-04-01",
+      "brent_futures": 100,
+      "brent_spot": 120,
+      "wti": 98
+    },
+    {
+      "date": "2026-04-03",
+      "brent_futures": 109,
+      "brent_spot": 141,
+      "wti": 111
+    }
+  ],
+  "damage_by_country": {
+    "IR": {
+      "total": 6,
+      "destroyed": 2,
+      "damaged": 3,
+      "threatened": 1
+    },
+    "QT": {
+      "total": 3,
+      "destroyed": 1,
+      "damaged": 2,
+      "threatened": 0
+    },
+    "SA": {
+      "total": 8,
+      "destroyed": 0,
+      "damaged": 8,
+      "threatened": 0
+    },
+    "AE": {
+      "total": 9,
+      "destroyed": 0,
+      "damaged": 7,
+      "threatened": 2
+    },
+    "KW": {
+      "total": 6,
+      "destroyed": 0,
+      "damaged": 6,
+      "threatened": 0
+    },
+    "BH": {
+      "total": 2,
+      "destroyed": 0,
+      "damaged": 2,
+      "threatened": 0
+    },
+    "OM": {
+      "total": 3,
+      "destroyed": 0,
+      "damaged": 0,
+      "threatened": 3
+    },
+    "IQ": {
+      "total": 4,
+      "destroyed": 0,
+      "damaged": 3,
+      "threatened": 1
+    }
+  },
+  "damage_by_type": {
+    "gas": 9,
+    "oil": 10,
+    "power": 1,
+    "refining": 9,
+    "port": 6,
+    "data_center": 3,
+    "military": 3
+  }
+}

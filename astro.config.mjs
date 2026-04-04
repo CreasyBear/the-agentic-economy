@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel";
+import react from "@astrojs/react";
 
 const siteUrl =
   process.env.SITE_URL ??
@@ -17,7 +18,7 @@ export default defineConfig({
   image: {
     service: { entrypoint: "astro/assets/services/noop" },
   },
-  integrations: [mdx(), sitemap()],
+  integrations: [react(), mdx(), sitemap()],
   markdown: {
     shikiConfig: {
       theme: "css-variables",
