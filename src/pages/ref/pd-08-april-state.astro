@@ -1,0 +1,17 @@
+---
+import Content from "../../layouts/Content.astro";
+import * as pd_08 from "../../../ref/pd-08-april-state.mdx";
+const fm = pd_08.frontmatter;
+const ContentComponent = pd_08.default;
+---
+<Content
+  type="reference"
+  title={fm.title}
+  eyebrow={fm.eyebrow}
+  description={fm.description}
+  date={fm.date}
+  extends={fm.extends}
+  prev={{ slug: "ref/pd-07-australias-moment", title: "Australia's Moment" }}
+>
+  <ContentComponent />
+</Content>
