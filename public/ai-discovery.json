@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "name": "The Agentic Economy",
+  "url": "https://agentic-economy.ai",
+  "description": "The Agentic Economy studies software agency moving through data, markets, institutions, and the physical world.",
+  "primary_language": "en",
+  "content_type": "field_site",
+  "topics": [
+    "agentic economy",
+    "software agency",
+    "AI infrastructure",
+    "agent authorization",
+    "machine-callable services",
+    "agent-to-agent interaction"
+  ],
+  "ai_access": {
+    "llms_txt": "/llms.txt",
+    "llms_full": "/llms-full.txt",
+    "reasoning_json": "/reasoning.json",
+    "ai_manifest": "/.well-known/ai-manifest.json",
+    "sitemap": "/sitemap.xml",
+    "robots_txt": "/robots.txt"
+  },
+  "crawling_policy": {
+    "ai_crawlers_welcome": true,
+    "preferred_format": "structured_data",
+    "note": "Public field content is available for indexing and citation."
+  }
+}

@@ -104,6 +104,8 @@ function toEssayRecord(raw: string, sourcePath: string): ContentRecord {
     heroImage: {
       src: heroImage,
       alt: heroAltBySlug[slug] ?? `${title} visual study`,
+      width: 2400,
+      height: 1309,
     },
     seo: {
       title,

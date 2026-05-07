@@ -1,17 +1,16 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { ArrowRight, Clock3, FileCheck2 } from 'lucide-react'
+import { pageHead } from '~/lib/seo'
 
 export const Route = createFileRoute('/checkout/success')({
   component: CheckoutSuccess,
-  head: () => ({
-    meta: [
-      { title: 'Checkout received | The Agentic Economy' },
-      {
-        name: 'description',
-        content: 'Handshake checkout has been received.',
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: 'Checkout Received',
+      description: 'Handshake checkout has been received.',
+      path: '/checkout/success',
+      noindex: true,
+    }),
 })
 
 function CheckoutSuccess() {

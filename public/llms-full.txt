@@ -1,0 +1,50 @@
+# The Agentic Economy
+
+The Agentic Economy is a field site for software agency: software that can act, coordinate, and influence systems beyond the interface.
+
+## Position
+
+Software is beginning to act across systems built for people. Agency now moves through data, markets, institutions, and the physical world.
+
+## Field Map
+
+The site currently organizes the field through five questions:
+
+1. Standing: who acted?
+2. Judgment: what context travelled?
+3. Scale: what can one operator now coordinate?
+4. Visibility: what remains visible?
+5. Anchoring: what anchors authority?
+
+## Atlas
+
+The atlas frames six surfaces:
+
+1. Software agency moves through data, markets, institutions, and the physical world.
+2. Businesses become callable.
+3. Access control moves from systems to powers.
+4. Devices decide what may touch the world.
+5. Space, time, and capacity become declarations of intent.
+6. Authority has to travel before action.
+
+## Handshake
+
+Handshake is the current primitive expressed on the site. Its compact claim is: before agents act, authority has to travel with them. The product frame is consent, intent, authority, and record before an action crosses a boundary.
+
+## Canonical URLs
+
+- Home: https://agentic-economy.ai/
+- Thesis: https://agentic-economy.ai/thesis
+- Atlas: https://agentic-economy.ai/atlas
+- Handshake: https://agentic-economy.ai/handshake
+- Writing: https://agentic-economy.ai/writing
+- Team: https://agentic-economy.ai/team
+
+## Canonical Essays
+
+- The Agentic Economy: https://agentic-economy.ai/writing/entry
+- Actors Without Standing: https://agentic-economy.ai/writing/actors-without-standing
+- Judgment Without Context: https://agentic-economy.ai/writing/judgment-without-context
+- Scale Without Organization: https://agentic-economy.ai/writing/scale-without-organization
+- Risk Without Visibility: https://agentic-economy.ai/writing/risk-without-visibility
+- The Hierarchy Unanchored: https://agentic-economy.ai/writing/the-hierarchy-unanchored

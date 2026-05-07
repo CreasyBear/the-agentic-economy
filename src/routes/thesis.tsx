@@ -1,18 +1,16 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { fieldCopy, thesisThemes } from '~/lib/field-content'
+import { pageHead } from '~/lib/seo'
 
 export const Route = createFileRoute('/thesis')({
   component: ThesisPage,
-  head: () => ({
-    meta: [
-      { title: 'Thesis | The Agentic Economy' },
-      {
-        name: 'description',
-        content:
-          'Agency now moves through data, markets, institutions, and the physical world.',
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: 'Thesis',
+      description: fieldCopy.thesis.description,
+      path: '/thesis',
+      image: '/images/brand/hero-thesis-field.webp',
+    }),
 })
 
 function ThesisPage() {

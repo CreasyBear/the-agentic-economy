@@ -12,6 +12,7 @@ import type { QueryClient } from '@tanstack/react-query'
 import type { ConvexReactClient } from 'convex/react'
 import appCss from '~/styles/app.css?url'
 import { Shell } from '~/components/Shell'
+import { rootJsonLd, siteSeo } from '~/lib/seo'
 
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient
@@ -26,16 +27,13 @@ export const Route = createRootRouteWithContext<{
         name: 'viewport',
         content: 'width=device-width, initial-scale=1',
       },
-      {
-        title: 'The Agentic Economy',
-      },
-      {
-        name: 'description',
-        content: 'Infrastructure for Software that Acts',
-      },
+      { name: 'theme-color', content: '#eee9df' },
+      { name: 'application-name', content: siteSeo.name },
+      { name: 'apple-mobile-web-app-title', content: siteSeo.name },
     ],
     links: [
       { rel: 'stylesheet', href: appCss },
+      { rel: 'author', href: '/humans.txt' },
       {
         rel: 'apple-touch-icon',
         sizes: '180x180',
@@ -112,9 +110,13 @@ function AppProviders({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html>
+    <html lang={siteSeo.language}>
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(rootJsonLd) }}
+        />
       </head>
       <body>
         {children}

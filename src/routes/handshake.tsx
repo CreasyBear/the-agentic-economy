@@ -8,18 +8,17 @@ import {
 } from 'lucide-react'
 import { fieldCopy } from '~/lib/field-content'
 import { urls } from '~/lib/site'
+import { pageHead } from '~/lib/seo'
 
 export const Route = createFileRoute('/handshake')({
   component: HandshakePage,
-  head: () => ({
-    meta: [
-      { title: 'Handshake | The Agentic Economy' },
-      {
-        name: 'description',
-        content: 'Before agents act, authority has to travel with them.',
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: 'Handshake',
+      description: fieldCopy.handshake.description,
+      path: '/handshake',
+      image: '/images/handshake-trust-ceremony.webp',
+    }),
 })
 
 function HandshakePage() {
