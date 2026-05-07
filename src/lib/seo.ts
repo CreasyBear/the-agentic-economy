@@ -19,10 +19,14 @@ export const siteSeo = {
   description:
     'The Agentic Economy studies software agency moving through data, markets, institutions, and the physical world.',
   url: siteOrigin,
-  image: '/images/brand/hero-home-field.webp',
+  image: '/og/agentic-economy.jpg',
+  logo: '/brand/agentic-economy-logo.svg',
+  mark: '/brand/agentic-economy-mark.svg',
+  wordmark: '/brand/agentic-economy-wordmark.svg',
   locale: 'en_US',
   language: 'en',
-  robots: 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
+  robots:
+    'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
 } as const
 
 type PageHeadInput = {
@@ -50,7 +54,8 @@ export function pageHead({
   noindex = false,
   publishedAt,
 }: PageHeadInput) {
-  const fullTitle = title === siteSeo.name ? title : `${title} | ${siteSeo.name}`
+  const fullTitle =
+    title === siteSeo.name ? title : `${title} | ${siteSeo.name}`
   const canonical = path ? absoluteUrl(path) : siteSeo.url
   const imageUrl = absoluteUrl(image)
 
@@ -89,13 +94,15 @@ export function pageHead({
 }
 
 export function articleJsonLd(record: ContentRecord) {
+  const image = record.seo?.ogImage ?? record.heroImage?.src
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
     '@id': absoluteUrl(`/writing/${record.slug}#article`),
     headline: record.title,
     description: record.seo?.description ?? record.summary,
-    image: record.heroImage ? absoluteUrl(record.heroImage.src) : undefined,
+    image: image ? absoluteUrl(image) : undefined,
     datePublished: record.publishedAt
       ? new Date(record.publishedAt).toISOString()
       : undefined,
@@ -126,7 +133,8 @@ export const rootJsonLd = {
       '@id': absoluteUrl('/#organization'),
       name: siteSeo.name,
       url: siteSeo.url,
-      logo: absoluteUrl('/android-chrome-512x512.png'),
+      logo: absoluteUrl(siteSeo.logo),
+      image: absoluteUrl(siteSeo.image),
       description: siteSeo.description,
       slogan: siteSeo.tagline,
       founder: {

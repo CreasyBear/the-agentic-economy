@@ -17,7 +17,7 @@ export const Route = createFileRoute('/handshake')({
       title: 'Handshake',
       description: fieldCopy.handshake.description,
       path: '/handshake',
-      image: '/images/handshake-trust-ceremony.webp',
+      image: '/og/handshake.jpg',
     }),
 })
 

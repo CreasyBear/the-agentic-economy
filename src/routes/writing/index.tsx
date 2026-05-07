@@ -11,7 +11,7 @@ export const Route = createFileRoute('/writing/')({
       title: 'Writing',
       description: 'Essays and insights from The Agentic Economy.',
       path: '/writing',
-      image: '/images/brand/hero-writing-field.webp',
+      image: '/og/writing.jpg',
     }),
 })
 

@@ -17,6 +17,7 @@
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "content:llms": "node scripts/generate-llms-content.mjs",
     "quality": "npm run lint && npm run test && npm run build",
     "audit:prod": "npm audit --omit=dev --audit-level=moderate",
     "audit:all": "npm audit --audit-level=moderate",

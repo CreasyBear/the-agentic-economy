@@ -9,7 +9,7 @@ export const Route = createFileRoute('/thesis')({
       title: 'Thesis',
       description: fieldCopy.thesis.description,
       path: '/thesis',
-      image: '/images/brand/hero-thesis-field.webp',
+      image: '/og/thesis.jpg',
     }),
 })
 

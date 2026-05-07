@@ -21,16 +21,19 @@ The Agentic Economy studies software agency moving through data, markets, instit
 
 ## Writing
 
-- [The Agentic Economy](https://agentic-economy.ai/writing/entry)
-- [Actors Without Standing](https://agentic-economy.ai/writing/actors-without-standing)
-- [Judgment Without Context](https://agentic-economy.ai/writing/judgment-without-context)
-- [Scale Without Organization](https://agentic-economy.ai/writing/scale-without-organization)
-- [Risk Without Visibility](https://agentic-economy.ai/writing/risk-without-visibility)
-- [The Hierarchy Unanchored](https://agentic-economy.ai/writing/the-hierarchy-unanchored)
+- [The Agentic Economy](https://agentic-economy.ai/writing/entry): [Markdown export](https://agentic-economy.ai/llms/essays/entry.md)
+- [Actors Without Standing](https://agentic-economy.ai/writing/actors-without-standing): [Markdown export](https://agentic-economy.ai/llms/essays/actors-without-standing.md)
+- [Judgment Without Context](https://agentic-economy.ai/writing/judgment-without-context): [Markdown export](https://agentic-economy.ai/llms/essays/judgment-without-context.md)
+- [Scale Without Organization](https://agentic-economy.ai/writing/scale-without-organization): [Markdown export](https://agentic-economy.ai/llms/essays/scale-without-organization.md)
+- [Risk Without Visibility](https://agentic-economy.ai/writing/risk-without-visibility): [Markdown export](https://agentic-economy.ai/llms/essays/risk-without-visibility.md)
+- [The Hierarchy Unanchored](https://agentic-economy.ai/writing/the-hierarchy-unanchored): [Markdown export](https://agentic-economy.ai/llms/essays/the-hierarchy-unanchored.md)
 
 ## Machine-Readable Files
 
 - [Sitemap](https://agentic-economy.ai/sitemap.xml)
+- [Essay Index](https://agentic-economy.ai/llms/index.json)
+- [Full Essay Corpus](https://agentic-economy.ai/llms-full.txt)
+- [Brandkit](https://agentic-economy.ai/brand/brandkit.json)
 - [Reasoning JSON](https://agentic-economy.ai/reasoning.json)
 - [AI Discovery](https://agentic-economy.ai/ai-discovery.json)
 - [AI Manifest](https://agentic-economy.ai/.well-known/ai-manifest.json)

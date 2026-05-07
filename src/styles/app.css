@@ -1803,9 +1803,10 @@ h2 {
   }
 
   .home-copy h1 {
-    font-size: clamp(45px, 15vw, 58px);
-    line-height: 0.94;
-    max-width: 11ch;
+    font-size: clamp(38px, 10.8vw, 42px);
+    line-height: 0.96;
+    max-width: min(100%, 12ch);
+    text-wrap: pretty;
   }
 
   .home-doorways {
@@ -1848,13 +1849,15 @@ h2 {
   }
 
   .thesis-hero-copy h1 {
-    font-size: clamp(44px, 12.5vw, 52px);
-    line-height: 0.96;
-    max-width: none;
+    font-size: clamp(36px, 10vw, 40px);
+    line-height: 1;
+    max-width: min(100%, 320px);
+    text-wrap: pretty;
   }
 
   .thesis-hero-copy p:not(.eyebrow) {
-    font-size: 21px;
+    font-size: 19px;
+    max-width: min(100%, 320px);
   }
 
   .team-profile {
@@ -1898,8 +1901,10 @@ h2 {
   }
 
   .atlas-scroll-statement h2 {
-    font-size: clamp(32px, 10vw, 42px);
-    line-height: 0.96;
+    font-size: clamp(32px, 9.2vw, 36px);
+    line-height: 1;
+    max-width: min(100%, 320px);
+    text-wrap: pretty;
   }
 
   .atlas-scroll-plate {
@@ -1917,6 +1922,7 @@ h2 {
 
   .atlas-scroll-plate figcaption p {
     font-size: 15px;
+    max-width: min(100%, 320px);
     text-align: left;
   }
 
@@ -1945,15 +1951,17 @@ h2 {
   .pricing-layout h1,
   .account-layout h1,
   .checkout-panel h1 {
-    font-size: clamp(44px, 12.5vw, 52px);
-    line-height: 0.96;
-    max-width: none;
+    font-size: clamp(36px, 10vw, 40px);
+    line-height: 1;
+    max-width: min(100%, 320px);
+    text-wrap: pretty;
   }
 
   .content-hero-copy,
   .lede,
   .product-brief {
-    font-size: 20px;
+    font-size: 19px;
+    max-width: min(100%, 320px);
   }
 
   .writing-hero--visual,
@@ -1970,6 +1978,34 @@ h2 {
 
   .institutional-statement p {
     font-size: 25px;
+  }
+
+  .home-copy,
+  .page-heading,
+  .thesis-hero-copy,
+  .atlas-scroll-statement,
+  .product-hero > div,
+  .commerce-brief,
+  .checkout-panel {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .home-copy h1,
+  .content-hero h1,
+  .article-hero h1,
+  .product-hero h1,
+  .pricing-layout h1,
+  .account-layout h1,
+  .checkout-panel h1,
+  .thesis-hero-copy h1,
+  .atlas-scroll-statement h2,
+  .content-hero-copy,
+  .lede,
+  .product-brief,
+  .thesis-hero-copy p:not(.eyebrow) {
+    overflow-wrap: normal;
+    word-break: normal;
   }
 
   .content-hero,
@@ -2088,11 +2124,11 @@ h2 {
   .account-layout h1,
   .checkout-panel h1,
   .thesis-hero-copy h1 {
-    font-size: 43px;
+    font-size: 36px;
   }
 
   .atlas-scroll-statement h2 {
-    font-size: 31px;
+    font-size: 32px;
   }
 }
 

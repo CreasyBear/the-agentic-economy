@@ -59,9 +59,17 @@
     "atlas": "https://agentic-economy.ai/atlas",
     "handshake": "https://agentic-economy.ai/handshake",
     "writing": "https://agentic-economy.ai/writing",
+    "essay_index": "https://agentic-economy.ai/llms/index.json",
     "llms_txt": "https://agentic-economy.ai/llms.txt",
     "llms_full": "https://agentic-economy.ai/llms-full.txt",
     "ai_manifest": "https://agentic-economy.ai/.well-known/ai-manifest.json",
+    "brandkit": "https://agentic-economy.ai/brand/brandkit.json",
     "sitemap": "https://agentic-economy.ai/sitemap.xml"
+  },
+  "brand_assets": {
+    "logo": "https://agentic-economy.ai/brand/agentic-economy-logo.svg",
+    "mark": "https://agentic-economy.ai/brand/agentic-economy-mark.svg",
+    "wordmark": "https://agentic-economy.ai/brand/agentic-economy-wordmark.svg",
+    "default_og_image": "https://agentic-economy.ai/og/agentic-economy.jpg"
   }
 }

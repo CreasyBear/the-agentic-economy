@@ -9,7 +9,7 @@ export const Route = createFileRoute('/atlas')({
       title: 'Atlas',
       description: fieldCopy.atlas.description,
       path: '/atlas',
-      image: atlasSeries[0].image,
+      image: '/og/atlas.jpg',
     }),
 })
 

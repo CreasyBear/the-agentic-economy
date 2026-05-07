@@ -35,6 +35,24 @@ export const Route = createRootRouteWithContext<{
       { rel: 'stylesheet', href: appCss },
       { rel: 'author', href: '/humans.txt' },
       {
+        rel: 'alternate',
+        type: 'text/plain',
+        href: '/llms.txt',
+        title: 'LLMs summary',
+      },
+      {
+        rel: 'alternate',
+        type: 'text/plain',
+        href: '/llms-full.txt',
+        title: 'LLMs full text',
+      },
+      {
+        rel: 'alternate',
+        type: 'application/json',
+        href: '/ai-discovery.json',
+        title: 'AI discovery manifest',
+      },
+      {
         rel: 'apple-touch-icon',
         sizes: '180x180',
         href: '/apple-touch-icon.png',

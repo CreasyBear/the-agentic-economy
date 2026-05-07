@@ -9,7 +9,7 @@ export const Route = createFileRoute('/team')({
       title: 'Team',
       description: fieldCopy.team.description,
       path: '/team',
-      image: '/images/joel-chan.webp',
+      image: '/og/team.jpg',
     }),
 })
 

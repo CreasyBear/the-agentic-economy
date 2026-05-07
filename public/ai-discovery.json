@@ -16,10 +16,18 @@
   "ai_access": {
     "llms_txt": "/llms.txt",
     "llms_full": "/llms-full.txt",
+    "essay_index": "/llms/index.json",
     "reasoning_json": "/reasoning.json",
     "ai_manifest": "/.well-known/ai-manifest.json",
     "sitemap": "/sitemap.xml",
-    "robots_txt": "/robots.txt"
+    "robots_txt": "/robots.txt",
+    "brandkit": "/brand/brandkit.json"
+  },
+  "brand_assets": {
+    "logo": "/brand/agentic-economy-logo.svg",
+    "mark": "/brand/agentic-economy-mark.svg",
+    "wordmark": "/brand/agentic-economy-wordmark.svg",
+    "default_og_image": "/og/agentic-economy.jpg"
   },
   "crawling_policy": {
     "ai_crawlers_welcome": true,
