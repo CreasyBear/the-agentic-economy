@@ -6,7 +6,7 @@ export const Route = createFileRoute('/team')({
   component: TeamPage,
   head: () =>
     pageHead({
-      title: 'Team',
+      title: 'Joel Chan, Founder of The Agentic Economy',
       description: fieldCopy.team.description,
       path: '/team',
       image: '/og/team.jpg',

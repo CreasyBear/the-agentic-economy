@@ -31,6 +31,34 @@ const heroAltBySlug: Record<string, string> = {
     'Transparent stacked geometric volumes connected by gold lines, forming an unanchored capability structure in space.',
 }
 
+const seoTitleBySlug: Record<string, string> = {
+  entry: 'The Agentic Economy: AI Agents, Commerce and Infrastructure',
+  'actors-without-standing':
+    'Actors Without Standing: Agent Identity and Authorization',
+  'judgment-without-context': 'Judgment Without Context: AI Agent Delegation',
+  'scale-without-organization':
+    'Scale Without Organization: Software Agency and Firms',
+  'risk-without-visibility':
+    'Risk Without Visibility: AI Agent Systems and Markets',
+  'the-hierarchy-unanchored':
+    'The Hierarchy Unanchored: Infrastructure for AI Agents',
+}
+
+const seoDescriptionBySlug: Record<string, string> = {
+  entry:
+    'A thesis on the agentic economy: how AI agents and software agency move through commerce, markets, institutions, infrastructure, and the physical world.',
+  'actors-without-standing':
+    'Analysis of AI agent identity, standing, liability, and authorization when software acts for people, companies, and institutions.',
+  'judgment-without-context':
+    'Analysis of AI agent delegation, context, judgment, and oversight as software turns goals into actions across business systems.',
+  'scale-without-organization':
+    'Analysis of software agency, coordination, firms, and AI infrastructure as agents reduce the cost of organizing economic work.',
+  'risk-without-visibility':
+    'Analysis of AI agent risk, visibility, dependency chains, market coordination, and the records institutions need when software acts.',
+  'the-hierarchy-unanchored':
+    'A synthesis on AI agent infrastructure, software agency, institutional anchoring, authorization, and the systems that make action legible.',
+}
+
 export const essaySources = [
   {
     sourcePath: 'content/essays/00-the-agentic-economy.mdx',
@@ -108,8 +136,8 @@ function toEssayRecord(raw: string, sourcePath: string): ContentRecord {
       height: 1309,
     },
     seo: {
-      title,
-      description,
+      title: seoTitleBySlug[slug] ?? title,
+      description: seoDescriptionBySlug[slug] ?? description,
       canonicalPath: `/writing/${slug}`,
       ogImage: toOgImagePath(heroImage),
     },

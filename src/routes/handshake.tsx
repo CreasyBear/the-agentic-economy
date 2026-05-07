@@ -14,7 +14,7 @@ export const Route = createFileRoute('/handshake')({
   component: HandshakePage,
   head: () =>
     pageHead({
-      title: 'Handshake',
+      title: 'Handshake for Agent Authorization and Intent',
       description: fieldCopy.handshake.description,
       path: '/handshake',
       image: '/og/handshake.jpg',

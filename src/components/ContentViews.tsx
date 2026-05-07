@@ -80,7 +80,7 @@ export function ContentIndex({
               ) : null}
               <span className="editorial-card-copy">
                 <small>{formatDate(record.publishedAt)}</small>
-                <strong>{record.title}</strong>
+                <h2>{record.title}</h2>
                 <span>{record.summary}</span>
               </span>
             </Link>
@@ -107,7 +107,7 @@ export function ContentIndex({
             ) : null}
             <div>
               <small>{record.eyebrow ?? formatDate(record.publishedAt)}</small>
-              <strong>{record.title}</strong>
+              <h2>{record.title}</h2>
             </div>
             <p>{record.summary}</p>
           </Link>

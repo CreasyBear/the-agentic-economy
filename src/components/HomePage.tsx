@@ -16,7 +16,7 @@ export function HomePage() {
       <section className="home-doorways" aria-label="Site sections">
         <div className="home-doorway-heading">
           <p className="eyebrow">Field map</p>
-          <h2>Thesis, atlas, primitive, writing.</h2>
+          <h2>AI agents, software agency, markets, and infrastructure.</h2>
         </div>
         <div className="home-doorway-list">
           {homeDoorways.map((item, index) => (
@@ -28,7 +28,7 @@ export function HomePage() {
             >
               <span>{String(index + 1).padStart(2, '0')}</span>
               <small>{item.label}</small>
-              <strong>{item.title}</strong>
+              <h3>{item.title}</h3>
               <p>{item.copy}</p>
             </Link>
           ))}

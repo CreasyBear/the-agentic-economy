@@ -2,7 +2,7 @@
 
 > Infrastructure for Software that Acts.
 
-The Agentic Economy studies software agency moving through data, markets, institutions, and the physical world.
+The Agentic Economy studies how AI agents and software agency move through commerce, data, markets, institutions, infrastructure, and the physical world.
 
 ## Primary Claims
 

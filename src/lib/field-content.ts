@@ -8,13 +8,13 @@ export const fieldCopy = {
     title:
       'Agency now moves through data, markets, institutions, and the physical world.',
     description:
-      'The field is forming around what software can do, who it represents, and what remains visible after it acts.',
+      'A field view of AI agents, software agency, agentic commerce, and the institutional systems that must recognize what software is allowed to do.',
   },
   atlas: {
     eyebrow: 'Atlas',
     title: 'A map of software agency.',
     description:
-      'A field map of the systems, markets, and controls changing as agency moves into software.',
+      'A visual map of AI infrastructure, agentic commerce, edge devices, and physical operations as software agency becomes machine-callable.',
     statement:
       'As capabilities become callable, access control moves from systems to powers.',
   },
@@ -22,13 +22,13 @@ export const fieldCopy = {
     eyebrow: 'Handshake',
     title: 'Before agents act, authority has to travel with them.',
     description:
-      'A mandate layer for agents calling services, systems, devices, and other agents.',
+      'Agent authorization infrastructure for carrying consent, intent, policy, and authority before AI agents call services, systems, devices, or other agents.',
   },
   team: {
     eyebrow: 'Team',
     title: 'Joel Chan',
     description:
-      'Founder of The Agentic Economy. Mapping how software agency moves through markets, institutions, infrastructure, and the physical world.',
+      'Joel Chan is founder of The Agentic Economy, mapping how AI agents and software agency move through markets, institutions, infrastructure, and the physical world.',
   },
 } as const
 
@@ -36,25 +36,25 @@ export const homeDoorways = [
   {
     to: '/thesis',
     label: 'Thesis',
-    title: 'What is changing',
+    title: 'AI agents and software agency',
     copy: 'The core view behind the field.',
   },
   {
     to: '/atlas',
     label: 'Atlas',
-    title: 'The field as a system',
+    title: 'AI infrastructure and markets',
     copy: 'A visual map of where agency moves.',
   },
   {
     to: '/handshake',
     label: 'Handshake',
-    title: 'One primitive',
+    title: 'Agent authorization',
     copy: 'Authority before agentic action.',
   },
   {
     to: '/writing',
     label: 'Writing',
-    title: 'The arguments',
+    title: 'Agentic economy analysis',
     copy: 'Essays from the edge of the transition.',
   },
 ] as const

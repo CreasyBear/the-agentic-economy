@@ -6,7 +6,7 @@ export const Route = createFileRoute('/atlas')({
   component: AtlasPage,
   head: () =>
     pageHead({
-      title: 'Atlas',
+      title: 'Agentic Economy Atlas for AI Infrastructure',
       description: fieldCopy.atlas.description,
       path: '/atlas',
       image: '/og/atlas.jpg',

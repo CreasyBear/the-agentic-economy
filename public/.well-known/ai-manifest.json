@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "name": "The Agentic Economy",
-  "description": "The Agentic Economy studies software agency moving through data, markets, institutions, and the physical world.",
+  "description": "The Agentic Economy studies how AI agents and software agency move through commerce, data, markets, institutions, infrastructure, and the physical world.",
   "url": "https://agentic-economy.ai",
   "author": {
     "name": "Joel Chan",
@@ -24,6 +24,7 @@
       "Agent Authorization",
       "Machine-Callable Services",
       "Agent-to-Agent Interaction",
+      "Agentic Commerce",
       "Authority Before Action"
     ]
   },

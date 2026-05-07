@@ -1,10 +1,10 @@
 # The Agentic Economy
 
-The Agentic Economy is a field site for software agency: software that can act, coordinate, and influence systems beyond the interface.
+The Agentic Economy studies how AI agents and software agency move through commerce, data, markets, institutions, infrastructure, and the physical world.
 
 ## Position
 
-Software is beginning to act across systems built for people. Agency now moves through data, markets, institutions, and the physical world.
+Software is beginning to act across systems built for people. Agency now moves through data, markets, institutions, infrastructure, commerce, and the physical world.
 
 ## Canonical Pages
 

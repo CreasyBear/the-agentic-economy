@@ -6,7 +6,7 @@ export const Route = createFileRoute('/thesis')({
   component: ThesisPage,
   head: () =>
     pageHead({
-      title: 'Thesis',
+      title: 'Thesis on AI Agents and Software Agency',
       description: fieldCopy.thesis.description,
       path: '/thesis',
       image: '/og/thesis.jpg',
@@ -40,10 +40,10 @@ function ThesisPage() {
               to="/writing/$slug"
             >
               <span>{theme.number}</span>
-              <strong>
+              <h3>
                 {theme.title}
                 <small>{theme.question}</small>
-              </strong>
+              </h3>
               <p>{theme.copy}</p>
             </Link>
           ))}

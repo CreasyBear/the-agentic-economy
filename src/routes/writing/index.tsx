@@ -8,8 +8,9 @@ export const Route = createFileRoute('/writing/')({
   component: WritingIndex,
   head: () =>
     pageHead({
-      title: 'Writing',
-      description: 'Essays and insights from The Agentic Economy.',
+      title: 'Writing on AI Agents, Commerce and Infrastructure',
+      description:
+        'Essays and analysis on AI agents, software agency, agentic commerce, authorization, and infrastructure for machine-callable services.',
       path: '/writing',
       image: '/og/writing.jpg',
     }),

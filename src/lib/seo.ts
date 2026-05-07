@@ -1,4 +1,4 @@
-import type { ContentRecord } from './content-model'
+import { getContentBody, type ContentRecord } from './content-model'
 
 const siteOrigin = (
   import.meta.env.VITE_PARENT_SITE_URL ?? 'https://agentic-economy.ai'
@@ -14,10 +14,10 @@ const seoNavigation = [
 
 export const siteSeo = {
   name: 'The Agentic Economy',
-  title: 'The Agentic Economy',
+  title: 'The Agentic Economy | AI Agents, Software Agency & Infrastructure',
   tagline: 'Infrastructure for Software that Acts',
   description:
-    'The Agentic Economy studies software agency moving through data, markets, institutions, and the physical world.',
+    'The Agentic Economy studies how AI agents and software agency move through commerce, data, markets, institutions, infrastructure, and the physical world.',
   url: siteOrigin,
   image: '/og/agentic-economy.jpg',
   logo: '/brand/agentic-economy-logo.svg',
@@ -25,6 +25,17 @@ export const siteSeo = {
   wordmark: '/brand/agentic-economy-wordmark.svg',
   locale: 'en_US',
   language: 'en',
+  keywords: [
+    'agentic economy',
+    'AI agents',
+    'software agency',
+    'AI infrastructure',
+    'agentic commerce',
+    'agent authorization',
+    'agent-to-agent interaction',
+    'machine-callable services',
+    'Handshake',
+  ],
   robots:
     'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
 } as const
@@ -37,6 +48,7 @@ type PageHeadInput = {
   type?: 'website' | 'article'
   noindex?: boolean
   publishedAt?: number
+  keywords?: ReadonlyArray<string>
 }
 
 export function absoluteUrl(path: string) {
@@ -53,9 +65,10 @@ export function pageHead({
   type = 'website',
   noindex = false,
   publishedAt,
+  keywords = siteSeo.keywords,
 }: PageHeadInput) {
   const fullTitle =
-    title === siteSeo.name ? title : `${title} | ${siteSeo.name}`
+    title === siteSeo.name ? siteSeo.title : `${title} | ${siteSeo.name}`
   const canonical = path ? absoluteUrl(path) : siteSeo.url
   const imageUrl = absoluteUrl(image)
 
@@ -66,6 +79,7 @@ export function pageHead({
       name: 'robots',
       content: noindex ? 'noindex,nofollow' : siteSeo.robots,
     },
+    { name: 'keywords', content: keywords.join(', ') },
     { property: 'og:site_name', content: siteSeo.name },
     { property: 'og:locale', content: siteSeo.locale },
     { property: 'og:type', content: type },
@@ -87,6 +101,16 @@ export function pageHead({
     })
   }
 
+  if (type === 'article') {
+    meta.push(
+      { property: 'article:section', content: 'Agentic Economy' },
+      ...keywords.map((keyword) => ({
+        property: 'article:tag',
+        content: keyword,
+      })),
+    )
+  }
+
   return {
     meta,
     links: path ? [{ rel: 'canonical', href: canonical }] : [],
@@ -95,33 +119,68 @@ export function pageHead({
 
 export function articleJsonLd(record: ContentRecord) {
   const image = record.seo?.ogImage ?? record.heroImage?.src
+  const canonical = absoluteUrl(`/writing/${record.slug}`)
+  const keywords = [
+    record.title,
+    'agentic economy',
+    'AI agents',
+    'software agency',
+    'AI infrastructure',
+  ]
 
   return {
     '@context': 'https://schema.org',
-    '@type': 'Article',
-    '@id': absoluteUrl(`/writing/${record.slug}#article`),
-    headline: record.title,
-    description: record.seo?.description ?? record.summary,
-    image: image ? absoluteUrl(image) : undefined,
-    datePublished: record.publishedAt
-      ? new Date(record.publishedAt).toISOString()
-      : undefined,
-    author: {
-      '@type': 'Person',
-      name: 'Joel Chan',
-      url: absoluteUrl('/team'),
-    },
-    publisher: {
-      '@id': absoluteUrl('/#organization'),
-    },
-    mainEntityOfPage: absoluteUrl(`/writing/${record.slug}`),
-    about: [
-      'software agency',
-      'agentic economy',
-      'AI infrastructure',
-      'agent authorization',
-      'agentic operations',
+    '@graph': [
+      {
+        '@type': 'Article',
+        '@id': absoluteUrl(`/writing/${record.slug}#article`),
+        headline: record.title,
+        description: record.seo?.description ?? record.summary,
+        image: image ? absoluteUrl(image) : undefined,
+        datePublished: record.publishedAt
+          ? new Date(record.publishedAt).toISOString()
+          : undefined,
+        author: {
+          '@id': absoluteUrl('/team#person'),
+        },
+        publisher: {
+          '@id': absoluteUrl('/#organization'),
+        },
+        isPartOf: {
+          '@id': absoluteUrl('/writing#series'),
+        },
+        mainEntityOfPage: canonical,
+        articleSection: 'Agentic Economy',
+        keywords,
+        wordCount: getWordCount(getContentBody(record)),
+        about: [
+          'software agency',
+          'agentic economy',
+          'AI infrastructure',
+          'agent authorization',
+          'agentic operations',
+        ],
+      },
+      breadcrumbJsonLd([
+        { name: 'Home', path: '/' },
+        { name: 'Writing', path: '/writing' },
+        { name: record.title, path: `/writing/${record.slug}` },
+      ]),
     ],
+  }
+}
+
+export function breadcrumbJsonLd(
+  items: ReadonlyArray<{ name: string; path: string }>,
+) {
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: absoluteUrl(item.path),
+    })),
   }
 }
 
@@ -138,9 +197,7 @@ export const rootJsonLd = {
       description: siteSeo.description,
       slogan: siteSeo.tagline,
       founder: {
-        '@type': 'Person',
-        name: 'Joel Chan',
-        url: absoluteUrl('/team'),
+        '@id': absoluteUrl('/team#person'),
       },
       knowsAbout: [
         'agentic economy',
@@ -154,6 +211,24 @@ export const rootJsonLd = {
       ],
     },
     {
+      '@type': 'Person',
+      '@id': absoluteUrl('/team#person'),
+      name: 'Joel Chan',
+      url: absoluteUrl('/team'),
+      image: absoluteUrl('/images/joel-chan.webp'),
+      worksFor: {
+        '@id': absoluteUrl('/#organization'),
+      },
+      knowsAbout: [
+        'agentic economy',
+        'AI agents',
+        'software agency',
+        'AI infrastructure',
+        'agent authorization',
+        'agentic commerce',
+      ],
+    },
+    {
       '@type': 'WebSite',
       '@id': absoluteUrl('/#website'),
       name: siteSeo.name,
@@ -162,6 +237,21 @@ export const rootJsonLd = {
       inLanguage: siteSeo.language,
       publisher: {
         '@id': absoluteUrl('/#organization'),
+      },
+      potentialAction: {
+        '@type': 'ReadAction',
+        target: absoluteUrl('/writing'),
+      },
+    },
+    {
+      '@type': 'CollectionPage',
+      '@id': absoluteUrl('/writing#series'),
+      name: 'Writing on AI Agents, Software Agency, and Infrastructure',
+      url: absoluteUrl('/writing'),
+      description:
+        'Essays on AI agents, agentic commerce, software agency, authorization, and infrastructure for machine-callable services.',
+      isPartOf: {
+        '@id': absoluteUrl('/#website'),
       },
     },
     {
@@ -176,4 +266,17 @@ export const rootJsonLd = {
       })),
     },
   ],
+}
+
+function getWordCount(body: string) {
+  return body
+    .replace(/^import .+$/gmu, '')
+    .replace(/<AgenticPayload>[\s\S]*?<\/AgenticPayload>/gmu, '')
+    .replace(/```[\s\S]*?```/gmu, '')
+    .replace(/^#+\s+/gmu, '')
+    .replace(/^>\s?/gmu, '')
+    .replace(/[*_`]/gu, '')
+    .trim()
+    .split(/\s+/u)
+    .filter(Boolean).length
 }
