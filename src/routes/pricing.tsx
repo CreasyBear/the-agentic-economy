@@ -1,18 +1,17 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Check, FileCheck2, KeyRound, ShieldCheck } from 'lucide-react'
 import { CheckoutButton } from '~/components/BillingActions'
+import { pageHead } from '~/lib/seo'
 
 export const Route = createFileRoute('/pricing')({
   component: Pricing,
-  head: () => ({
-    meta: [
-      { title: 'Pricing | The Agentic Economy' },
-      {
-        name: 'description',
-        content: 'Handshake access from The Agentic Economy.',
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: 'Handshake Access',
+      description: 'Early subscription access for teams working with agents.',
+      path: '/pricing',
+      noindex: true,
+    }),
 })
 
 function Pricing() {

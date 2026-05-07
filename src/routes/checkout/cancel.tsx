@@ -1,17 +1,16 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { ArrowLeft, CircleSlash2 } from 'lucide-react'
+import { pageHead } from '~/lib/seo'
 
 export const Route = createFileRoute('/checkout/cancel')({
   component: CheckoutCancel,
-  head: () => ({
-    meta: [
-      { title: 'Checkout canceled | The Agentic Economy' },
-      {
-        name: 'description',
-        content: 'Handshake checkout was canceled.',
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: 'Checkout Canceled',
+      description: 'Handshake checkout was canceled.',
+      path: '/checkout/cancel',
+      noindex: true,
+    }),
 })
 
 function CheckoutCancel() {

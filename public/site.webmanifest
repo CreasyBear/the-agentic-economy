@@ -1,6 +1,9 @@
 {
   "name": "The Agentic Economy",
   "short_name": "Agentic Economy",
+  "description": "Infrastructure for Software that Acts",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -15,5 +18,7 @@
   ],
   "theme_color": "#eee9df",
   "background_color": "#eee9df",
-  "display": "standalone"
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity", "technology"]
 }

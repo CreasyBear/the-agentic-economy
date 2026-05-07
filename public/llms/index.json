@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-05-07T00:00:00Z",
+  "site": "https://agentic-economy.ai",
+  "essays": [
+    {
+      "canonical": "https://agentic-economy.ai/writing/entry",
+      "description": "The world today vs the economy that is forming.",
+      "exportPath": "/llms/essays/entry.md",
+      "order": 0,
+      "slug": "entry",
+      "sourcePath": "content/essays/00-the-agentic-economy.mdx",
+      "title": "The Agentic Economy"
+    },
+    {
+      "canonical": "https://agentic-economy.ai/writing/actors-without-standing",
+      "description": "Identity, liability, and what it means to transact without legal existence.",
+      "exportPath": "/llms/essays/actors-without-standing.md",
+      "order": 1,
+      "slug": "actors-without-standing",
+      "sourcePath": "content/essays/01-actors-without-standing.mdx",
+      "title": "Actors Without Standing"
+    },
+    {
+      "canonical": "https://agentic-economy.ai/writing/judgment-without-context",
+      "description": "Delegation, specification gaps, and why oversight is iterative alignment.",
+      "exportPath": "/llms/essays/judgment-without-context.md",
+      "order": 2,
+      "slug": "judgment-without-context",
+      "sourcePath": "content/essays/02-judgment-without-context.mdx",
+      "title": "Judgment Without Context"
+    },
+    {
+      "canonical": "https://agentic-economy.ai/writing/scale-without-organization",
+      "description": "Coase, the headless firm, and who captures the surplus.",
+      "exportPath": "/llms/essays/scale-without-organization.md",
+      "order": 3,
+      "slug": "scale-without-organization",
+      "sourcePath": "content/essays/03-scale-without-organization.mdx",
+      "title": "Scale Without Organization"
+    },
+    {
+      "canonical": "https://agentic-economy.ai/writing/risk-without-visibility",
+      "description": "Correlation, propagation, speed, and the limits of intervention.",
+      "exportPath": "/llms/essays/risk-without-visibility.md",
+      "order": 4,
+      "slug": "risk-without-visibility",
+      "sourcePath": "content/essays/04-risk-without-visibility.mdx",
+      "title": "Risk Without Visibility"
+    },
+    {
+      "canonical": "https://agentic-economy.ai/writing/the-hierarchy-unanchored",
+      "description": "Synthesis: capability growth without institutional anchoring.",
+      "exportPath": "/llms/essays/the-hierarchy-unanchored.md",
+      "order": 5,
+      "slug": "the-hierarchy-unanchored",
+      "sourcePath": "content/essays/05-the-hierarchy-unanchored.mdx",
+      "title": "The Hierarchy Unanchored"
+    }
+  ]
+}

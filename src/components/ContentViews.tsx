@@ -4,6 +4,7 @@ import type { ReactNode } from 'react'
 import type { ContentRecord } from '~/lib/content-model'
 import { getContentBody } from '~/lib/content-model'
 import { formatDate } from '~/lib/format'
+import { articleJsonLd } from '~/lib/seo'
 
 const contentFrames = {
   writing: {
@@ -66,8 +67,10 @@ export function ContentIndex({
                 <span className="editorial-card-media">
                   <img
                     alt={record.heroImage.alt ?? ''}
-                    src={record.heroImage.src}
+                    height={record.heroImage.height}
                     loading="eager"
+                    src={record.heroImage.src}
+                    width={record.heroImage.width}
                   />
                   <span className="editorial-card-overlay">
                     <span>{getRecordLabel(record.eyebrow)}</span>
@@ -96,8 +99,10 @@ export function ContentIndex({
             {record.heroImage ? (
               <img
                 alt={record.heroImage.alt ?? ''}
-                src={record.heroImage.src}
+                height={record.heroImage.height}
                 loading={index > 1 ? 'lazy' : 'eager'}
+                src={record.heroImage.src}
+                width={record.heroImage.width}
               />
             ) : null}
             <div>
@@ -132,6 +137,12 @@ export function ArticleView({
 
   return (
     <main className="article-shell">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleJsonLd(record)),
+        }}
+      />
       <section className="article-hero article-hero--visual">
         <div>
           <p className="eyebrow">{record.eyebrow ?? frame.label}</p>
@@ -147,8 +158,10 @@ export function ArticleView({
         <figure className="article-cover">
           <img
             alt={record.heroImage.alt ?? ''}
-            src={record.heroImage.src}
             fetchPriority="high"
+            height={record.heroImage.height}
+            src={record.heroImage.src}
+            width={record.heroImage.width}
           />
         </figure>
       ) : null}

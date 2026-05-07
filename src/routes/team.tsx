@@ -1,17 +1,16 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { fieldCopy } from '~/lib/field-content'
+import { pageHead } from '~/lib/seo'
 
 export const Route = createFileRoute('/team')({
   component: TeamPage,
-  head: () => ({
-    meta: [
-      { title: 'Team | The Agentic Economy' },
-      {
-        name: 'description',
-        content: fieldCopy.team.description,
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: 'Team',
+      description: fieldCopy.team.description,
+      path: '/team',
+      image: '/og/team.jpg',
+    }),
 })
 
 function TeamPage() {

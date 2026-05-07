@@ -1,0 +1,38 @@
+{
+  "name": "The Agentic Economy",
+  "tagline": "Infrastructure for Software that Acts",
+  "position": [
+    "Software is beginning to act across systems built for people.",
+    "Agency now moves through data, markets, institutions, and the physical world."
+  ],
+  "assets": {
+    "mark": "/brand/agentic-economy-mark.svg",
+    "wordmark": "/brand/agentic-economy-wordmark.svg",
+    "logo": "/brand/agentic-economy-logo.svg",
+    "defaultOgImage": "/og/agentic-economy.jpg"
+  },
+  "colors": {
+    "ink": "#211f1a",
+    "paper": "#eee9df",
+    "accent": "#d24422",
+    "moss": "#1f5548"
+  },
+  "typography": {
+    "display": "DM Serif Display",
+    "body": "Bricolage Grotesque"
+  },
+  "voice": {
+    "principles": [
+      "quiet authority",
+      "category ownership without over-explaining",
+      "plain statements before terminology",
+      "future-facing without foreboding"
+    ],
+    "avoid": [
+      "generic AI imagery",
+      "robot metaphors",
+      "fear-led framing",
+      "explaining the whole thesis on every page"
+    ]
+  }
+}

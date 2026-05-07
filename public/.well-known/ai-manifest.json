@@ -1,0 +1,45 @@
+{
+  "version": "1.0",
+  "name": "The Agentic Economy",
+  "description": "The Agentic Economy studies software agency moving through data, markets, institutions, and the physical world.",
+  "url": "https://agentic-economy.ai",
+  "author": {
+    "name": "Joel Chan",
+    "url": "https://agentic-economy.ai/team"
+  },
+  "brand": {
+    "brandkit": "https://agentic-economy.ai/brand/brandkit.json",
+    "logo": "https://agentic-economy.ai/brand/agentic-economy-logo.svg",
+    "mark": "https://agentic-economy.ai/brand/agentic-economy-mark.svg",
+    "wordmark": "https://agentic-economy.ai/brand/agentic-economy-wordmark.svg",
+    "default_og_image": "https://agentic-economy.ai/og/agentic-economy.jpg"
+  },
+  "content": {
+    "primary_language": "en",
+    "content_type": "field_site",
+    "topics": [
+      "Agentic Economy",
+      "Software Agency",
+      "AI Infrastructure",
+      "Agent Authorization",
+      "Machine-Callable Services",
+      "Agent-to-Agent Interaction",
+      "Authority Before Action"
+    ]
+  },
+  "ai_access": {
+    "llms_txt": "/llms.txt",
+    "llms_full": "/llms-full.txt",
+    "essay_index": "/llms/index.json",
+    "reasoning_json": "/reasoning.json",
+    "sitemap": "/sitemap.xml",
+    "robots_txt": "/robots.txt",
+    "brandkit": "/brand/brandkit.json"
+  },
+  "schemas_available": [
+    "Organization",
+    "WebSite",
+    "ItemList",
+    "Article"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "version": "1.0",
+  "protocol": "Agentic Economy Reasoning Map",
+  "generated": "2026-05-07T00:00:00Z",
+  "entity": {
+    "name": "The Agentic Economy",
+    "type": "Field Site",
+    "domain": "agentic-economy.ai",
+    "url": "https://agentic-economy.ai",
+    "description": "The Agentic Economy studies software agency moving through data, markets, institutions, and the physical world.",
+    "tagline": "Infrastructure for Software that Acts",
+    "founder": "Joel Chan"
+  },
+  "claims": [
+    {
+      "id": "software-acts",
+      "type": "positioning",
+      "claim": "Software is beginning to act across systems built for people.",
+      "source": "https://agentic-economy.ai/thesis",
+      "confidence": "position"
+    },
+    {
+      "id": "agency-moves-through-systems",
+      "type": "field-map",
+      "claim": "Agency now moves through data, markets, institutions, and the physical world.",
+      "source": "https://agentic-economy.ai/thesis",
+      "confidence": "position"
+    },
+    {
+      "id": "access-control-powers",
+      "type": "field-map",
+      "claim": "As capabilities become callable, access control moves from systems to powers.",
+      "source": "https://agentic-economy.ai/atlas",
+      "confidence": "hypothesis"
+    },
+    {
+      "id": "authority-travels-before-action",
+      "type": "primitive",
+      "claim": "Before agents act, authority has to travel with them.",
+      "source": "https://agentic-economy.ai/handshake",
+      "confidence": "product-thesis"
+    }
+  ],
+  "topics": [
+    "agentic economy",
+    "software agency",
+    "AI infrastructure",
+    "agent authorization",
+    "agent-to-agent interaction",
+    "machine-callable services",
+    "intent and consent",
+    "authority layer",
+    "edge device admission",
+    "businesses as APIs"
+  ],
+  "content_map": {
+    "primary": "https://agentic-economy.ai/",
+    "thesis": "https://agentic-economy.ai/thesis",
+    "atlas": "https://agentic-economy.ai/atlas",
+    "handshake": "https://agentic-economy.ai/handshake",
+    "writing": "https://agentic-economy.ai/writing",
+    "essay_index": "https://agentic-economy.ai/llms/index.json",
+    "llms_txt": "https://agentic-economy.ai/llms.txt",
+    "llms_full": "https://agentic-economy.ai/llms-full.txt",
+    "ai_manifest": "https://agentic-economy.ai/.well-known/ai-manifest.json",
+    "brandkit": "https://agentic-economy.ai/brand/brandkit.json",
+    "sitemap": "https://agentic-economy.ai/sitemap.xml"
+  },
+  "brand_assets": {
+    "logo": "https://agentic-economy.ai/brand/agentic-economy-logo.svg",
+    "mark": "https://agentic-economy.ai/brand/agentic-economy-mark.svg",
+    "wordmark": "https://agentic-economy.ai/brand/agentic-economy-wordmark.svg",
+    "default_og_image": "https://agentic-economy.ai/og/agentic-economy.jpg"
+  }
+}

@@ -1,18 +1,16 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { atlasSeries, fieldCopy } from '~/lib/field-content'
+import { pageHead } from '~/lib/seo'
 
 export const Route = createFileRoute('/atlas')({
   component: AtlasPage,
-  head: () => ({
-    meta: [
-      { title: 'Atlas | The Agentic Economy' },
-      {
-        name: 'description',
-        content:
-          'A field map of the systems, markets, and controls changing as agency moves into software.',
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: 'Atlas',
+      description: fieldCopy.atlas.description,
+      path: '/atlas',
+      image: '/og/atlas.jpg',
+    }),
 })
 
 function AtlasPage() {
